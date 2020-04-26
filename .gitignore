@@ -1,4 +1,8 @@
 *.class
+*.classpath
+*.project
+*.settings/org.eclipse.jdt.core.prefs
+*.settings/org.eclipse.wst.common.project.facet.core.xml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
