@@ -1,4 +1,4 @@
-package ar.edu.unlam.tallerweb1;
+package ar.edu.unlam.tallerweb1.persistencia;
 
 import javax.transaction.Transactional;
 import ar.edu.unlam.tallerweb1.SpringTest;
