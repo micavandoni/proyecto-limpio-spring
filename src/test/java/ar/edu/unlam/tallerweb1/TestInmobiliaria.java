@@ -9,6 +9,7 @@ import ar.edu.unlam.tallerweb1.modelo.Inmobiliaria;
 import static org.assertj.core.api.Assertions.*;
 
 
+
 public class TestInmobiliaria extends SpringTest {
 	
 	@Test @Transactional @Rollback
