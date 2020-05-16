@@ -30,6 +30,8 @@ public class Propiedad {
         this.imagenUrl = imagenUrl;
     }
 
+
+    
     public Propiedad(){};
 
     public Long getId() {
