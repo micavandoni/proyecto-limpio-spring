@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 
 <head>
@@ -54,8 +56,8 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
-      <h1>Encontrá tu vivienda ideal y compará precios de diferentes inmobiliarias</h1>
-      <h2>Te simplificaremos tu búsqueda</h2>
+      <h1>EncontrÃ¡ tu vivienda ideal y comparÃ¡ precios de diferentes inmobiliarias</h1>
+      <h2>Te simplificaremos tu bÃºsqueda</h2>
       <a href="#about" class="btn-get-started scrollto">Comencemos</a>
     </div>
   </section><!-- End Hero -->
@@ -104,19 +106,19 @@
         <div class="row content">
           <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
             <h2>Nosotros</h2>
-            <h3>Somos un buscador de viviendas de primer nivel en todo el país</h3>
+            <h3>Somos un buscador de viviendas de primer nivel en todo el paÃ­s</h3>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
             <p>
-              HouseHolds es un buscador de viviendas y terrenos que agiliza los procesos de comparación y reserva mostrando en tiempo real los precios y ofertas de más de 100.000 viviendas de 600 inmobiliarias en todo el país argentino.
+              HouseHolds es un buscador de viviendas y terrenos que agiliza los procesos de comparaciÃ³n y reserva mostrando en tiempo real los precios y ofertas de mÃ¡s de 100.000 viviendas de 600 inmobiliarias en todo el paÃ­s argentino.
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Con más de 200 mil visitas al mes</li>
-              <li><i class="ri-check-double-line"></i> Encontrá fácilmente tu vivienda ideal y compará precios de diferentes inmobiliarias</li>
+              <li><i class="ri-check-double-line"></i> Con mÃ¡s de 200 mil visitas al mes</li>
+              <li><i class="ri-check-double-line"></i> EncontrÃ¡ fÃ¡cilmente tu vivienda ideal y comparÃ¡ precios de diferentes inmobiliarias</li>
               <li><i class="ri-check-double-line"></i> Desde casas quintas a monoambientes o terrenos listos para ser adquiridos</li>
             </ul>
             <p class="font-italic">
-              ¡Comenzá la búsqueda de tu hogar soñado!.
+              Â¡ComenzÃ¡ la bÃºsqueda de tu hogar soÃ±ado!.
             </p>
           </div>
         </div>
@@ -160,19 +162,44 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-left">
-          <h2>Buscá tu Vivienda</h2>
-          <p>Podrás buscar tu vivienda ideal al mejor precio aplicando los filtros que desees a continuación:</p>
+          <h2>BuscÃ¡ tu Vivienda</h2>
+          <p>PodrÃ¡s buscar tu vivienda ideal al mejor precio aplicando los filtros que desees a continuaciÃ³n:</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-12 d-flex justify-content-center">
-            <!-- Acá agregamos el div de filtros-->
+            <!-- AcÃ¡ agregamos el div de filtros-->
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px">
           
-          <H1>ACÁ VA EL DIV CON LA LISTA DE VIVIENDAS EN FORMA DE CARDS</H1>
+          <table class="table table-striped">
+    <thead>
+    <tr>
+        <th><h1>Tipo</h1></th>
+        <th><h1>DirecciÃ³n</h1></th>
+        <th><h1>Detalle</h1></th>
+        <th><h1>Localidad</h1></th>
+        <th><h1>CondiciÃ³n</h1></th>
+        <th><h1>Precio (U$S)</h1></th>
+        <th><h1>Imagen</h1></th>
+    </tr>
+    </thead>
+    <tbody>    
+    <c:forEach items= "${propiedades}" var="propiedad">
+        <tr>
+            <td>${propiedad.tipo}</td>
+            <td>${propiedad.direccion}</td>
+            <td>${propiedad.detalle}</td>
+            <td>${propiedad.localidad}</td>
+            <td>${propiedad.condicion}</td>
+            <td>${propiedad.precio}</td>
+            <td><img src="${propiedad.imagenUrl}"></td>                      
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
         </div>
 
       </div>
@@ -205,16 +232,16 @@
             <h4>Nuestros Servicios</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Ayuda</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">¿Cómo funciona HouseHolds?</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Términos y Condiciones</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Información Legal</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Â¿CÃ³mo funciona HouseHolds?</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">TÃ©rminos y Condiciones</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">InformaciÃ³n Legal</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Prensa</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Nuestra Newsletter</h4>
-            <p>¿Querés recibir ofertas exclusivas de viviendas? ¡Suscribite!</p>
+            <p>Â¿QuerÃ©s recibir ofertas exclusivas de viviendas? Â¡Suscribite!</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribir">
             </form>

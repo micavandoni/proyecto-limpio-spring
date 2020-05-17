@@ -28,7 +28,8 @@ public class ControladorPropiedad {
     @RequestMapping(path = "/propiedad", method = RequestMethod.GET)
     public ModelAndView propiedad() {
     	ModelMap model = new ModelMap();
-    	
+    	List<Propiedad> listaPropiedad =servicioPropiedad.consultarPropiedad();
+        model.put("propiedad", listaPropiedad);
     	return new ModelAndView("propiedad", model);
     }
 }

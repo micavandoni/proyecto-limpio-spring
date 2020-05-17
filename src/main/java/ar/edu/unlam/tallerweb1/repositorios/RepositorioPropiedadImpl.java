@@ -1,7 +1,6 @@
 package ar.edu.unlam.tallerweb1.repositorios;
 
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
-import ar.edu.unlam.tallerweb1.modelo.TipoPropiedad;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -39,22 +38,24 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
         Propiedad propiedad1 = new Propiedad();
 
         propiedad1.setCondicion("venta");
-        propiedad1.setPrecio(5000L);
+        propiedad1.setTipo("Duplex");
+        propiedad1.setPrecio(150000L);
         propiedad1.setProvincia("buenos aires");
-        propiedad1.setLocalidad("san justo");
-        propiedad1.setDireccion("arieta");
-        propiedad1.setDetalle("detalle 1");
-        propiedad1.setImagenUrl("url");
+        propiedad1.setLocalidad("San Justo");
+        propiedad1.setDireccion("Arieta 1650");
+        propiedad1.setDetalle("2 ambientes");
+        propiedad1.setImagenUrl("https://i.pinimg.com/236x/7a/2a/c0/7a2ac002ac3bc8c541902f2c2781be98.jpg");
 
         Propiedad propiedad2 = new Propiedad();
 
-        propiedad2.setCondicion("venta");
-        propiedad2.setPrecio(5000L);
+        propiedad2.setCondicion("Alquiler");
+        propiedad2.setTipo("Depto");
+        propiedad2.setPrecio(300L);
         propiedad2.setProvincia("buenos aires");
-        propiedad2.setLocalidad("san justo");
-        propiedad2.setDireccion("arieta");
-        propiedad2.setDetalle("detalle 1");
-        propiedad2.setImagenUrl("url");
+        propiedad2.setLocalidad("Ramos Mejía");
+        propiedad2.setDireccion("Av. de Mayo 460");
+        propiedad2.setDetalle("2 ambientes");
+        propiedad2.setImagenUrl("https://i.pinimg.com/236x/06/76/7e/06767efab6e1ea87afd841f05482513c.jpg");
 
         session.save (propiedad1);
         session.save (propiedad2);
