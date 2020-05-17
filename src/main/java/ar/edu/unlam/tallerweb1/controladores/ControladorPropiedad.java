@@ -17,11 +17,18 @@ public class ControladorPropiedad {
     @Inject
     ServicioPropiedad servicioPropiedad;
 
-    @RequestMapping(path = "/propiedad", method = RequestMethod.GET)
+    @RequestMapping(path = "/propiedades", method = RequestMethod.GET)
     public ModelAndView propiedades(){
         ModelMap model = new ModelMap();
         List<Propiedad> listaPropiedad =servicioPropiedad.consultarPropiedad();
         model.put("propiedades", listaPropiedad);
     return new ModelAndView("propiedades", model);
+    }
+    
+    @RequestMapping(path = "/propiedad", method = RequestMethod.GET)
+    public ModelAndView propiedad() {
+    	ModelMap model = new ModelMap();
+    	
+    	return new ModelAndView("propiedad", model);
     }
 }
