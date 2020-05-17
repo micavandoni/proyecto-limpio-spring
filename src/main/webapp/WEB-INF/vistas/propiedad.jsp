@@ -187,7 +187,7 @@
     </tr>
     </thead>
     <tbody>    
-    <c:forEach items= "${propiedades}" var="propiedad">
+    <c:forEach items= "${propiedad}" var="propiedad">
         <tr>
             <td>${propiedad.tipo}</td>
             <td>${propiedad.direccion}</td>
