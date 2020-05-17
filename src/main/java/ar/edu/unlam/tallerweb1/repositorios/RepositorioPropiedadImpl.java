@@ -44,7 +44,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
         propiedad1.setLocalidad("San Justo");
         propiedad1.setDireccion("Arieta 1650");
         propiedad1.setDetalle("2 ambientes");
-        propiedad1.setImagenUrl("https://i.pinimg.com/236x/7a/2a/c0/7a2ac002ac3bc8c541902f2c2781be98.jpg");
+        propiedad1.setImagenUrl("casa1.jpg");
 
         Propiedad propiedad2 = new Propiedad();
 
@@ -55,7 +55,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
         propiedad2.setLocalidad("Ramos Mejía");
         propiedad2.setDireccion("Av. de Mayo 460");
         propiedad2.setDetalle("2 ambientes");
-        propiedad2.setImagenUrl("https://i.pinimg.com/236x/06/76/7e/06767efab6e1ea87afd841f05482513c.jpg");
+        propiedad2.setImagenUrl("casa2.jpg");
 
         session.save (propiedad1);
         session.save (propiedad2);

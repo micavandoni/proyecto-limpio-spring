@@ -172,34 +172,35 @@
           </div>
         </div>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px">
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">
           
           <table class="table table-striped">
-    <thead>
-    <tr>
-        <th><h1>Tipo</h1></th>
-        <th><h1>Dirección</h1></th>
-        <th><h1>Detalle</h1></th>
-        <th><h1>Localidad</h1></th>
-        <th><h1>Condición</h1></th>
-        <th><h1>Precio (U$S)</h1></th>
-        <th><h1>Imagen</h1></th>
-    </tr>
-    </thead>
-    <tbody>    
-    <c:forEach items= "${propiedad}" var="propiedad">
-        <tr>
-            <td>${propiedad.tipo}</td>
-            <td>${propiedad.direccion}</td>
-            <td>${propiedad.detalle}</td>
-            <td>${propiedad.localidad}</td>
-            <td>${propiedad.condicion}</td>
-            <td>${propiedad.precio}</td>
-            <td><img src="${propiedad.imagenUrl}"></td>                      
-        </tr>
-    </c:forEach>
-    </tbody>
-</table>
+		    <!-- <thead>
+		    <tr>
+		        <th><h1>Tipo</h1></th>
+		        <th><h1>Dirección</h1></th>
+		        <th><h1>Detalle</h1></th>
+		        <th><h1>Localidad</h1></th>
+		        <th><h1>Condición</h1></th>
+		        <th><h1>Precio (U$S)</h1></th>
+		        <th><h1>Imagen</h1></th>
+		    </tr>
+		    </thead>-->
+		    <tbody>    
+		    <c:forEach items= "${propiedad}" var="propiedad">
+		    <div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 380px; top: 0px;">
+		            <div class="portfolio-wrap">
+		              <img src="img/portfolio/${propiedad.imagenUrl}" class="img-fluid" alt="">
+		              <div class="portfolio-info">
+		                <h4>${propiedad.tipo}, ${propiedad.detalle}</h4>
+		                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
+		                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>	                
+		              </div>
+		            </div>
+		          </div>
+		    </c:forEach>
+		    </tbody>
+		</table>
         </div>
 
       </div>
