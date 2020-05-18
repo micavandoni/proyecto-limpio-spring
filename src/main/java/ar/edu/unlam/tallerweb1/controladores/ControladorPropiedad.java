@@ -31,9 +31,9 @@ public class ControladorPropiedad {
         ModelMap model = new ModelMap();
         Propiedad propiedadFiltro = new Propiedad();
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
-        model.put("propiedades", listaPropiedad);
+        model.put("propiedad", listaPropiedad);
         model.put("propiedadFiltro", propiedadFiltro);
-    return new ModelAndView("propiedades", model);
+    return new ModelAndView("propiedad", model);
     }
     
     @RequestMapping(path = "/filtro-propiedad", method = RequestMethod.POST)
@@ -42,8 +42,8 @@ public class ControladorPropiedad {
         Propiedad propiedadFiltro = new Propiedad();
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propiedad);
         model.put("propiedadFiltro", propiedadFiltro);
-        model.put("propiedades", listaPropiedad);
-    return new ModelAndView("propiedades", model);
+        model.put("propiedad", listaPropiedad);
+    return new ModelAndView("propiedad", model);
     }
 
 }
