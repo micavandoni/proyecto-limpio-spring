@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface ServicioPropiedad {
 
-    List<Propiedad> consultarPropiedad ();
+    List<Propiedad> consultarPropiedad();
+    List<Propiedad> consultarPropiedadFilter(Propiedad propiedad);
 
     boolean crearPropiedad();
 }
