@@ -18,8 +18,9 @@ public class Propiedad {
     private String provincia;
     private String condicion;
     private String imagenUrl;
+    private String ambiente;
 
-    public Propiedad(String tipo, Long precio, String direccion, String detalle, String localidad, String provincia, String condicion, String imagenUrl) {
+    public Propiedad(String tipo, Long precio, String direccion, String detalle, String localidad, String provincia, String condicion, String imagenUrl, String ambiente) {
         this.tipo = tipo;
         this.precio = precio;
         this.direccion = direccion;
@@ -28,6 +29,7 @@ public class Propiedad {
         this.provincia = provincia;
         this.condicion = condicion;
         this.imagenUrl = imagenUrl;
+        this.ambiente = ambiente;
     }
 
 
@@ -104,5 +106,13 @@ public class Propiedad {
 
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
+    }
+    
+    public String getAmbiente() {
+        return ambiente;
+    }
+
+    public void setAmbiente(String ambiente) {
+        this.ambiente = ambiente;
     }
 }

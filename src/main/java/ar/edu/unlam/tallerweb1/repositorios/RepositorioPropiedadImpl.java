@@ -35,10 +35,16 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		final Session session = sessionFactory.getCurrentSession();
 		
 		List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
+		
 		if(propiedad.getCondicion().equalsIgnoreCase("todo")) {
 			listaPropiedad = session.createCriteria(Propiedad.class).list();
 			
 		}else {
+			// if (propiedad.getAmbiente().equalsIgnoreCase("1") || propiedad.getAmbiente().equalsIgnoreCase("2") || propiedad.getAmbiente().equalsIgnoreCase("3")
+			//		|| propiedad.getAmbiente().equalsIgnoreCase("4")) {
+				//listaPropiedad = session.createCriteria(Propiedad.class)
+					//	.add(Restrictions.eq("ambiente", propiedad.getAmbiente())).list();
+			//}
 			listaPropiedad = session.createCriteria(Propiedad.class)
 					.add(Restrictions.eq("condicion", propiedad.getCondicion())).list();
 		}

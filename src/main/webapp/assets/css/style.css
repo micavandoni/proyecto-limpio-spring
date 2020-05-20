@@ -1463,3 +1463,38 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+.btn-buscar {
+   background: #009970;
+   color: #fff;
+   border-radius: 50px;
+   margin: 0 15px;
+   padding: 10px 25px;
+   transition: 0.3s;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-buscar:hover {
+  background: #00805d;
+  color: #fff;
+}
+
+.buttonCheck {
+ 	background: #009970;
+    color: #fff;
+    border-radius: 50px;
+    margin: 0 15px;
+    padding: 10px 25px;
+    transition: 0.3s;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+}
+.buttonCheck:hover {
+  background: #00805d;
+  color: #fff;
+}

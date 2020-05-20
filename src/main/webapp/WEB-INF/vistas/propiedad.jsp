@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
@@ -165,34 +166,104 @@
           <h2>Buscá tu Vivienda</h2>
           <p>Podrás buscar tu vivienda ideal al mejor precio aplicando los filtros que desees a continuación:</p>
         </div>
-
+		
         <div class="row" data-aos="fade-up" data-aos-delay="100">
+			<form:form action="filtro-propiedad" method="POST" modelAttribute="propiedadFiltro" class="col-lg-12">			         
+				<div class="row justify-content-center">
+					
+					<div class="col-lg-5">
+						<form:select path="condicion" id="condicion" type="text" class="form-control">
+							<form:option value="">Seleccione condición de la vivienda</form:option>
+							<form:option value="todo">Todas</form:option>
+			    			<form:option value="venta">En venta</form:option>
+			    			<form:option value="alquiler">En alquiler</form:option>
+						</form:select>
+					</div>
+					<div class="col-lg-3" id="btnBusquedaComun">
+						<button  class="btn btn-buscar" Type="Submit">Buscar</button>
+					</div>					
+				</div>				
+				<div class="row justify-content-center" style="margin-top:20px">
+					<div class="col-lg-3">
+						<a onclick="mostrarBtnBusqueda()" id="txtBusqueda" data-toggle="collapse" href="#colapsarBusquedaAvanzada" role="button" aria-expanded="false" aria-controls="colapsarBusquedaAvanzada">
+						    Ver Búsqueda Avanzada
+					  	</a>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-12 collapse" id="colapsarBusquedaAvanzada">
+						<div class="row">
+							<div class="col-lg-6">
+								<label>Ambientes</label>
+								<!--<ul class="list-inline">
+								    <li class="list-inline-item">
+								    	<div class="buttonCheck" href="#">
+								    		+1<input type="radio" value="1" name="ambiente">
+								    	</div>
+								    	
+								    </li>
+								    <li class="list-inline-item">
+								    	<div class="buttonCheck">
+								    		+2<input type="radio" value="2" name="ambiente">
+								    	</div>
+								    </li>
+								    <li class="list-inline-item">
+								    	<div class="buttonCheck">
+								    		+3<input type="radio" value="3" name="ambiente">
+								    	</div>
+								    </li>
+								    <li class="list-inline-item">
+								    	<div class="buttonCheck">
+								    		+4<input type="radio" value="4" name="ambiente">
+								    	</div>
+								    </li>
+								</ul>-->
+								<form:select path="ambiente" id="ambiente" type="text" class="form-control">
+									<form:option value="">Seleccione cantidad de ambientes</form:option>
+									<form:option value="todo">Todas</form:option>
+					    			<form:option value="monoambiente">Monoambiente</form:option>
+					    			<form:option value="dos ambientes">2 Ambientes</form:option>
+					    			<form:option value="tres ambientes">3 Ambientes</form:option>
+					    			<form:option value="cuatro ambientes">4 Ambientes</form:option>
+								</form:select>
+							</div>
+							<div class="col-lg-6">
+								<label>Precio</label>
+								<div class="input-group">
+								  <div class="input-group-prepend">
+								  </div>
+								  <form:input path="precio" type="number" class="form-control" placeholder="Mínimo"></form:input>
+								  <form:input path="precio" type="number" class="form-control" placeholder="Máximo"></form:input>
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="row justify-content-center" style="margin-top:20px; display:none" id="btnBusquedaAvanzada">
+					<div class="col-lg-2 offset-5">
+						<button  class="btn btn-buscar" Type="Submit">Buscar</button>
+					</div>
+				</div>	
+			</form:form>		
+			
+			
+		</div>
+        <div class="row" data-aos="fade-up" data-aos-delay="100" style="margin-bottom:100px">
           <div class="col-lg-12 d-flex justify-content-center">
-            <!-- Acá agregamos el div de filtros-->
+            
           </div>
         </div>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">
           
           <table class="table table-striped">
-		    <!-- <thead>
-		    <tr>
-		        <th><h1>Tipo</h1></th>
-		        <th><h1>Dirección</h1></th>
-		        <th><h1>Detalle</h1></th>
-		        <th><h1>Localidad</h1></th>
-		        <th><h1>Condición</h1></th>
-		        <th><h1>Precio (U$S)</h1></th>
-		        <th><h1>Imagen</h1></th>
-		    </tr>
-		    </thead>-->
 		    <tbody>    
 		    <c:forEach items= "${propiedad}" var="propiedad">
 		    <div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 380px; top: 0px;">
 		            <div class="portfolio-wrap">
 		              <img src="img/portfolio/${propiedad.imagenUrl}" class="img-fluid" alt="">
 		              <div class="portfolio-info">
-		                <h4>${propiedad.tipo}, ${propiedad.detalle}</h4>
+		                <h4>${propiedad.ambiente}, ${propiedad.detalle}</h4>
 		                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
 		                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>	                
 		              </div>
@@ -285,6 +356,7 @@
 
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
+  <script src="js/myjs.js"></script>
 
 </body>
 
