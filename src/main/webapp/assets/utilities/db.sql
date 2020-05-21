@@ -44,6 +44,8 @@ CREATE TABLE LOCALIDAD(
 		id bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		tipo int, 
         precio double,
+        precioMin double,
+        precioMax double,
         direccion varchar(50),
         localidad varchar(50),
         provincia varchar(50),

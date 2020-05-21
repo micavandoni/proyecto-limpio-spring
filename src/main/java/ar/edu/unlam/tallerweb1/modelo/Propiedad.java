@@ -19,6 +19,8 @@ public class Propiedad {
     private String condicion;
     private String imagenUrl;
     private String ambiente;
+    private Long precioMin;
+    private Long precioMax;
 
     public Propiedad(String tipo, Long precio, String direccion, String detalle, String localidad, String provincia, String condicion, String imagenUrl, String ambiente) {
         this.tipo = tipo;
@@ -115,4 +117,30 @@ public class Propiedad {
     public void setAmbiente(String ambiente) {
         this.ambiente = ambiente;
     }
+
+
+
+	public Long getPrecioMin() {
+		return precioMin;
+	}
+
+
+
+	public void setPrecioMin(Long precioMin) {
+		this.precioMin = precioMin;
+	}
+
+
+
+	public Long getPrecioMax() {
+		return precioMax;
+	}
+
+
+
+	public void setPrecioMax(Long precioMax) {
+		this.precioMax = precioMax;
+	}
+    
+    
 }

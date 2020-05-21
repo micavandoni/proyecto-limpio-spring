@@ -173,8 +173,7 @@
 					
 					<div class="col-lg-5">
 						<form:select path="condicion" id="condicion" type="text" class="form-control">
-							<form:option value="">Seleccione condición de la vivienda</form:option>
-							<form:option value="todo">Todas</form:option>
+							<form:option value="null">Seleccione condición de la vivienda</form:option>
 			    			<form:option value="venta">En venta</form:option>
 			    			<form:option value="alquiler">En alquiler</form:option>
 						</form:select>
@@ -219,8 +218,7 @@
 								    </li>
 								</ul>-->
 								<form:select path="ambiente" id="ambiente" type="text" class="form-control">
-									<form:option value="">Seleccione cantidad de ambientes</form:option>
-									<form:option value="todo">Todas</form:option>
+									<form:option value= "null">Seleccione cantidad de ambientes</form:option>
 					    			<form:option value="monoambiente">Monoambiente</form:option>
 					    			<form:option value="dos ambientes">2 Ambientes</form:option>
 					    			<form:option value="tres ambientes">3 Ambientes</form:option>
@@ -232,8 +230,8 @@
 								<div class="input-group">
 								  <div class="input-group-prepend">
 								  </div>
-								  <form:input path="precio" type="number" class="form-control" placeholder="Mínimo"></form:input>
-								  <form:input path="precio" type="number" class="form-control" placeholder="Máximo"></form:input>
+								  <form:input path="precioMin" type="number" class="form-control" placeholder="Mínimo"></form:input>
+								  <form:input path="precioMax" type="number" class="form-control" placeholder="Máximo"></form:input>
 								</div>
 							</div>
 						</div>
