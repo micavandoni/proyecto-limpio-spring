@@ -10,7 +10,7 @@ import java.util.List;
 public interface RepositorioPropiedad {
 
     List<Propiedad> consultarPropiedad();
-
+    List<Propiedad> consultarPropiedadFilter(Propiedad propiedad);
 
     void crearPropiedad();
 }
