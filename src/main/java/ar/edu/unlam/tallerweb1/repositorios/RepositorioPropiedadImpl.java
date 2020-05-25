@@ -2,15 +2,13 @@ package ar.edu.unlam.tallerweb1.repositorios;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,51 +38,32 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		
 		List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
 		
-		Criteria crit = session.createCriteria(Propiedad.class);
-		
-		Long min=0L;
-		Long max=0L;
-		
-		if(propiedad.getCondicion().equalsIgnoreCase("null")) {
-			propiedad.setCondicion(null);	
+		if(propiedad.getCondicion().equalsIgnoreCase("todo")) {
+			listaPropiedad = session.createCriteria(Propiedad.class).list();
+			
+		}else {
+			// if (propiedad.getAmbiente().equalsIgnoreCase("1") || propiedad.getAmbiente().equalsIgnoreCase("2") || propiedad.getAmbiente().equalsIgnoreCase("3")
+			//		|| propiedad.getAmbiente().equalsIgnoreCase("4")) {
+				//listaPropiedad = session.createCriteria(Propiedad.class)
+					//	.add(Restrictions.eq("ambiente", propiedad.getAmbiente())).list();
+			//}
+			listaPropiedad = session.createCriteria(Propiedad.class)
+					.add(Restrictions.eq("condicion", propiedad.getCondicion())).list();
 		}
-		if(propiedad.getAmbiente().equalsIgnoreCase("null")) {
-			propiedad.setAmbiente(null);
-			
-		}
-		if(propiedad.getPrecioMin()!=null && propiedad.getPrecioMax()!=null) {
-			min = propiedad.getPrecioMin();
-			propiedad.setPrecioMin(null);
-			
-			max = propiedad.getPrecioMax();
-			propiedad.setPrecioMax(null);
-			
-			listaPropiedad = crit.add(Example.create(propiedad))
-								.add(Restrictions.between("precio", min, max)).list();	
-		}
-		else if(propiedad.getPrecioMin()==null && propiedad.getPrecioMax()!=null) {
-					min = propiedad.getPrecioMax();
-					propiedad.setPrecioMax(null);
-					
-					listaPropiedad = crit.add(Example.create(propiedad))
-							.add(Restrictions.gt("precio",max)).list();	
-					
-				}
-		else if(propiedad.getPrecioMin()!=null && propiedad.getPrecioMax()==null) {
-			min = propiedad.getPrecioMin();
-			propiedad.setPrecioMin(null);
-			
-			listaPropiedad = crit.add(Example.create(propiedad))
-					.add(Restrictions.lt("precio",min)).list();	
-			
-		}else
-		{
-			listaPropiedad = crit.add(Example.create(propiedad)).list();	
-		}
-
-		
-
 		return listaPropiedad;
+	}
+	@Override
+	public List<Propiedad> consultarNuevasPropiedades(){
+		Calendar fechaActual = Calendar.getInstance();
+		int dias = 30;
+		fechaActual.add(Calendar.DAY_OF_YEAR, dias);
+		Date fechaDesde = fechaActual.getTime();
+	 
+		final Session session = sessionFactory.getCurrentSession();
+		List<Propiedad> listaNuevasPropiedades = session.createCriteria(Propiedad.class)
+		.add(Restrictions.gt("fechaPublicada",fechaDesde).list(); 	
+		return listaNuevasPropiedades;
+
 	}
 
     @Override
@@ -92,5 +71,30 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
     @Transactional
     public  void crearPropiedad(){
 
+//        final Session session = sessionFactory.openSession();
+//
+//
+//        Propiedad propiedad1 = new Propiedad();
+//
+//        propiedad1.setCondicion("venta");
+//        propiedad1.setPrecio(5000L);
+//        propiedad1.setProvincia("buenos aires");
+//        propiedad1.setLocalidad("san justo");
+//        propiedad1.setDireccion("arieta");
+//        propiedad1.setDetalle("detalle 1");
+//        propiedad1.setImagenUrl("url");
+//
+//        Propiedad propiedad2 = new Propiedad();
+//
+//        propiedad2.setCondicion("venta");
+//        propiedad2.setPrecio(5000L);
+//        propiedad2.setProvincia("buenos aires");
+//        propiedad2.setLocalidad("san justo");
+//        propiedad2.setDireccion("arieta");
+//        propiedad2.setDetalle("detalle 1");
+//        propiedad2.setImagenUrl("url");
+//
+//        session.save (propiedad1);
+//        session.save (propiedad2);
     }
 }

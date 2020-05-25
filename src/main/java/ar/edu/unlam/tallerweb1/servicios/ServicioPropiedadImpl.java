@@ -39,4 +39,9 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	public List<Propiedad> consultarPropiedadFilter(Propiedad propiedad) {
     	return repositorioPropiedad.consultarPropiedadFilter(propiedad);
     	}
+	
+	@Override
+	public List<Propiedad> consultarNuevasPropiedades(){
+		return repositorioPropiedad.consultarNuevasPropiedades();
+	}
 }

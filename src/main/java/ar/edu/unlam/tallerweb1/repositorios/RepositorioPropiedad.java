@@ -11,6 +11,7 @@ public interface RepositorioPropiedad {
 
     List<Propiedad> consultarPropiedad();
     List<Propiedad> consultarPropiedadFilter(Propiedad propiedad);
+    List<Propiedad> consultarNuevasPropiedades();
 
     void crearPropiedad();
 }

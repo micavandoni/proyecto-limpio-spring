@@ -45,6 +45,16 @@ public class ControladorPropiedad {
         model.put("propiedad", listaPropiedad);
     return new ModelAndView("propiedad", model);
     }
+    
+    @RequestMapping(path = "/viviendasNuevas", method = RequestMethod.POST)
+    public ModelAndView listarNuevasViviendas(@ModelAttribute("propiedad") Propiedad propiedad, HttpServletRequest request){
+        ModelMap model = new ModelMap();
+        Propiedad propiedadNueva = new Propiedad();
+        List<Propiedad> listaNuevasPropiedades = servicioPropiedad.consultarNuevasPropiedades();
+       
+        model.put("propiedadNueva", listaNuevasPropiedades);
+    	return new ModelAndView("propiedadNueva", model);
+    }
 
 }
 

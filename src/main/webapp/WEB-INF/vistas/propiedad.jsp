@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -171,13 +172,14 @@
 			<form:form action="filtro-propiedad" method="POST" modelAttribute="propiedadFiltro" class="col-lg-12">			         
 				<div class="row justify-content-center">
 					
-					<div class="col-lg-5">
+					<!-- div class="col-lg-5">
 						<form:select path="condicion" id="condicion" type="text" class="form-control">
-							<form:option value="null">Seleccione condición de la vivienda</form:option>
+							<form:option value="">Seleccione condición de la vivienda</form:option>
+							<form:option value="todo">Todas</form:option>
 			    			<form:option value="venta">En venta</form:option>
 			    			<form:option value="alquiler">En alquiler</form:option>
 						</form:select>
-					</div>
+					</div-->
 					<div class="col-lg-3" id="btnBusquedaComun">
 						<button  class="btn btn-buscar" Type="Submit">Buscar</button>
 					</div>					
@@ -218,7 +220,8 @@
 								    </li>
 								</ul>-->
 								<form:select path="ambiente" id="ambiente" type="text" class="form-control">
-									<form:option value= "null">Seleccione cantidad de ambientes</form:option>
+									<form:option value="">Seleccione cantidad de ambientes</form:option>
+									<form:option value="todo">Todas</form:option>
 					    			<form:option value="monoambiente">Monoambiente</form:option>
 					    			<form:option value="dos ambientes">2 Ambientes</form:option>
 					    			<form:option value="tres ambientes">3 Ambientes</form:option>
@@ -230,8 +233,8 @@
 								<div class="input-group">
 								  <div class="input-group-prepend">
 								  </div>
-								  <form:input path="precioMin" type="number" class="form-control" placeholder="Mínimo"></form:input>
-								  <form:input path="precioMax" type="number" class="form-control" placeholder="Máximo"></form:input>
+								  <form:input path="precio" type="number" class="form-control" placeholder="Mínimo"></form:input>
+								  <form:input path="precio" type="number" class="form-control" placeholder="Máximo"></form:input>
 								</div>
 							</div>
 						</div>
