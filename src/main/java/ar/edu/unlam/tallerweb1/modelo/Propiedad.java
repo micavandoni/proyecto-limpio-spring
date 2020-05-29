@@ -2,10 +2,7 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import java.sql.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Propiedad {
@@ -21,7 +18,9 @@ public class Propiedad {
     private String condicion;
     private String imagenUrl;
     private String ambiente;
-    private Date fechaPublicada;
+    @Basic
+    private java.sql.Date fechaPublicada;
+
 
     public Propiedad(String tipo, Long precio, String direccion, String detalle, String localidad, String provincia, String condicion, String imagenUrl, String ambiente, Date fechaPublicada) {
         this.tipo = tipo;
@@ -119,15 +118,11 @@ public class Propiedad {
         this.ambiente = ambiente;
     }
 
+    public Date getFechaPublicada() {
+        return fechaPublicada;
+    }
 
-
-	public Date getFechaPublicada() {
-		return fechaPublicada;
-	}
-
-
-
-	public void setFechaPublicada(Date fechaPublicada) {
-		this.fechaPublicada = fechaPublicada;
-	}
+    public void setFechaPublicada(Date fechaPublicada) {
+        this.fechaPublicada = fechaPublicada;
+    }
 }

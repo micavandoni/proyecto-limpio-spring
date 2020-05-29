@@ -47,7 +47,7 @@
             <li class="active"><a href="#header">Home</a></li>
             <li><a href="#about">Nosotros</a></li>
             <li><a href="#viviendas">Viviendas</a></li>
-
+              <li><a href="#viviendasNuevas">Nuevas</a></li>
             <li class="get-started"><a href="#about">Mi Hogar</a></li>
           </ul>
         </nav><!-- .nav-menu -->
@@ -277,6 +277,39 @@
 
       </div>
     </section><!-- End Portfolio Section -->
+
+
+      <section id="viviendasNuevas" class="portfolio">
+          <div class="container">
+
+              <div class="section-title" data-aos="fade-left">
+                  <h2>Viviendas nuevas</h2>
+
+              </div>
+
+
+              <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">
+
+                  <table class="table table-striped">
+                      <tbody>
+                      <c:forEach items= "${propiedadNueva}" var="propiedadNueva">
+                          <div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 380px; top: 0px;">
+                              <div class="portfolio-wrap">
+                                  <img src="img/portfolio/${propiedadNueva.imagenUrl}" class="img-fluid" alt="">
+                                  <div class="portfolio-info">
+                                      <h4>${propiedadNueva.ambiente}, ${propiedadNueva.detalle}</h4>
+                                      <p>${propiedadNueva.direccion}, ${propiedadNueva.localidad}</p>
+                                      <p>${propiedadNueva.condicion}, <i>${propiedadNueva.precio}</i></p>
+                                  </div>
+                              </div>
+                          </div>
+                      </c:forEach>
+                      </tbody>
+                  </table>
+              </div>
+
+          </div>
+      </section><!-- End Portfolio Section -->
 
   </main><!-- End #main -->
 

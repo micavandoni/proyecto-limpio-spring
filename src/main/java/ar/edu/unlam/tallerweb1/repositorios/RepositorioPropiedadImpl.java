@@ -55,13 +55,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	@Override
 	public List<Propiedad> consultarNuevasPropiedades(){
 		Calendar fechaActual = Calendar.getInstance();
-		int dias = 30;
+		int dias = -5;
 		fechaActual.add(Calendar.DAY_OF_YEAR, dias);
 		Date fechaDesde = fechaActual.getTime();
-	 
+
 		final Session session = sessionFactory.getCurrentSession();
 		List<Propiedad> listaNuevasPropiedades = session.createCriteria(Propiedad.class)
-		.add(Restrictions.gt("fechaPublicada",fechaDesde).list(); 	
+		.add(Restrictions.gt("fechaPublicada",fechaDesde)).list();
 		return listaNuevasPropiedades;
 
 	}

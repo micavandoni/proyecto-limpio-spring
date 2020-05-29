@@ -31,6 +31,8 @@ public class ControladorPropiedad {
         ModelMap model = new ModelMap();
         Propiedad propiedadFiltro = new Propiedad();
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
+        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
+        model.put("propiedadNueva", listaPropiedades);
         model.put("propiedad", listaPropiedad);
         model.put("propiedadFiltro", propiedadFiltro);
     return new ModelAndView("propiedad", model);
@@ -46,15 +48,7 @@ public class ControladorPropiedad {
     return new ModelAndView("propiedad", model);
     }
     
-    @RequestMapping(path = "/viviendasNuevas", method = RequestMethod.POST)
-    public ModelAndView listarNuevasViviendas(@ModelAttribute("propiedad") Propiedad propiedad, HttpServletRequest request){
-        ModelMap model = new ModelMap();
-        Propiedad propiedadNueva = new Propiedad();
-        List<Propiedad> listaNuevasPropiedades = servicioPropiedad.consultarNuevasPropiedades();
-       
-        model.put("propiedadNueva", listaNuevasPropiedades);
-    	return new ModelAndView("propiedadNueva", model);
-    }
+
 
 }
 
