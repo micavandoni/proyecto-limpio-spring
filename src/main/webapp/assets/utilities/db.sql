@@ -8,17 +8,24 @@ CREATE TABLE Usuario(
 						id bigint   auto_increment not  NULL PRIMARY KEY,
 						email varchar(40),
                         password varchar(10),
-                        rol varchar(20));
+                        rol varchar(20),
+                        nombre varchar(20));
 
-insert into Usuario (email,password,rol) value
-	("pepe@gmail.com", "pepito","ADMIN"),
-    ("juan@gmail.com", "pepito","USER"),
-    ("julia@gmail.com", "pepito","USER");
+insert into Usuario (email,password,rol, nombre) value
+	("pepe@gmail.com", "pepito","ADMIN", "Pepe"),
+    ("juan@gmail.com", "pepito","USER", "Juan"),
+    ("julia@gmail.com", "pepito","USER", "Julia");
     
 
 CREATE TABLE TipoPropiedad(
 						id TINYINT NOT NULL PRIMARY KEY,
                         descripcion varchar(30));
+
+CREATE TABLE favorito(
+	id bigint   auto_increment not  NULL PRIMARY KEY,
+    idPropiedad bigint,
+    idUsuario bigint
+    );
 
 insert into  TipoPropiedad value
 	(1,"Casa"),
@@ -64,4 +71,6 @@ insert into Propiedad (tipo,precio,direccion,localidad,provincia,condicion,detal
     (5, 36,"peron 1234","san justo","buenos aires", "venta","inversion","casa5.jpg","cuatro ambientes", date('2020-05-10')),
     (6, 50,"Miro 345","luzuriaga","buenos aires", "venta","estrenar","casa3.jpg","tres ambientes", date('2020-05-01'));
 
-       
+ select * from favorito;      
+ 
+ delete from favorito;

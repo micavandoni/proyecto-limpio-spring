@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.controladores;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +11,16 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPropiedad;
 
 @Controller
+@SessionAttributes({"usuarioBuscado"})
 public class ControladorPropiedad {
 
 	private  ServicioPropiedad servicioPropiedad;
@@ -30,11 +35,14 @@ public class ControladorPropiedad {
     public ModelAndView propiedades(){
         ModelMap model = new ModelMap();
         Propiedad propiedadFiltro = new Propiedad();
+        MiControlador favorito = new MiControlador();
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
         List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
         model.put("propiedadNueva", listaPropiedades);
         model.put("propiedad", listaPropiedad);
         model.put("propiedadFiltro", propiedadFiltro);
+        model.put("favorito", favorito);
+        
     return new ModelAndView("propiedad", model);
     }
     
@@ -45,10 +53,37 @@ public class ControladorPropiedad {
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propiedad);
         model.put("propiedadFiltro", propiedadFiltro);
         model.put("propiedad", listaPropiedad);
+        
+        MiControlador favorito = new MiControlador();
+        model.put("favorito", favorito);
     return new ModelAndView("propiedad", model);
     }
     
-
+    @RequestMapping(path = "/loguearse", method = RequestMethod.GET)
+    public ModelAndView irALogin() {
+    	return new ModelAndView("redirect:/login");
+    }
+    
+    @RequestMapping(path = "/fav-propiedad", method = RequestMethod.POST)
+    public ModelAndView FavPropiedad(@ModelAttribute("favorito") MiControlador favoritoSeleccionado, HttpServletRequest request) {
+    	HttpSession session = request.getSession();	
+    	session.getAttribute("usuarioBuscado");
+    	ModelMap model = new ModelMap();
+        Propiedad propiedadFiltro = new Propiedad();
+        Favorito favorito2 = new Favorito();
+        favorito2.setIdPropiedad(favoritoSeleccionado.idPropiedad);
+        favorito2.setIdUsuario(favoritoSeleccionado.idUsuario);        
+        
+        servicioPropiedad.favPropiedad(favorito2);
+        
+        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
+        model.put("propiedadNueva", listaPropiedades);
+        List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
+        model.put("propiedad", listaPropiedad);
+        model.put("favorito", favorito2);
+        model.put("propiedadFiltro", propiedadFiltro);
+        return new ModelAndView("propiedad", model);
+    }
 
 }
 

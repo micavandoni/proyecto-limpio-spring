@@ -41,16 +41,21 @@
         <div class="logo mr-auto">
           <h1 class="text-light"><a href="index.html"><span>HouseHolds</span></a></h1>
         </div>
-
-        <nav class="nav-menu d-none d-lg-block">
-          <ul>
-            <li class="active"><a href="#header">Home</a></li>
-            <li><a href="#about">Nosotros</a></li>
-            <li><a href="#viviendas">Viviendas</a></li>
-              <li><a href="#viviendasNuevas">Nuevas</a></li>
-            <li class="get-started"><a href="#about">Mi Hogar</a></li>
-          </ul>
-        </nav><!-- .nav-menu -->
+		<form:form action="loguearse" method="GET">
+	        <nav class="nav-menu d-none d-lg-block">
+	          <ul>
+	            <li class="active"><a href="#header">Home</a></li>
+	            <li><a href="#about">Nosotros</a></li>
+	            <li><a href="#viviendas">Viviendas</a></li>
+	              <li><a href="#viviendasNuevas">Nuevas</a></li>
+	              <!-- <li class="get-started"><a type="Submit">Ingresar</a></li> -->
+	            
+	            	<li class="get-started"><button class="btn btn-buscar" type="Submit">Ingresar</button></li>
+	            	<p>Id Usuario: <strong>${usuarioBuscado.nombre} - ${usuarioBuscado.id}</strong></p>
+	            
+	          </ul>
+	        </nav><!-- .nav-menu -->
+        </form:form>
       </div><!-- End Header Container -->
     </div>
   </header><!-- End Header -->
@@ -196,29 +201,6 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<label>Ambientes</label>
-								<!--<ul class="list-inline">
-								    <li class="list-inline-item">
-								    	<div class="buttonCheck" href="#">
-								    		+1<input type="radio" value="1" name="ambiente">
-								    	</div>
-								    	
-								    </li>
-								    <li class="list-inline-item">
-								    	<div class="buttonCheck">
-								    		+2<input type="radio" value="2" name="ambiente">
-								    	</div>
-								    </li>
-								    <li class="list-inline-item">
-								    	<div class="buttonCheck">
-								    		+3<input type="radio" value="3" name="ambiente">
-								    	</div>
-								    </li>
-								    <li class="list-inline-item">
-								    	<div class="buttonCheck">
-								    		+4<input type="radio" value="4" name="ambiente">
-								    	</div>
-								    </li>
-								</ul>-->
 								<form:select path="ambiente" id="ambiente" type="text" class="form-control">
 									<form:option value="">Seleccione cantidad de ambientes</form:option>
 									<form:option value="todo">Todas</form:option>
@@ -245,31 +227,48 @@
 						<button  class="btn btn-buscar" Type="Submit">Buscar</button>
 					</div>
 				</div>	
-			</form:form>		
-			
-			
+			</form:form>				
 		</div>
         <div class="row" data-aos="fade-up" data-aos-delay="100" style="margin-bottom:100px">
           <div class="col-lg-12 d-flex justify-content-center">
             
           </div>
         </div>
+        
+        <a style="cursor: pointer;
+			color: white;
+			border-color: yellow;
+			width: 20px !important;
+			height: 20px !important;
+			font-size: 25px;
+			stroke: black;
+			stroke-width: 10;
+			text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;" onclick="favear()" id="iconFav" type="Submit">
+        	<i class="icofont-star"></i>
+        </a>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">
-          
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">          
           <table class="table table-striped">
 		    <tbody>    
 		    <c:forEach items= "${propiedad}" var="propiedad">
-		    <div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 380px; top: 0px;">
+		    <form:form action="fav-propiedad" method="POST" modelAttribute="favorito">		    	
+		    	<div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 380px; top: 0px;">
 		            <div class="portfolio-wrap">
 		              <img src="img/portfolio/${propiedad.imagenUrl}" class="img-fluid" alt="">
+		              
 		              <div class="portfolio-info">
 		                <h4>${propiedad.ambiente}, ${propiedad.detalle}</h4>
 		                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
 		                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>	                
 		              </div>
+		              
+		              <input id="idPropiedad" name="idPropiedad" type="hidden" value="${propiedad.id}">
+		              <input id="idUsuario" name="idUsuario" type="hidden" value="${usuarioBuscado.id}">		             
 		            </div>
-		          </div>
+		            <button type="Submit">Agregar a Fav</button>
+		         </div>
+		    </form:form>
+		    
 		    </c:forEach>
 		    </tbody>
 		</table>
