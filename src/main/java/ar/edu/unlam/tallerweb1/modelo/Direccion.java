@@ -1,10 +1,14 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+@Entity
 public class Direccion {
 	
 	@Id
@@ -12,7 +16,7 @@ public class Direccion {
 	private Long id;
 	private String calle;
 	private String altura;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private Barrio barrio;
 
 	public Direccion(String calle, String altura, Barrio barrio) {

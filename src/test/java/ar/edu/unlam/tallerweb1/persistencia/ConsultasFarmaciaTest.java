@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.persistencia;
 
 
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,14 +11,29 @@ import ar.edu.unlam.tallerweb1.modelo.Barrio;
 import ar.edu.unlam.tallerweb1.modelo.Comuna;
 import ar.edu.unlam.tallerweb1.modelo.Direccion;
 import ar.edu.unlam.tallerweb1.modelo.Farmacia;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioFarmacia;
+
 import static org.assertj.core.api.Assertions.*;
+// import static org.junit.Assert.assertThat;
+
+import java.util.List;
 
 public class ConsultasFarmaciaTest extends SpringTest {
 	
-	@Test
-	@Transactional @Rollback
+	 @Autowired
+	 private RepositorioFarmacia repositorioFarmacia;
+		
+	
 	public void crearFarmacia() {
 		
+		
+		
+	}
+	
+	@Test
+	@Transactional
+	@Rollback
+	public void consultarFarmaciasConNombreFarmacityTest() {
 		Comuna com1 = new Comuna("COMUNA 1");
 		Comuna com2 = new Comuna("COMUNA 2");
 		Comuna com3 = new Comuna("COMUNA 3");
@@ -47,14 +63,8 @@ public class ConsultasFarmaciaTest extends SpringTest {
 		session().save(far6);
 		session().save(far7);
 		
-	}
-	
-	@Test
-	@Transactional @Rollback
-	public void consultarFarmaciasConNombreFarmacityTest() {
-		this.crearFarmacia();
-		
-		
+		List<Farmacia> listarFarmaciasConNombreFarmacity = repositorioFarmacia.consultarFarmaciaPorNombre("farmacity");
+		assertThat(listarFarmaciasConNombreFarmacity).hasSize(3);
 	}
 	
 
