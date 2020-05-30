@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioPropiedad;
 
@@ -25,16 +26,6 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
     	return repositorioPropiedad.consultarPropiedad();
     	}
 
-    @Override
-    public boolean crearPropiedad(){
-        try{
-            repositorioPropiedad.crearPropiedad();
-        return true;
-        } catch (Exception e){
-            return false;
-        }
-    }
-
 	@Override
 	public List<Propiedad> consultarPropiedadFilter(Propiedad propiedad) {
     	return repositorioPropiedad.consultarPropiedadFilter(propiedad);
@@ -44,4 +35,13 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	public List<Propiedad> consultarNuevasPropiedades(){
 		return repositorioPropiedad.consultarNuevasPropiedades();
 	}
+
+
+	@Override
+	public void favPropiedad(Favorito favorito) {
+		repositorioPropiedad.favPropiedad(favorito);	
+		
+	}
+	
+	
 }

@@ -1498,3 +1498,15 @@ section {
   background: #00805d;
   color: #fff;
 }
+.nav-menu .get-started button {
+    background: #009970;
+    color: #fff;
+    border-radius: 50px;
+    margin: 0 15px;
+    padding: 10px 25px;
+    transition: 0.3s;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+}

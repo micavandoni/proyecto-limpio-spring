@@ -14,3 +14,15 @@ function mostrarBtnBusqueda() {
 		  texto.innerHTML = "Ver Búsqueda Avanzada";
 	  }
 }
+
+function favear() {
+	var iconFav = document.getElementById('iconFav');
+	
+	if(iconFav.style.color === "white") {
+		iconFav.style.color = "yellow";
+		
+	}
+	else {
+		iconFav.style.color = "white";
+	}
+}

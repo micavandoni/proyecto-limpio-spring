@@ -21,21 +21,6 @@ public class Propiedad {
     @Basic
     private java.sql.Date fechaPublicada;
 
-
-    public Propiedad(String tipo, Long precio, String direccion, String detalle, String localidad, String provincia, String condicion, String imagenUrl, String ambiente, Date fechaPublicada) {
-        this.tipo = tipo;
-        this.precio = precio;
-        this.direccion = direccion;
-        this.detalle = detalle;
-        this.localidad = localidad;
-        this.provincia = provincia;
-        this.condicion = condicion;
-        this.imagenUrl = imagenUrl;
-        this.ambiente = ambiente;
-    }
-
-
-    
     public Propiedad(){};
 
     public Long getId() {
