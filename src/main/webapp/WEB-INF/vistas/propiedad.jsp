@@ -167,23 +167,23 @@
           <h2>Buscá tu Vivienda</h2>
           <p>Podrás buscar tu vivienda ideal al mejor precio aplicando los filtros que desees a continuación:</p>
         </div>
-		
+
         <div class="row" data-aos="fade-up" data-aos-delay="100">
-			<form:form action="filtro-propiedad" method="POST" modelAttribute="propiedadFiltro" class="col-lg-12">			         
+			<form:form action="filtro-propiedad" method="POST" modelAttribute="propiedadFiltro" class="col-lg-12">
 				<div class="row justify-content-center">
-					
-					<!-- div class="col-lg-5">
+
+					<div class="col-lg-5">
 						<form:select path="condicion" id="condicion" type="text" class="form-control">
 							<form:option value="">Seleccione condición de la vivienda</form:option>
 							<form:option value="todo">Todas</form:option>
 			    			<form:option value="venta">En venta</form:option>
 			    			<form:option value="alquiler">En alquiler</form:option>
 						</form:select>
-					</div-->
+					</div>
 					<div class="col-lg-3" id="btnBusquedaComun">
 						<button  class="btn btn-buscar" Type="Submit">Buscar</button>
-					</div>					
-				</div>				
+					</div>
+				</div>
 				<div class="row justify-content-center" style="margin-top:20px">
 					<div class="col-lg-3">
 						<a onclick="mostrarBtnBusqueda()" id="txtBusqueda" data-toggle="collapse" href="#colapsarBusquedaAvanzada" role="button" aria-expanded="false" aria-controls="colapsarBusquedaAvanzada">
@@ -201,7 +201,7 @@
 								    	<div class="buttonCheck" href="#">
 								    		+1<input type="radio" value="1" name="ambiente">
 								    	</div>
-								    	
+
 								    </li>
 								    <li class="list-inline-item">
 								    	<div class="buttonCheck">
@@ -238,16 +238,16 @@
 								</div>
 							</div>
 						</div>
-					</div>	
+					</div>
 				</div>
 				<div class="row justify-content-center" style="margin-top:20px; display:none" id="btnBusquedaAvanzada">
 					<div class="col-lg-2 offset-5">
 						<button  class="btn btn-buscar" Type="Submit">Buscar</button>
 					</div>
-				</div>	
-			</form:form>		
-			
-			
+				</div>
+			</form:form>
+
+
 		</div>
         <div class="row" data-aos="fade-up" data-aos-delay="100" style="margin-bottom:100px">
           <div class="col-lg-12 d-flex justify-content-center">
