@@ -140,33 +140,28 @@
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
-      <div class="container">
-
-        <div class="row counters">
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">600</span>
-            <p>Inmobiliarias</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">25,000</span>
-            <p>Departamentos</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">67,463</span>
-            <p>Casas</p>
-          </div>
-
-          <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">5,000</span>
-            <p>Terrenos</p>
-          </div>
-
-        </div>
-
-      </div>
+    	
+    		<div class="container">
+		        <div class="row counters">
+		         	<div class="col-lg-3 col-6 text-center">
+		            	<span data-toggle="counter-up">600</span>
+		            	<p>Inmobiliarias</p>
+		          	</div>
+		          	<div class="col-lg-3 col-6 text-center">
+		            	<span data-toggle="counter-up">${contadores[1]}</span>
+		            	<p>Departamentos</p>
+		          	</div>
+		          	<div class="col-lg-3 col-6 text-center">
+		            	<span data-toggle="counter-up">${contadores[0]}</span>
+		            	<p>Casas</p>
+		          	</div>
+		          	<div class="col-lg-3 col-6 text-center">
+		            	<span data-toggle="counter-up">${contadores[2]}</span>
+		            	<p>Terrenos</p>
+		          	</div>
+	        	</div>
+	    	</div>
+      
     </section><!-- End Counts Section -->
 
     <!-- ======= Viviendas Section ======= -->
@@ -274,15 +269,10 @@
 
       <section id="viviendasNuevas" class="portfolio">
           <div class="container">
-
               <div class="section-title" data-aos="fade-left">
                   <h2>Viviendas nuevas</h2>
-
               </div>
-
-
               <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">
-
                   <table class="table table-striped">
                       <tbody>
                       <c:forEach items= "${propiedadNueva}" var="propiedadNueva">
@@ -300,7 +290,6 @@
                       </tbody>
                   </table>
               </div>
-
           </div>
       </section><!-- End Portfolio Section -->
 

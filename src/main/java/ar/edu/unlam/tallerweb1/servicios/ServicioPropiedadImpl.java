@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,11 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	public void favPropiedad(Favorito favorito) {
 		repositorioPropiedad.favPropiedad(favorito);	
 		
+	}
+
+	@Override
+	public List listaContadores() {
+		return repositorioPropiedad.listaContadores();
 	}
 	
 	

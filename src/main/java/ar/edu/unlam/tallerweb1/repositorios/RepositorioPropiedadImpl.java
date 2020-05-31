@@ -7,8 +7,11 @@ import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -68,11 +71,36 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public void favPropiedad(Favorito favorito) {
-		
+	public void favPropiedad(Favorito favorito) {		
 		Session session = sessionFactory.openSession();		
-		long id = (Long) session.save(favorito);
+		long id = (Long) session.save(favorito);		
+	}
+
+	@Override
+	public List listaContadores() {
+		final Session session = sessionFactory.getCurrentSession();
 		
+		List listaCounts = new ArrayList();
+		
+		Number casas = (Number) session.createCriteria(Propiedad.class)
+									.add(Restrictions.eq("tipo", "1"))
+					                .setProjection(Projections.rowCount())
+					                .uniqueResult();		
+		
+		Number departamentos = (Number) session.createCriteria(Propiedad.class)
+											.add(Restrictions.eq("tipo", "2"))
+											.setProjection(Projections.rowCount())
+											.uniqueResult();
+		Number terrenos = (Number) session.createCriteria(Propiedad.class)
+											.add(Restrictions.eq("tipo", "6"))
+											.setProjection(Projections.rowCount())
+											.uniqueResult();
+		
+		listaCounts.add(casas);
+		listaCounts.add(departamentos);
+		listaCounts.add(terrenos);
+
+		return listaCounts;
 	}
 
 }
