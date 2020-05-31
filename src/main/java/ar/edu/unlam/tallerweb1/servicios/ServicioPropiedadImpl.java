@@ -45,7 +45,7 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	}
 
 	@Override
-	public Integer listaContadores() {
+	public List listaContadores() {
 		return repositorioPropiedad.listaContadores();
 	}
 	

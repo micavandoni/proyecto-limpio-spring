@@ -77,23 +77,30 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public Integer listaContadores() {
-		//ArrayList<Integer> listaContadores = new ArrayList<Integer>();
-		
+	public List listaContadores() {
 		final Session session = sessionFactory.getCurrentSession();
-		Criteria criteria = session.createCriteria(Propiedad.class)
-				.add(Restrictions.eq("tipo", 1))
-				.setProjection(Projections.rowCount());
-		Integer casas = (Integer)criteria.uniqueResult();
-		return casas;
-		//Criteria critCasas = session.createCriteria(Propiedad.class);
-		//critCasas.add(Restrictions.eq("tipo", 1));
-		//critCasas.setProjection(Projections.rowCount());
-		//List casas = critCasas.list();
-		//Integer countCasas = (Integer)casas.get(0);
-		//listaContadores.add(countCasas);
+		
+		List listaCounts = new ArrayList();
+		
+		Number casas = (Number) session.createCriteria(Propiedad.class)
+									.add(Restrictions.eq("tipo", "1"))
+					                .setProjection(Projections.rowCount())
+					                .uniqueResult();		
+		
+		Number departamentos = (Number) session.createCriteria(Propiedad.class)
+											.add(Restrictions.eq("tipo", "2"))
+											.setProjection(Projections.rowCount())
+											.uniqueResult();
+		Number terrenos = (Number) session.createCriteria(Propiedad.class)
+											.add(Restrictions.eq("tipo", "6"))
+											.setProjection(Projections.rowCount())
+											.uniqueResult();
+		
+		listaCounts.add(casas);
+		listaCounts.add(departamentos);
+		listaCounts.add(terrenos);
 
-		//return countCasas;
+		return listaCounts;
 	}
 
 }

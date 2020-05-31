@@ -140,7 +140,7 @@
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
-    	<c:forEach items="${contadores}" var="contadores">
+    	
     		<div class="container">
 		        <div class="row counters">
 		         	<div class="col-lg-3 col-6 text-center">
@@ -148,20 +148,19 @@
 		            	<p>Inmobiliarias</p>
 		          	</div>
 		          	<div class="col-lg-3 col-6 text-center">
-		            	<span data-toggle="counter-up">25,000</span>
+		            	<span data-toggle="counter-up">${contadores[1]}</span>
 		            	<p>Departamentos</p>
 		          	</div>
 		          	<div class="col-lg-3 col-6 text-center">
-		            	<span data-toggle="counter-up">${contadores}</span>
+		            	<span data-toggle="counter-up">${contadores[0]}</span>
 		            	<p>Casas</p>
 		          	</div>
 		          	<div class="col-lg-3 col-6 text-center">
-		            	<span data-toggle="counter-up">5,000</span>
+		            	<span data-toggle="counter-up">${contadores[2]}</span>
 		            	<p>Terrenos</p>
 		          	</div>
 	        	</div>
 	    	</div>
-    	</c:forEach>
       
     </section><!-- End Counts Section -->
 

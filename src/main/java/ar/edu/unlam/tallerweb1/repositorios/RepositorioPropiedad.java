@@ -13,6 +13,6 @@ public interface RepositorioPropiedad {
     List<Propiedad> consultarPropiedadFilter(Propiedad propiedad);
     List<Propiedad> consultarNuevasPropiedades();
     void favPropiedad(Favorito favorito);
-    Integer listaContadores();
+    List listaContadores();
 
 }

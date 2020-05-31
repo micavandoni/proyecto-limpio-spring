@@ -42,13 +42,13 @@ public class ControladorPropiedad {
         
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
         List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
-        //Integer listaContadores = servicioPropiedad.listaContadores();
+        List listaContadores = servicioPropiedad.listaContadores();
         
         model.put("propiedadNueva", listaPropiedades);
         model.put("propiedad", listaPropiedad);
         model.put("propiedadFiltro", propiedadFiltro);
         model.put("favorito", favorito);
-        //model.put("contadores", listaContadores);
+        model.put("contadores", listaContadores);
         
         return new ModelAndView("propiedad", model);
     }
