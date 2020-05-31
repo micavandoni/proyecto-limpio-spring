@@ -33,55 +33,74 @@ public class ControladorPropiedad {
 
     @RequestMapping("/propiedad")
     public ModelAndView propiedades(){
+    	
         ModelMap model = new ModelMap();
+        
         Propiedad propiedadFiltro = new Propiedad();
         MiControlador favorito = new MiControlador();
+        
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
         List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
+        
         model.put("propiedadNueva", listaPropiedades);
         model.put("propiedad", listaPropiedad);
         model.put("propiedadFiltro", propiedadFiltro);
         model.put("favorito", favorito);
         
-    return new ModelAndView("propiedad", model);
+        return new ModelAndView("propiedad", model);
     }
     
     @RequestMapping(path = "/filtro-propiedad", method = RequestMethod.POST)
     public ModelAndView filtraPropiedades(@ModelAttribute("propiedad") Propiedad propiedad, HttpServletRequest request){
+    	
         ModelMap model = new ModelMap();
-        Propiedad propiedadFiltro = new Propiedad();
-        List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propiedad);
-        model.put("propiedadFiltro", propiedadFiltro);
-        model.put("propiedad", listaPropiedad);
         
+        Propiedad propiedadFiltro = new Propiedad();        
+        List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propiedad);
         MiControlador favorito = new MiControlador();
+        
+        model.put("propiedadFiltro", propiedadFiltro);
+        model.put("propiedad", listaPropiedad);       
         model.put("favorito", favorito);
-    return new ModelAndView("propiedad", model);
+        
+        return new ModelAndView("propiedad", model);
     }
     
     @RequestMapping(path = "/loguearse", method = RequestMethod.GET)
-    public ModelAndView irALogin() {
-    	return new ModelAndView("redirect:/login");
+    public ModelAndView irALoginOPerfil(HttpServletRequest request) {
+    	HttpSession session = request.getSession();	
+    	
+    	if (session.getAttribute("usuarioBuscado") == null) {
+    		return new ModelAndView("redirect:/login");
+    	} else {
+    		return new ModelAndView("redirect:/perfil");
+    	}
+    	
     }
     
     @RequestMapping(path = "/fav-propiedad", method = RequestMethod.POST)
     public ModelAndView FavPropiedad(@ModelAttribute("favorito") MiControlador favoritoSeleccionado, HttpServletRequest request) {
+    	
     	HttpSession session = request.getSession();	
     	session.getAttribute("usuarioBuscado");
+    	
     	ModelMap model = new ModelMap();
+    	
         Propiedad propiedadFiltro = new Propiedad();
         Favorito favorito2 = new Favorito();
+        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
+        List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
+        
         favorito2.setIdPropiedad(favoritoSeleccionado.idPropiedad);
         favorito2.setIdUsuario(favoritoSeleccionado.idUsuario);        
         
-        servicioPropiedad.favPropiedad(favorito2);
+        servicioPropiedad.favPropiedad(favorito2);        
         
-        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
-        model.put("propiedadNueva", listaPropiedades);
-        List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
+        model.put("propiedadNueva", listaPropiedades);        
         model.put("propiedad", listaPropiedad);
         model.put("favorito", favorito2);
         model.put("propiedadFiltro", propiedadFiltro);
+        
         return new ModelAndView("propiedad", model);
     }
 
