@@ -238,18 +238,6 @@
             
           </div>
         </div>
-        
-        <a style="cursor: pointer;
-			color: white;
-			border-color: yellow;
-			width: 20px !important;
-			height: 20px !important;
-			font-size: 25px;
-			stroke: black;
-			stroke-width: 10;
-			text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;" onclick="favear()" id="iconFav" type="Submit">
-        	<i class="icofont-star"></i>
-        </a>
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">          
           <table class="table table-striped">
@@ -263,13 +251,13 @@
 		              <div class="portfolio-info">
 		                <h4>${propiedad.ambiente}, ${propiedad.detalle}</h4>
 		                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
-		                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>	                
+		                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>	     
+		                <button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px;">Agregar a Fav&nbsp&nbsp<i class="icofont-star"></i></button>           
 		              </div>
 		              
 		              <input id="idPropiedad" name="idPropiedad" type="hidden" value="${propiedad.id}">
 		              <input id="idUsuario" name="idUsuario" type="hidden" value="${usuarioBuscado.id}">		             
 		            </div>
-		            <button type="Submit">Agregar a Fav</button>
 		         </div>
 		    </form:form>
 		    
