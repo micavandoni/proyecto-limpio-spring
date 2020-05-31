@@ -7,8 +7,11 @@ import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -68,11 +71,29 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public void favPropiedad(Favorito favorito) {
-		
+	public void favPropiedad(Favorito favorito) {		
 		Session session = sessionFactory.openSession();		
-		long id = (Long) session.save(favorito);
+		long id = (Long) session.save(favorito);		
+	}
+
+	@Override
+	public Integer listaContadores() {
+		//ArrayList<Integer> listaContadores = new ArrayList<Integer>();
 		
+		final Session session = sessionFactory.getCurrentSession();
+		Criteria criteria = session.createCriteria(Propiedad.class)
+				.add(Restrictions.eq("tipo", 1))
+				.setProjection(Projections.rowCount());
+		Integer casas = (Integer)criteria.uniqueResult();
+		return casas;
+		//Criteria critCasas = session.createCriteria(Propiedad.class);
+		//critCasas.add(Restrictions.eq("tipo", 1));
+		//critCasas.setProjection(Projections.rowCount());
+		//List casas = critCasas.list();
+		//Integer countCasas = (Integer)casas.get(0);
+		//listaContadores.add(countCasas);
+
+		//return countCasas;
 	}
 
 }
