@@ -1537,3 +1537,21 @@ section {
   background: #009970;
   color: #fff;
 }
+
+.btn-favear {
+	background: #f4b805;
+    color: #fff;
+    border-radius: 50px;
+    margin: 0 15px;
+    padding: 10px 25px;
+    transition: 0.3s;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-favear:hover {
+	background: #fff;
+ 	color: #f4b805;
+}
