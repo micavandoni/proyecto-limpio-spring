@@ -47,12 +47,17 @@
 	            <li class="active"><a href="#header">Home</a></li>
 	            <li><a href="#about">Nosotros</a></li>
 	            <li><a href="#viviendas">Viviendas</a></li>
-	              <li><a href="#viviendasNuevas">Nuevas</a></li>
-	              <!-- <li class="get-started"><a type="Submit">Ingresar</a></li> -->
-	            
-	            	<li class="get-started"><button class="btn btn-buscar" type="Submit">Ingresar</button></li>
-	            	<p>Id Usuario: <strong>${usuarioBuscado.nombre} - ${usuarioBuscado.id}</strong></p>
-	            
+	            <li><a href="#viviendasNuevas">Nuevas</a></li>
+            	<c:choose>
+				    <c:when test="${usuarioBuscado.id == null}">
+				        <li class="get-started"><button class="btn btn-buscar" type="Submit">Ingresar</button></li>
+				        <br />
+				    </c:when>    
+				    <c:otherwise>
+				        <li class="get-started"><button class="btn btn-buscar" type="Submit">Mi Perfil</button></li>
+				        <br />
+				    </c:otherwise>
+				</c:choose>	            
 	          </ul>
 	        </nav><!-- .nav-menu -->
         </form:form>
@@ -175,16 +180,15 @@
 		
         <div class="row" data-aos="fade-up" data-aos-delay="100">
 			<form:form action="filtro-propiedad" method="POST" modelAttribute="propiedadFiltro" class="col-lg-12">			         
-				<div class="row justify-content-center">
-					
-					<!-- div class="col-lg-5">
+				<div class="row justify-content-center">					
+					 <div class="col-lg-5">
 						<form:select path="condicion" id="condicion" type="text" class="form-control">
 							<form:option value="">Seleccione condición de la vivienda</form:option>
 							<form:option value="todo">Todas</form:option>
 			    			<form:option value="venta">En venta</form:option>
 			    			<form:option value="alquiler">En alquiler</form:option>
 						</form:select>
-					</div-->
+					</div>
 					<div class="col-lg-3" id="btnBusquedaComun">
 						<button  class="btn btn-buscar" Type="Submit">Buscar</button>
 					</div>					
