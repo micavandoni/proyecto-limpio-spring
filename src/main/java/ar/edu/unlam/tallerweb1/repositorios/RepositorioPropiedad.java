@@ -5,6 +5,7 @@ import java.util.List;
 
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 
 public interface RepositorioPropiedad {
@@ -14,5 +15,6 @@ public interface RepositorioPropiedad {
     List<Propiedad> consultarNuevasPropiedades();
     void favPropiedad(Favorito favorito);
     List listaContadores();
+    List<Propiedad> propiedadesFavoritas(Usuario usuario);
 
 }

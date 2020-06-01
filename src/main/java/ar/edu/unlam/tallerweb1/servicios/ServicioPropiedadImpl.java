@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.servicios;
 import java.util.ArrayList;
 import java.util.List;
 
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -48,6 +49,10 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	public List listaContadores() {
 		return repositorioPropiedad.listaContadores();
 	}
-	
-	
+
+	@Override
+	public List<Propiedad> propiedadesFavoritas(Usuario usuario){
+		return  repositorioPropiedad.propiedadesFavoritas(usuario);}
+
+
 }
