@@ -179,8 +179,7 @@
 
 					<div class="col-lg-5">
 						<form:select path="condicion" id="condicion" type="text" class="form-control">
-							<form:option value="">Seleccione condición de la vivienda</form:option>
-							<form:option value="todo">Todas</form:option>
+							<form:option value="null">Todas</form:option>
 			    			<form:option value="venta">En venta</form:option>
 			    			<form:option value="alquiler">En alquiler</form:option>
 						</form:select>
@@ -203,8 +202,7 @@
 								<label>Ambientes</label>
 
 								<form:select path="ambiente" id="ambiente" type="text" class="form-control">
-									<form:option value="">Seleccione cantidad de ambientes</form:option>
-									<form:option value="todo">Todas</form:option>
+									<form:option value="null">Todas</form:option>
 					    			<form:option value="monoambiente">Monoambiente</form:option>
 					    			<form:option value="dos ambientes">2 Ambientes</form:option>
 					    			<form:option value="tres ambientes">3 Ambientes</form:option>
