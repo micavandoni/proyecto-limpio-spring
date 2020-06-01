@@ -13,7 +13,7 @@ public class Favorito {
 	private Long idUsuario;
 
 	@ManyToOne
-	// private Usuario usuario = new Usuario();
+	private Usuario usuario = new Usuario();
 
 	public Long getId() {
 		return id;

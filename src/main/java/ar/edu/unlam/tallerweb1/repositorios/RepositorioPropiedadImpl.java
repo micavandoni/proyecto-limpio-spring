@@ -8,6 +8,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -137,4 +139,19 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		return listaCounts;
 	}
 
+	@Override
+	public List<Propiedad> propiedadesFavoritas (Usuario usuario){
+
+    	final Session session = sessionFactory.getCurrentSession();
+    	Criteria cri = session.createCriteria(Favorito.class,"favorito");
+    	cri.add(Restrictions.eq("idUsuario", usuario.getId()));
+    	List<Favorito> listaFavorito = cri.list();
+
+		List<Propiedad> listaFavoritos = session.createCriteria(Propiedad.class)
+
+				.createAlias("favorito.idPropiedad","fav")
+				.add(Restrictions.eq("fav.idUsuario", usuario.getId())).list();
+
+			return listaFavoritos;
+	}
 }
