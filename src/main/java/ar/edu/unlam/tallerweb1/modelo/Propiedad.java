@@ -17,7 +17,10 @@ public class Propiedad {
     private String provincia;
     private String condicion;
     private String imagenUrl;
-    private String ambiente;
+	private String ambiente;
+    private Long precioMin;
+    private Long precioMax;
+
     @Basic
     private java.sql.Date fechaPublicada;
 
@@ -110,4 +113,20 @@ public class Propiedad {
     public void setFechaPublicada(Date fechaPublicada) {
         this.fechaPublicada = fechaPublicada;
     }
+    
+    public Long getPrecioMin() {
+		return precioMin;
+	}
+
+	public void setPrecioMin(Long precioMin) {
+		this.precioMin = precioMin;
+	}
+
+	public Long getPrecioMax() {
+		return precioMax;
+	}
+
+	public void setPrecioMax(Long precioMax) {
+		this.precioMax = precioMax;
+	}
 }

@@ -61,10 +61,14 @@ public class ControladorPropiedad {
         Propiedad propiedadFiltro = new Propiedad();        
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propiedad);
         MiControlador favorito = new MiControlador();
+        List listaContadores = servicioPropiedad.listaContadores();
+        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
         
+        model.put("propiedadNueva", listaPropiedades);
         model.put("propiedadFiltro", propiedadFiltro);
         model.put("propiedad", listaPropiedad);       
         model.put("favorito", favorito);
+        model.put("contadores", listaContadores);
         
         return new ModelAndView("propiedad", model);
     }
@@ -93,6 +97,7 @@ public class ControladorPropiedad {
         Favorito favorito2 = new Favorito();
         List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
+        List listaContadores = servicioPropiedad.listaContadores();
         
         favorito2.setIdPropiedad(favoritoSeleccionado.idPropiedad);
         favorito2.setIdUsuario(favoritoSeleccionado.idUsuario);        
@@ -103,6 +108,7 @@ public class ControladorPropiedad {
         model.put("propiedad", listaPropiedad);
         model.put("favorito", favorito2);
         model.put("propiedadFiltro", propiedadFiltro);
+        model.put("contadores", listaContadores);
         
         return new ModelAndView("propiedad", model);
     }
