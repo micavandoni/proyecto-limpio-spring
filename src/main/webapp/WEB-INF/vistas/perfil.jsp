@@ -63,10 +63,21 @@
 	              <div class="section-title" data-aos="fade-left">
 	                  <h2>Viviendas Favoritas</h2>
 	              </div>
-	              <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">
-	                  
-	              </div>
-	
+	              <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">	                  
+	                  <c:forEach items= "${propiedadesFavs}" var="propiedad">	    	
+					    	<div class="col-lg-4 col-md-6 portfolio-item filter-web" style="position: absolute; left: 380px; top: 0px;">
+					            <div class="portfolio-wrap">
+					              <img src="img/portfolio/${propiedad.imagenUrl}" class="img-fluid" alt="">
+					              
+					              <div class="portfolio-info">
+					                <h4>${propiedad.ambiente}, ${propiedad.detalle}</h4>
+					                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
+					                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>
+					                	             
+					            </div>
+					         </div>					    
+					  </c:forEach>
+	              </div>	
 	          </div>
 	      </section><!-- End Portfolio Section -->
 		 </main>

@@ -140,18 +140,23 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public List<Propiedad> propiedadesFavoritas (Usuario usuario){
-
-    	final Session session = sessionFactory.getCurrentSession();
-    	Criteria cri = session.createCriteria(Favorito.class,"favorito");
-    	cri.add(Restrictions.eq("idUsuario", usuario.getId()));
-    	List<Favorito> listaFavorito = cri.list();
-
-		List<Propiedad> listaFavoritos = session.createCriteria(Propiedad.class)
-
-				.createAlias("favorito.idPropiedad","fav")
-				.add(Restrictions.eq("fav.idUsuario", usuario.getId())).list();
-
-			return listaFavoritos;
+	public List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos) {
+		
+		List<Propiedad> listaPropiedades = new ArrayList<Propiedad>();
+		
+		final Session session = sessionFactory.getCurrentSession();
+    	Criteria cri = session.createCriteria(Propiedad.class);
+    	
+		for (Favorito favorito : listaFavoritos) {
+			Propiedad propiedad = new Propiedad();
+			propiedad = (Propiedad)cri.add(Restrictions.eq("id", favorito.getIdPropiedad())).uniqueResult();
+			listaPropiedades.add(propiedad);
+		}	
+	
+		
+		return listaPropiedades;
 	}
+	
+	
+
 }

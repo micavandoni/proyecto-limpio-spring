@@ -246,10 +246,15 @@
 		              <div class="portfolio-info">
 		                <h4>${propiedad.ambiente}, ${propiedad.detalle}</h4>
 		                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
-		                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>	     
-		                <button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px;">Agregar a Fav&nbsp&nbsp<i class="icofont-star"></i></button>           
-		              </div>
-		              
+		                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>
+		                <c:choose>
+						    <c:when test="${usuarioBuscado.id == null}">
+						    </c:when>    
+						    <c:otherwise>
+						       <button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px;">Agregar a Fav&nbsp&nbsp<i class="icofont-star"></i></button> 
+						    </c:otherwise>
+						</c:choose>				                          
+		              </div>		              
 		              <input id="idPropiedad" name="idPropiedad" type="hidden" value="${propiedad.id}">
 		              <input id="idUsuario" name="idUsuario" type="hidden" value="${usuarioBuscado.id}">		             
 		            </div>

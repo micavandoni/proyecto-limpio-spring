@@ -49,10 +49,11 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	public List listaContadores() {
 		return repositorioPropiedad.listaContadores();
 	}
-
+	
 	@Override
-	public List<Propiedad> propiedadesFavoritas(Usuario usuario){
-		return  repositorioPropiedad.propiedadesFavoritas(usuario);}
+	public List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos) {
+		return repositorioPropiedad.propiedadesFavoritasDeUnUsuario(listaFavoritos);
+	};
 
 
 }

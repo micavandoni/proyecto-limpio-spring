@@ -8,12 +8,10 @@ public class Favorito {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long idPropiedad;
-	
-
 	private Long idUsuario;
 
-	@ManyToOne
-	private Usuario usuario = new Usuario();
+	//@ManyToOne
+	//private Usuario usuario = new Usuario();
 
 	public Long getId() {
 		return id;

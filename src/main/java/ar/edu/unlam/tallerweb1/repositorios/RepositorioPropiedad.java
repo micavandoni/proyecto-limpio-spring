@@ -15,6 +15,5 @@ public interface RepositorioPropiedad {
     List<Propiedad> consultarNuevasPropiedades();
     void favPropiedad(Favorito favorito);
     List listaContadores();
-    List<Propiedad> propiedadesFavoritas(Usuario usuario);
-
+    List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos);
 }

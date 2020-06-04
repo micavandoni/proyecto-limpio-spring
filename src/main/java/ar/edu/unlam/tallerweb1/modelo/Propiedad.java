@@ -1,120 +1,126 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
 public class Propiedad {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String tipo;
-    private Long precio;
-    private String direccion;
-    private String detalle;
-    private String localidad;
-    private String provincia;
-    private String condicion;
-    private String imagenUrl;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String tipo;
+	private Long precio;
+	private String direccion;
+	private String detalle;
+	private String localidad;
+	private String provincia;
+	private String condicion;
+	private String imagenUrl;
 	private String ambiente;
-    private Long precioMin;
-    private Long precioMax;
+	private Long precioMin;
+	private Long precioMax;
 
-    @Basic
-    private java.sql.Date fechaPublicada;
+	//@ManyToMany(mappedBy = "propFav")
+	//List<Usuario> fans = new ArrayList<Usuario>();
 
-    public Propiedad(){};
+	@Basic
+	private java.sql.Date fechaPublicada;
 
-    public Long getId() {
-        return id;
-    }
+	public Propiedad() {
+	};
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getTipo() {
-        return tipo;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
+	public String getTipo() {
+		return tipo;
+	}
 
-    public Long getPrecio() {
-        return precio;
-    }
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 
-    public void setPrecio(Long precio) {
-        this.precio = precio;
-    }
+	public Long getPrecio() {
+		return precio;
+	}
 
-    public String getDireccion() {
-        return direccion;
-    }
+	public void setPrecio(Long precio) {
+		this.precio = precio;
+	}
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
+	public String getDireccion() {
+		return direccion;
+	}
 
-    public String getDetalle() {
-        return detalle;
-    }
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
 
-    public void setDetalle(String detalle) {
-        this.detalle = detalle;
-    }
+	public String getDetalle() {
+		return detalle;
+	}
 
-    public String getLocalidad() {
-        return localidad;
-    }
+	public void setDetalle(String detalle) {
+		this.detalle = detalle;
+	}
 
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
-    }
+	public String getLocalidad() {
+		return localidad;
+	}
 
-    public String getProvincia() {
-        return provincia;
-    }
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
-    }
+	public String getProvincia() {
+		return provincia;
+	}
 
-    public String getCondicion() {
-        return condicion;
-    }
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
 
-    public void setCondicion(String condicion) {
-        this.condicion = condicion;
-    }
+	public String getCondicion() {
+		return condicion;
+	}
 
-    public String getImagenUrl() {
-        return imagenUrl;
-    }
+	public void setCondicion(String condicion) {
+		this.condicion = condicion;
+	}
 
-    public void setImagenUrl(String imagenUrl) {
-        this.imagenUrl = imagenUrl;
-    }
-    
-    public String getAmbiente() {
-        return ambiente;
-    }
+	public String getImagenUrl() {
+		return imagenUrl;
+	}
 
-    public void setAmbiente(String ambiente) {
-        this.ambiente = ambiente;
-    }
+	public void setImagenUrl(String imagenUrl) {
+		this.imagenUrl = imagenUrl;
+	}
 
-    public Date getFechaPublicada() {
-        return fechaPublicada;
-    }
+	public String getAmbiente() {
+		return ambiente;
+	}
 
-    public void setFechaPublicada(Date fechaPublicada) {
-        this.fechaPublicada = fechaPublicada;
-    }
-    
-    public Long getPrecioMin() {
+	public void setAmbiente(String ambiente) {
+		this.ambiente = ambiente;
+	}
+
+	public Date getFechaPublicada() {
+		return fechaPublicada;
+	}
+
+	public void setFechaPublicada(Date fechaPublicada) {
+		this.fechaPublicada = fechaPublicada;
+	}
+
+	public Long getPrecioMin() {
 		return precioMin;
 	}
 
@@ -129,4 +135,16 @@ public class Propiedad {
 	public void setPrecioMax(Long precioMax) {
 		this.precioMax = precioMax;
 	}
+
+//	public List<Usuario> getFans() {
+//		return fans;
+//	}
+//
+//	public void setFans(List<Usuario> fans) {
+//		this.fans = fans;
+//	}
+//
+//	public void agregarFan(Usuario usuario) {
+//		this.fans.add(usuario);
+//	}
 }

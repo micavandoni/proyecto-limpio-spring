@@ -1,13 +1,13 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
-import ar.edu.unlam.tallerweb1.modelo.Propiedad;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
-
 import java.util.List;
+
+import ar.edu.unlam.tallerweb1.modelo.Favorito;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 public interface ServicioFavorito {
 
 
-    List <Propiedad> propiedadesFavoritas(Usuario usuario);
+    List <Favorito> propiedadesFavoritas(Usuario usuario);
 
 }
