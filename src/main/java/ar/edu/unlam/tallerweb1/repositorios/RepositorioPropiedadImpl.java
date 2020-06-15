@@ -5,11 +5,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import javax.annotation.PostConstruct;
+
 import javax.inject.Inject;
 
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -17,7 +15,6 @@ import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
@@ -32,9 +29,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
     public List<Propiedad> consultarPropiedad() {
 
         final Session session = sessionFactory.getCurrentSession();
-
         List<Propiedad> listaPropiedad = session.createCriteria(Propiedad.class).list();
-
         return listaPropiedad;
     }
     
@@ -43,21 +38,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	public List<Propiedad> consultarPropiedadFilter(Propiedad propiedad) {
 		
 		final Session session = sessionFactory.getCurrentSession();
-		
 		List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
-		
 		Criteria crit = session.createCriteria(Propiedad.class);
 		
 		Long min=0L;
 		Long max=0L;
-		
-		if(propiedad.getCondicion().equalsIgnoreCase("null")) {
-			propiedad.setCondicion(null);	
-		}
-		if(propiedad.getAmbiente().equalsIgnoreCase("null")) {
-			propiedad.setAmbiente(null);
-			
-		}
+
+
 		if(propiedad.getPrecioMin()!=null && propiedad.getPrecioMax()!=null) {
 			min = propiedad.getPrecioMin();
 			propiedad.setPrecioMin(null);
@@ -69,24 +56,22 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 								.add(Restrictions.between("precio", min, max)).list();	
 		}
 		else if(propiedad.getPrecioMin()==null && propiedad.getPrecioMax()!=null) {
-					min = propiedad.getPrecioMax();
-					propiedad.setPrecioMax(null);
-					
-					listaPropiedad = crit.add(Example.create(propiedad))
-							.add(Restrictions.gt("precio",max)).list();	
+				min = propiedad.getPrecioMax();
+				propiedad.setPrecioMax(null);
+				
+				listaPropiedad = crit.add(Example.create(propiedad))
+						.add(Restrictions.gt("precio",max)).list();	
 					
 				}
 		else if(propiedad.getPrecioMin()!=null && propiedad.getPrecioMax()==null) {
-			min = propiedad.getPrecioMin();
-			propiedad.setPrecioMin(null);
-			
-			listaPropiedad = crit.add(Example.create(propiedad))
-					.add(Restrictions.lt("precio",min)).list();	
-			
-		}else
-		{
-			listaPropiedad = crit.add(Example.create(propiedad)).list();	
-		}		
+				min = propiedad.getPrecioMin();
+				propiedad.setPrecioMin(null);
+				
+				listaPropiedad = crit.add(Example.create(propiedad))
+						.add(Restrictions.lt("precio",min)).list();	
+			}else{
+					listaPropiedad = crit.add(Example.create(propiedad)).list();	
+				}		
 
 		return listaPropiedad;
 	}
@@ -95,7 +80,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	@Override
 	public List<Propiedad> consultarNuevasPropiedades(){
 		Calendar fechaActual = Calendar.getInstance();
-		int dias = -10;
+		int dias = -20;
 		fechaActual.add(Calendar.DAY_OF_YEAR, dias);
 		Date fechaDesde = fechaActual.getTime();
 

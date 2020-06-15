@@ -1,14 +1,5 @@
 package ar.edu.unlam.tallerweb1.persistencia;
-import ar.edu.unlam.tallerweb1.SpringTest;
-import ar.edu.unlam.tallerweb1.modelo.Propiedad;
-
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.transaction.annotation.Transactional;
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import java.text.ParseException;
@@ -20,6 +11,14 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
+
+import ar.edu.unlam.tallerweb1.SpringTest;
+import ar.edu.unlam.tallerweb1.modelo.Propiedad;
 
 public class PropiedadesTest extends SpringTest{
 	
@@ -36,7 +35,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1=new Propiedad();
 		prop2=new Propiedad();
 		prop3=new Propiedad();
-		//pepe= new Usuario();
+
 		session = session();
 		listaPropiedades = new ArrayList<Propiedad>();
 		listaPropiedadesNuevas = new ArrayList<Propiedad>();
@@ -98,6 +97,7 @@ public class PropiedadesTest extends SpringTest{
 			p.getDireccion();
 		}
 	}
+	
 	@Test
     @Transactional @Rollback
     //TodasLasPropiedades
@@ -153,6 +153,7 @@ public class PropiedadesTest extends SpringTest{
 			assertTrue(20000L<p.getPrecio());
 		}
 	}
+	
 	@Test
     @Transactional @Rollback
     //TodasLasPropiedades
@@ -170,9 +171,6 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
 		prop1.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-02-28"));
-
-		
-		
 		
 		prop2.setTipo("casa");
 		prop2.setPrecio(26000L);
@@ -215,6 +213,7 @@ public class PropiedadesTest extends SpringTest{
 		assertThat(listaPropiedadesNuevas).hasSize(2);
 		
 	}
+	
 	@Test
     @Transactional @Rollback
     //TodasLasPropiedades

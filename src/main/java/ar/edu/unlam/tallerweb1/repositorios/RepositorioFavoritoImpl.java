@@ -1,20 +1,18 @@
 package ar.edu.unlam.tallerweb1.repositorios;
 
 
-import ar.edu.unlam.tallerweb1.modelo.Favorito;
-import ar.edu.unlam.tallerweb1.modelo.Propiedad;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
 import javax.inject.Inject;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
+
+import ar.edu.unlam.tallerweb1.modelo.Favorito;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Repository("RepositorioFavorito")
 

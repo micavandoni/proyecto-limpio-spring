@@ -53,7 +53,6 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	@Override
 	public List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos) {
 		return repositorioPropiedad.propiedadesFavoritasDeUnUsuario(listaFavoritos);
-	};
-
+	}
 
 }

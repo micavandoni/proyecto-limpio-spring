@@ -214,9 +214,13 @@
 								<div class="input-group">
 								  <div class="input-group-prepend">
 								  </div>
-								  <form:input path="precio" type="number" class="form-control" placeholder="Mínimo"></form:input>
-								  <form:input path="precio" type="number" class="form-control" placeholder="Máximo"></form:input>
+								  <form:input path="precioMin" type="number" class="form-control" placeholder="Mínimo"></form:input>
+								  <form:input path="precioMax" type="number" class="form-control" placeholder="Máximo"></form:input>
 								</div>
+								<c:if test="${not empty error}">
+									<h4><span>${error}</span></h4>
+									<br>
+								</c:if>	
 							</div>
 						</div>
 					</div>

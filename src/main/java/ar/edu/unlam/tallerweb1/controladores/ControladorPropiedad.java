@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,19 +33,11 @@ public class ControladorPropiedad {
     public ModelAndView propiedades(){
     	
         ModelMap model = new ModelMap();
-        
-        Propiedad propiedadFiltro = new Propiedad();
-        MiControlador favorito = new MiControlador();
-        
+               
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
-        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
-        List listaContadores = servicioPropiedad.listaContadores();
-        
-        model.put("propiedadNueva", listaPropiedades);
         model.put("propiedad", listaPropiedad);
-        model.put("propiedadFiltro", propiedadFiltro);
-        model.put("favorito", favorito);
-        model.put("contadores", listaContadores);
+   
+        loadGenericModel(model);
         
         return new ModelAndView("propiedad", model);
     }
@@ -53,18 +46,23 @@ public class ControladorPropiedad {
     public ModelAndView filtraPropiedades(@ModelAttribute("propiedad") Propiedad propiedad, HttpServletRequest request){
     	
         ModelMap model = new ModelMap();
-        
-        Propiedad propiedadFiltro = new Propiedad();        
-        List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propiedad);
-        MiControlador favorito = new MiControlador();
-        List listaContadores = servicioPropiedad.listaContadores();
-        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
-        
-        model.put("propiedadNueva", listaPropiedades);
-        model.put("propiedadFiltro", propiedadFiltro);
+
+        List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
+
+		try {
+			condicionValida(propiedad);
+			validarRango(propiedad);
+			listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propiedad);
+			
+		} catch (Exception e) {
+			model.put("error", e.getMessage());
+		}
+
         model.put("propiedad", listaPropiedad);       
-        model.put("favorito", favorito);
-        model.put("contadores", listaContadores);
+        loadGenericModel(model);
+        
+		HttpSession session = request.getSession();			
+		session.setAttribute("filtroSel", propiedad);
         
         return new ModelAndView("propiedad", model);
     }
@@ -89,46 +87,61 @@ public class ControladorPropiedad {
     	
     	ModelMap model = new ModelMap();
     	
-        Propiedad propiedadFiltro = new Propiedad();
-        Favorito favorito2 = new Favorito();
-        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
-        List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
-        List listaContadores = servicioPropiedad.listaContadores();
+        Favorito favoritoSel = new Favorito();
+        List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
+
+        favoritoSel.setIdPropiedad(favoritoSeleccionado.idPropiedad);
+        favoritoSel.setIdUsuario(favoritoSeleccionado.idUsuario);        
         
-        favorito2.setIdPropiedad(favoritoSeleccionado.idPropiedad);
-        favorito2.setIdUsuario(favoritoSeleccionado.idUsuario);        
+        servicioPropiedad.favPropiedad(favoritoSel);    
         
-        servicioPropiedad.favPropiedad(favorito2);        
+    	if (session.getAttribute("filtroSel") != null) {
+    		Propiedad propFiltro = new Propiedad();
+    		propFiltro = (Propiedad)session.getAttribute("filtroSel");
+    		listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propFiltro);
+    		model.put("propiedad", listaPropiedad); 
+    	} 
         
-        model.put("propiedadNueva", listaPropiedades);        
-        model.put("propiedad", listaPropiedad);
-        model.put("favorito", favorito2);
-        model.put("propiedadFiltro", propiedadFiltro);
-        model.put("contadores", listaContadores);
+       
+        loadGenericModel(model);
         
         return new ModelAndView("propiedad", model);
     }
-
+    
+    private void loadGenericModel(ModelMap model) {
+    	
+        Propiedad propiedadFiltro = new Propiedad();
+        MiControlador favorito = new MiControlador();
+        
+        List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
+        List listaContadores = servicioPropiedad.listaContadores();
+        
+        model.put("propiedadNueva", listaPropiedades);
+        model.put("propiedadFiltro", propiedadFiltro);
+        model.put("favorito", favorito);
+        model.put("contadores", listaContadores);
+    	
+    }
+    
+    private void condicionValida(Propiedad propiedad) {
+    	
+		if(propiedad.getCondicion().equalsIgnoreCase("null")) {
+			propiedad.setCondicion(null);	
+		}
+		if(propiedad.getAmbiente().equalsIgnoreCase("null")) {
+			propiedad.setAmbiente(null);
+		}
+    	
+    }
+    
+    public void validarRango(Propiedad propiedad) throws Exception {
+    	
+		if(propiedad.getPrecioMin()!=null && propiedad.getPrecioMax()!=null) {
+			if(propiedad.getPrecioMin() > propiedad.getPrecioMax()) {
+				
+				throw new RuntimeException("Precio Maximo debe ser mayor a Precio Minimo!!!");
+			}
+			
+		}
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

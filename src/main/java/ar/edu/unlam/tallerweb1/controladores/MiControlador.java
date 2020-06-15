@@ -6,8 +6,6 @@ public class MiControlador {
 	public Long idUsuario;
 	
 	
-	
-	
 	public Long getIdPropiedad() {
 		return idPropiedad;
 	}
