@@ -1,16 +1,25 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-//import java.sql.Date;
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "Propiedad")
+@Table(name = "Propiedad")
 public class Propiedad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idPropiedad", updatable = false, nullable = false)
 	private Long id;
 	@ManyToOne
 	private TipoPropiedad tipoPropiedad;
@@ -24,15 +33,36 @@ public class Propiedad {
 	private String ambiente;
 	private Long precioMin;
 	private Long precioMax;
-
-	//@ManyToMany(mappedBy = "propFav")
-	//List<Usuario> fans = new ArrayList<Usuario>();
-
 	@Basic
 	private Date fechaPublicada;
 
+    @ManyToMany(mappedBy = "propiedades")
+    //private List<Usuario> usuarios = new ArrayList<Usuario>();
+    private Set<Usuario> usuarios = new HashSet<>();
+    
+
+	@Override
+	public int hashCode() {
+		return 31;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Propiedad)) return false;
+        return id != null && id.equals(((Propiedad) obj).getId());
+	}
+
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+	
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
 	public Propiedad() {
-	};
+	}
 
 	public Long getId() {
 		return id;

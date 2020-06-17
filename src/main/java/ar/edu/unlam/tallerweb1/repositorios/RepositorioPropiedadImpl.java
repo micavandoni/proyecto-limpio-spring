@@ -4,8 +4,10 @@ package ar.edu.unlam.tallerweb1.repositorios;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import java.util.Set;
 import javax.inject.Inject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,6 +22,9 @@ import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import ar.edu.unlam.tallerweb1.clases.Generico;
+import ar.edu.unlam.tallerweb1.modelo.Propiedad;
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Repository("RepositorioPropiedad")
 
@@ -106,9 +111,21 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public void favPropiedad(Favorito favorito) {		
-		Session session = sessionFactory.openSession();		
-		long id = (Long) session.save(favorito);		
+	public void guardarFavoritoSeleccionado(Generico favoritoSeleccionado) {	
+		
+		Usuario usuario = new Usuario();
+		usuario.setId(favoritoSeleccionado.getIdUsuario());
+		
+		final Session session = sessionFactory.getCurrentSession();
+		Propiedad propiedad = new Propiedad();
+		Criteria crit = session.createCriteria(Propiedad.class);
+		
+		propiedad = (Propiedad)crit.add(Restrictions.eq("id",favoritoSeleccionado.getIdPropiedad())).uniqueResult();
+		
+		usuario.addPropiedad(propiedad);
+		
+		session.save(usuario);
+		
 	}
 
 	@Override
@@ -147,21 +164,20 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos) {
+	public List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {
 		
-		List<Propiedad> listaPropiedades = new ArrayList<Propiedad>();
+		//List<Propiedad> listaPropiedades = new ArrayList<Propiedad>();
+		
+		Set<Propiedad> listaPropiedades = new HashSet<>();
 		
 		final Session session = sessionFactory.getCurrentSession();
-    	Criteria cri = session.createCriteria(Propiedad.class);
+    	Criteria cri = session.createCriteria(Usuario.class);
+    	    
+    	Usuario usr = (Usuario)cri.add(Restrictions.eq("id", usuario.getId())).uniqueResult();
     	
-		for (Favorito favorito : listaFavoritos) {
-			Propiedad propiedad = new Propiedad();
-			propiedad = (Propiedad)cri.add(Restrictions.eq("id", favorito.getIdPropiedad())).uniqueResult();
-			listaPropiedades.add(propiedad);
-		}	
+    	listaPropiedades = usr.getPropiedades();
 	
-		
-		return listaPropiedades;
+	return null;
 	}
 
 	@Override
