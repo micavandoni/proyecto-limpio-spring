@@ -1,7 +1,8 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.sql.Date;
+//import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -38,7 +39,7 @@ public class Propiedad {
 	}
 
 	@Basic
-	private java.sql.Date fechaPublicada;
+	private Date fechaPublicada;
 
 	public Propiedad() {
 	};
@@ -123,12 +124,14 @@ public class Propiedad {
 		this.ambiente = ambiente;
 	}
 
+	
+
 	public Date getFechaPublicada() {
 		return fechaPublicada;
 	}
 
-	public void setFechaPublicada(Date fechaPublicada) {
-		this.fechaPublicada = fechaPublicada;
+	public void setFechaPublicada(Date date) {
+		this.fechaPublicada = date;
 	}
 
 	public Long getPrecioMin() {
@@ -146,6 +149,8 @@ public class Propiedad {
 	public void setPrecioMax(Long precioMax) {
 		this.precioMax = precioMax;
 	}
+
+	
 
 //	public List<Usuario> getFans() {
 //		return fans;
