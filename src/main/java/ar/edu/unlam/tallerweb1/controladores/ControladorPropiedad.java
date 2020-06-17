@@ -144,4 +144,11 @@ public class ControladorPropiedad {
 			
 		}
     }
+
+    @RequestMapping(path = "/crear", method = RequestMethod.GET)
+    public ModelAndView crear() {
+        servicioPropiedad.crearEventos();
+        return new ModelAndView("redirect:/login");
+    }
+
 }

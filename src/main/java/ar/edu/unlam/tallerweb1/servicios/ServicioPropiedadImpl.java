@@ -55,4 +55,14 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 		return repositorioPropiedad.propiedadesFavoritasDeUnUsuario(listaFavoritos);
 	}
 
+	@Override
+	public boolean crearEventos(){
+		try{
+			repositorioPropiedad.crearEventos();
+			return true;
+		}catch (Exception e){
+			return false;
+		}
+	}
+
 }

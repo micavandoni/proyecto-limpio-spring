@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 
 	<!--Se indica cual es la fuente de datos de la aplicación, es decir donde está y que usuario y password -->
@@ -11,13 +11,13 @@
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/db?serverTimezone=UTC" />
 		<property name="username" value="root" />
-		<property name="password" value="root" />
+		<property name="password" value="0000" />
 	</bean>
-	
+
 	<!--Configuracion de la factory encargada de generar las sesiones con la base de datos, la misma -->
 	<!--usa el data source configurado antes-->
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		  class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- Properties -->
 		<property name="hibernateProperties">
@@ -50,7 +50,7 @@
 
 	<!--Se declara el transaction manager de la aplicacion asociado con la db configurada antes-->
 	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		  class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 </beans>

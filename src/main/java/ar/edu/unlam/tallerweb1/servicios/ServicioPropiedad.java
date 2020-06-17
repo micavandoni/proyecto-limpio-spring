@@ -13,4 +13,5 @@ public interface ServicioPropiedad {
     void favPropiedad(Favorito favorito);
     List listaContadores();
     List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos);
+    boolean crearEventos();
 }

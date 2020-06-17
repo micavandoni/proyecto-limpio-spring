@@ -12,7 +12,8 @@ public class Propiedad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String tipo;
+	@ManyToOne
+	private TipoPropiedad tipoPropiedad;
 	private Long precio;
 	private String direccion;
 	private String detalle;
@@ -41,12 +42,12 @@ public class Propiedad {
 		this.id = id;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public TipoPropiedad getTipoPropiedad() {
+		return tipoPropiedad;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipoPropiedad(TipoPropiedad tipoPropiedad) {
+		this.tipoPropiedad = tipoPropiedad;
 	}
 
 	public Long getPrecio() {

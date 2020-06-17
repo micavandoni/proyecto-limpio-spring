@@ -1,5 +1,6 @@
 package ar.edu.unlam.tallerweb1.repositorios;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,4 +17,5 @@ public interface RepositorioPropiedad {
     void favPropiedad(Favorito favorito);
     List listaContadores();
     List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos);
+    void crearEventos();
 }
