@@ -24,27 +24,30 @@
 	          <div class="col-md-7">
 	            <div class="card-body">
 	              <h1 style="color:#009970"><span>HouseHolds</span></h1>	              
-	              <p class="login-card-description">Ingresar a tu cuenta</p>
-	              <form:form action="validar-login" method="POST" modelAttribute="usuario">
+	              <p class="login-card-description">Registro</p>
+	              <form:form action="registrar" method="POST" modelAttribute="usuario">
+	              	<div class="form-group">
+	                    <label for="nombre" class="sr-only">Nombre</label>
+	                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre">
+	                  </div>
 	                  <div class="form-group">
 	                    <label for="email" class="sr-only">Email</label>
 	                    <input type="email" name="email" id="email" class="form-control" placeholder="Email">
 	                  </div>
 	                  <div class="form-group mb-4">
 	                    <label for="password" class="sr-only">Contraseña</label>
-	                    <input type="password" name="password" id="password" class="form-control" placeholder="***********">
+	                    <input type="password" name="password" id="password" onchange="validarContrasenia()" class="form-control" placeholder="Contraseña">
 	                  </div>
-	                  <input name="login" id="login" class="btn btn-block login-btn mb-4" type="Submit" value="Ingresar">
-	                </form:form>
-	                <%--Bloque que es visible si el elemento error no estÃ¡ vacÃ­o	--%>
-					<c:if test="${not empty error}">
-				        <h4><span>${error}</span></h4>
-				        <br>
-			        </c:if>	
-	                <form:form action="registro" method="GET">
-				        <a href="#!" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
-		                <p class="login-card-footer-text">¿No tienes una cuenta? <button type="Submit" class="">Regístrate Aquí</a></button>  
-			        </form:form>              
+	                  <div class="form-group mb-4">
+	                    <label for="repetirPassword" class="sr-only">Repetir contraseña</label>
+	                    <input type="password" name="repetirPassword" id="repetirPassword" onchange="validarContrasenia()" class="form-control" placeholder="Repita la contraseña">
+	                  </div>
+	                  <div class="form-group mb-4">
+	                  	<p style="color:red; display:none" id="mensaje">Las contraseñas no coinciden</p>	
+	                  </div>	                
+	                  <input style="display:none" name="registrar" id="registrar" class="btn btn-block login-btn mb-4" type="Submit" value="Confirmar Registro">
+	                </form:form>	        
+	                              
 	            </div>
 	          </div>
 	        </div>
@@ -54,5 +57,6 @@
 	  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	  <script src="js/myjs.js"></script>
 	</body>
 </html>

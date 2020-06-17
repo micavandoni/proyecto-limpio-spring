@@ -55,8 +55,7 @@ public class ControladorLogin {
 		Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
 		if (usuarioBuscado != null) {
 			HttpSession session = request.getSession();			
-			session.setAttribute("usuarioBuscado", usuarioBuscado);
-			
+			session.setAttribute("usuarioBuscado", usuarioBuscado);			
 			request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
 			return new ModelAndView("redirect:/propiedad");
 		} else {
@@ -77,4 +76,27 @@ public class ControladorLogin {
 	public ModelAndView inicio() {
 		return new ModelAndView("redirect:/login");
 	}
+	
+	@RequestMapping(path="/registro", method = RequestMethod.GET)
+	public ModelAndView irARegistro() {
+		return new ModelAndView("registrar");
+	}
+	
+	@RequestMapping(path="/registrar", method = RequestMethod.POST)
+	public ModelAndView registrarse(@ModelAttribute("usuario") Usuario usuario) {
+		
+		Usuario usuarioNuevo = new Usuario();
+		usuarioNuevo.setNombre(usuario.nombre);
+		usuarioNuevo.setEmail(usuario.email);
+		usuarioNuevo.setPassword(usuario.password);
+		
+		servicioLogin.registrarUsuario(usuarioNuevo);
+		
+		return new ModelAndView("redirect:/login");
+	}
+	
+	
+	
+	
+	
 }

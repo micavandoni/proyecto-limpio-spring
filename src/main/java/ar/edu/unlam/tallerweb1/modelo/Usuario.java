@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 // Clase que modela el concepto de Usuario, la anotacion @Entity le avisa a hibernate que esta clase es persistible
 // el paquete ar.edu.unlam.tallerweb1.modelo esta indicado en el archivo hibernateCOntext.xml para que hibernate
@@ -27,13 +28,16 @@ public class Usuario {
 	// default de hibernate: la columna se llama igual que
 	// el atributo, la misma admite nulos, y el tipo de dato se deduce del tipo de
 	// dato de java.
-	private String email;
-	private String password;
-	private String rol;
-	private String nombre;
+	public String email;
+	public String password;
+	public String rol;
+	public String nombre;
 //	@ManyToMany(cascade = { CascadeType.ALL })
 //	@JoinTable(name = "Propiedades_fav", joinColumns = { @JoinColumn(name = "usuario_id") }, inverseJoinColumns = {@JoinColumn(name = "propiedad_id") })
 //	List<Propiedad> propFav = new ArrayList<Propiedad>();
+	
+	@ManyToOne
+	private Favorito favorito;
 
 	public Long getId() {
 		return id;

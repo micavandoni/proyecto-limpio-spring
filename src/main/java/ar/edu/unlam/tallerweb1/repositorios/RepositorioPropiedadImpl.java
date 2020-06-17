@@ -141,6 +141,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 
 	@Override
 	public List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos) {
+	
+	// public List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {	
+		//Criteria c = session.createCriteria(Propiedad.class, "propiedad");
+		//c.createAlias("propiedad.favorito", "favorito"); // inner join by default
+		//c.createAlias("favorito.usuario", "usuario");
+		//c.add(Restrictions.eq("usuario.id", usuario.getId()));
+		//return c.list();
+		
 		
 		List<Propiedad> listaPropiedades = new ArrayList<Propiedad>();
 		

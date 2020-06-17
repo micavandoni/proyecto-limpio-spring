@@ -22,9 +22,20 @@ public class Propiedad {
 	private String ambiente;
 	private Long precioMin;
 	private Long precioMax;
-
+	
+	@ManyToOne
+	private Favorito favorito;
+	
 	//@ManyToMany(mappedBy = "propFav")
 	//List<Usuario> fans = new ArrayList<Usuario>();
+
+	public Favorito getFavorito() {
+		return favorito;
+	}
+
+	public void setFavorito(Favorito favorito) {
+		this.favorito = favorito;
+	}
 
 	@Basic
 	private java.sql.Date fechaPublicada;

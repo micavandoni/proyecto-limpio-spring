@@ -9,7 +9,7 @@ public class Favorito {
 	private Long id;
 	private Long idPropiedad;
 	private Long idUsuario;
-
+	
 	//@ManyToOne
 	//private Usuario usuario = new Usuario();
 
