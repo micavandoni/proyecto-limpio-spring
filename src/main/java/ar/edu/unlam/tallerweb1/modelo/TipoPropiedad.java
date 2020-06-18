@@ -33,4 +33,10 @@ public class TipoPropiedad {
 		this.descripcion = descripcion;
 	}
 
+	public TipoPropiedad() {
+
+	}
+
+
+
 }

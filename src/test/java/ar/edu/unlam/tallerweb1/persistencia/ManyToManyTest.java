@@ -22,7 +22,7 @@ public class ManyToManyTest extends SpringTest{
 	
 	Propiedad prop1 = new Propiedad();
 	
-	prop1.setTipo("1");
+	//prop1.setTipo("1");
 	prop1.setPrecio(24000L);
 	prop1.setDireccion("Bogado 556");
 	prop1.setDetalle("sin detalle");
@@ -36,7 +36,7 @@ public class ManyToManyTest extends SpringTest{
 	
 	Propiedad prop2 = new Propiedad();
 	
-	prop2.setTipo("1");
+	//prop2.setTipo("1");
 	prop2.setPrecio(24000L);
 	prop2.setDireccion("oscuro 556");
 	prop2.setDetalle("sin detalle");
