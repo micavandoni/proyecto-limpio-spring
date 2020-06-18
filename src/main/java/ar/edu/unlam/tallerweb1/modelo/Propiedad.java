@@ -1,18 +1,21 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-//import java.sql.Date;
-import java.util.ArrayList;
+
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "Propiedad")
+@Table(name = "Propiedad")
 public class Propiedad {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idPropiedad", updatable = false, nullable = false)
 	private Long id;
-	private String tipo;
+	@ManyToOne
+	private TipoPropiedad tipoPropiedad;
 	private Long precio;
 	private String direccion;
 	private String detalle;
@@ -50,15 +53,47 @@ public class Propiedad {
 	private String ambiente;
 	private Long precioMin;
 	private Long precioMax;
+	@ManyToOne
+	private Favorito favorito;
+	
 
-	//@ManyToMany(mappedBy = "propFav")
-	//List<Usuario> fans = new ArrayList<Usuario>();
+	public Favorito getFavorito() {
+		return favorito;
+	}
 
+	public void setFavorito(Favorito favorito) {
+		this.favorito = favorito;
+	}
 	@Basic
 	private Date fechaPublicada;
 
+    @ManyToMany(mappedBy = "propiedades")
+    //private List<Usuario> usuarios = new ArrayList<Usuario>();
+    private Set<Usuario> usuarios = new HashSet<>();
+    
+
+	@Override
+	public int hashCode() {
+		return 31;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Propiedad)) return false;
+        return id != null && id.equals(((Propiedad) obj).getId());
+	}
+
+	public Set<Usuario> getUsuarios() {
+		return usuarios;
+	}
+	
+	public void setUsuarios(Set<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
 	public Propiedad() {
-	};
+	}
 
 	public Long getId() {
 		return id;
@@ -68,12 +103,12 @@ public class Propiedad {
 		this.id = id;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public TipoPropiedad getTipoPropiedad() {
+		return tipoPropiedad;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipoPropiedad(TipoPropiedad tipoPropiedad) {
+		this.tipoPropiedad = tipoPropiedad;
 	}
 
 	public Long getPrecio() {

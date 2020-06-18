@@ -13,6 +13,7 @@ public class Inmobiliaria {
 	private Long id;
 	private String nombreInmobiliaria;
 	private String domicilio;
+	private String email;
 	
 	
 	public Long getId() {
@@ -37,5 +38,13 @@ public class Inmobiliaria {
 
 	public void setDomicilio(String domicilio) {
 		this.domicilio = domicilio;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }

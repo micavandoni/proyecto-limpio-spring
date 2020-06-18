@@ -48,7 +48,7 @@ public class PropiedadesTest extends SpringTest{
     //TodasLasPropiedades
     public void testQueListeTodasLasPropiedades() {
 		
-		prop1.setTipo("departamento");
+		//prop1.setTipo("departamento");
 		prop1.setPrecio(24000L);
 		prop1.setDireccion("Bogado 556");
 		prop1.setDetalle("sin detalle");
@@ -60,7 +60,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
 		
-		prop2.setTipo("casa");
+		//prop2.setTipo("casa");
 		prop2.setPrecio(26000L);
 		prop2.setDireccion("Lacar 123");
 		prop2.setDetalle("sin detalle");
@@ -72,7 +72,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setPrecioMin(0L);
 		prop2.setPrecioMax(0L);
 		
-		prop2.setTipo("chalet");
+		//prop2.setTipo("chalet");
 		prop2.setPrecio(23000L);
 		prop2.setDireccion("abcr 123");
 		prop2.setDetalle("sin detalle");
@@ -103,7 +103,7 @@ public class PropiedadesTest extends SpringTest{
     //TodasLasPropiedades
     public void testQueListePropiedadesConValorMenorA20000() {
 		
-		prop1.setTipo("departamento");
+		//prop1.setTipo("departamento");
 		prop1.setPrecio(24000L);
 		prop1.setDireccion("Bogado 556");
 		prop1.setDetalle("sin detalle");
@@ -115,7 +115,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
 		
-		prop2.setTipo("casa");
+		//prop2.setTipo("casa");
 		prop2.setPrecio(26000L);
 		prop2.setDireccion("Lacar 123");
 		prop2.setDetalle("sin detalle");
@@ -127,7 +127,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setPrecioMin(0L);
 		prop2.setPrecioMax(0L);
 		
-		prop2.setTipo("chalet");
+		//prop2.setTipo("chalet");
 		prop2.setPrecio(23000L);
 		prop2.setDireccion("abcr 123");
 		prop2.setDetalle("sin detalle");
@@ -159,7 +159,7 @@ public class PropiedadesTest extends SpringTest{
     //TodasLasPropiedades
     public void testQueTraigaViviendasNuevas() throws ParseException {
 		
-		prop1.setTipo("departamento");
+		//prop1.setTipo("departamento");
 		prop1.setPrecio(24000L);
 		prop1.setDireccion("Bogado 556");
 		prop1.setDetalle("sin detalle");
@@ -171,8 +171,8 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
 		prop1.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-02-28"));
-		
-		prop2.setTipo("casa");
+
+		//prop2.setTipo("casa");
 		prop2.setPrecio(26000L);
 		prop2.setDireccion("Lacar 123");
 		prop2.setDetalle("sin detalle");
@@ -184,8 +184,8 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setPrecioMin(0L);
 		prop2.setPrecioMax(0L);
 		prop2.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-26"));
-		
-		prop3.setTipo("chalet");
+
+		//prop3.setTipo("chalet");
 		prop3.setPrecio(23000L);
 		prop3.setDireccion("abcr 123");
 		prop3.setDetalle("sin detalle");
@@ -197,7 +197,7 @@ public class PropiedadesTest extends SpringTest{
 		prop3.setPrecioMin(0L);
 		prop3.setPrecioMax(0L);
 		prop3.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-02"));
-		
+
 		session.save(prop1);
 		session.save(prop2);
 		session.save(prop3);
@@ -218,7 +218,7 @@ public class PropiedadesTest extends SpringTest{
     @Transactional @Rollback
     //TodasLasPropiedades
     public void testQuePropiedadesDeTipoCasa() {
-		prop1.setTipo("departamento");
+		//prop1.setTipo("departamento");
 		prop1.setPrecio(24000L);
 		prop1.setDireccion("Bogado 556");
 		prop1.setDetalle("sin detalle");
@@ -230,7 +230,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
 		
-		prop2.setTipo("casa");
+		//prop2.setTipo("casa");
 		prop2.setPrecio(26000L);
 		prop2.setDireccion("Lacar 123");
 		prop2.setDetalle("sin detalle");
@@ -242,7 +242,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setPrecioMin(0L);
 		prop2.setPrecioMax(0L);
 		
-		prop3.setTipo("casa");
+		//prop3.setTipo("casa");
 		prop3.setPrecio(23000L);
 		prop3.setDireccion("abcr 123");
 		prop3.setDetalle("sin detalle");
@@ -264,9 +264,9 @@ public class PropiedadesTest extends SpringTest{
 				
 		assertThat(listaPropiedadesTipoCasa).hasSize(2);
 		
-		for(Propiedad p: listaPropiedadesTipoCasa) {
-			Assert.assertEquals(p.getTipo(),"casa");
-		}
+	//	for(Propiedad p: listaPropiedadesTipoCasa) {
+	//		Assert.assertEquals(p.setTipoPropiedad(),"casa");
+	//	}
 		
 	}
 }

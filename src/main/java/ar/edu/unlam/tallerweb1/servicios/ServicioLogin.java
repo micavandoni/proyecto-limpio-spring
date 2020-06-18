@@ -6,4 +6,8 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 public interface ServicioLogin {
 
 	Usuario consultarUsuario(Usuario usuario);
+	
+	void registrarUsuario(Usuario usuario);
+	
+	Usuario consultarUsuarioExistente (Usuario usuario);
 }
