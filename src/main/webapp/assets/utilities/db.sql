@@ -76,3 +76,21 @@ insert into Propiedad (tipo,precio,direccion,localidad,provincia,condicion,detal
     (2, 22,"Quiroga 81","Liniers","CABA", "alquiler","buen estado","casa2.jpg","tres ambientes", date('2020-06-01')),
     (6, 36,"Dorrego 765","Ciudadela","buenos aires", "venta","inversion","casa5.jpg","cuatro ambientes", date('2020-06-01')),
     (6, 50,"Peron 900","Castelar","buenos aires", "venta","estrenar","casa3.jpg","tres ambientes", date('2020-06-01'));
+    
+alter table propiedad 
+add imagenUrl2 varchar(100);
+update  propiedad
+set imagenUrl2= "casa11.jpg"
+where id=1;
+
+alter table propiedad 
+add imagenUrl3 varchar(100);
+update  propiedad
+set imagenUrl3= "casa12.jpg"
+where id=1;
+
+alter table propiedad 
+add imagenUrl4 varchar(100);
+update  propiedad
+set imagenUrl4= "casa13.jpg"
+where id=1;

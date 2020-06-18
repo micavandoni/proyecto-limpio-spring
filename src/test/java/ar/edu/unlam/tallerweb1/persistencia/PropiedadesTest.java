@@ -53,7 +53,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setDireccion("Bogado 556");
 		prop1.setDetalle("sin detalle");
 		prop1.setLocalidad("Rafael Castillo");
-		prop1.setProvincia("BS AS");
+		//prop1.setProvincia("BS AS");
 		prop1.setCondicion("completa");
 		prop1.setImagenUrl("");
 		prop1.setAmbiente("1");
@@ -65,7 +65,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setDireccion("Lacar 123");
 		prop2.setDetalle("sin detalle");
 		prop2.setLocalidad("Rafael Castillo");
-		prop2.setProvincia("BS AS");
+		//prop2.setProvincia("BS AS");
 		prop2.setCondicion("completa");
 		prop2.setImagenUrl("");
 		prop2.setAmbiente("3");
@@ -77,7 +77,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setDireccion("abcr 123");
 		prop2.setDetalle("sin detalle");
 		prop2.setLocalidad("Moron");
-		prop2.setProvincia("BS AS");
+		//prop2.setProvincia("BS AS");
 		prop2.setCondicion("sin patio");
 		prop2.setImagenUrl("");
 		prop2.setAmbiente("4");
@@ -108,7 +108,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setDireccion("Bogado 556");
 		prop1.setDetalle("sin detalle");
 		prop1.setLocalidad("Rafael Castillo");
-		prop1.setProvincia("BS AS");
+		//prop1.setProvincia("BS AS");
 		prop1.setCondicion("completa");
 		prop1.setImagenUrl("");
 		prop1.setAmbiente("1");
@@ -120,7 +120,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setDireccion("Lacar 123");
 		prop2.setDetalle("sin detalle");
 		prop2.setLocalidad("Rafael Castillo");
-		prop2.setProvincia("BS AS");
+		//prop2.setProvincia("BS AS");
 		prop2.setCondicion("completa");
 		prop2.setImagenUrl("");
 		prop2.setAmbiente("3");
@@ -132,7 +132,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setDireccion("abcr 123");
 		prop2.setDetalle("sin detalle");
 		prop2.setLocalidad("Moron");
-		prop2.setProvincia("BS AS");
+		//prop2.setProvincia("BS AS");
 		prop2.setCondicion("sin patio");
 		prop2.setImagenUrl("");
 		prop2.setAmbiente("4");
@@ -164,7 +164,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setDireccion("Bogado 556");
 		prop1.setDetalle("sin detalle");
 		prop1.setLocalidad("Rafael Castillo");
-		prop1.setProvincia("BS AS");
+		//prop1.setProvincia("BS AS");
 		prop1.setCondicion("completa");
 		prop1.setImagenUrl("");
 		prop1.setAmbiente("1");
@@ -177,7 +177,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setDireccion("Lacar 123");
 		prop2.setDetalle("sin detalle");
 		prop2.setLocalidad("Rafael Castillo");
-		prop2.setProvincia("BS AS");
+		//prop2.setProvincia("BS AS");
 		prop2.setCondicion("completa");
 		prop2.setImagenUrl("");
 		prop2.setAmbiente("3");
@@ -190,7 +190,7 @@ public class PropiedadesTest extends SpringTest{
 		prop3.setDireccion("abcr 123");
 		prop3.setDetalle("sin detalle");
 		prop3.setLocalidad("Moron");
-		prop3.setProvincia("BS AS");
+		//prop3.setProvincia("BS AS");
 		prop3.setCondicion("sin patio");
 		prop3.setImagenUrl("");
 		prop3.setAmbiente("4");
@@ -223,7 +223,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setDireccion("Bogado 556");
 		prop1.setDetalle("sin detalle");
 		prop1.setLocalidad("Rafael Castillo");
-		prop1.setProvincia("BS AS");
+		//prop1.setProvincia("BS AS");
 		prop1.setCondicion("completa");
 		prop1.setImagenUrl("");
 		prop1.setAmbiente("1");
@@ -235,7 +235,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setDireccion("Lacar 123");
 		prop2.setDetalle("sin detalle");
 		prop2.setLocalidad("Rafael Castillo");
-		prop2.setProvincia("BS AS");
+		//prop2.setProvincia("BS AS");
 		prop2.setCondicion("completa");
 		prop2.setImagenUrl("");
 		prop2.setAmbiente("3");
@@ -247,7 +247,7 @@ public class PropiedadesTest extends SpringTest{
 		prop3.setDireccion("abcr 123");
 		prop3.setDetalle("sin detalle");
 		prop3.setLocalidad("Moron");
-		prop3.setProvincia("BS AS");
+		//prop3.setProvincia("BS AS");
 		prop3.setCondicion("sin patio");
 		prop3.setImagenUrl("");
 		prop3.setAmbiente("4");
