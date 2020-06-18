@@ -70,7 +70,7 @@ public class PostTest extends SpringTest{
 		
 		Propiedad prop1 = new Propiedad();
 		
-		prop1.setTipo("1");
+		//prop1.setTipo("1");
 		prop1.setPrecio(24000L);
 		prop1.setDireccion("oscuro 666");
 		prop1.setDetalle("sin detalle");

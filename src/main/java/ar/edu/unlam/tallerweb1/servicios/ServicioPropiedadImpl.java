@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,13 +45,13 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	
 
 	@Override
-	public List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {
+	public Set <Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {
 		return repositorioPropiedad.propiedadesFavoritasDeUnUsuario(usuario);	
 	}
 
 	@Override
-	public void guardarFavoritoSeleccionado(Generico favoritoSeleccionado) {
-		repositorioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado);	
+	public void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario) {
+		repositorioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado, usuario);
 		
 	}
 

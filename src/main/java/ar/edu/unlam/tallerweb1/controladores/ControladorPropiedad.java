@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -84,12 +85,14 @@ public class ControladorPropiedad {
     	
     	ModelMap model = new ModelMap();
 
-        servicioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado); 
+        HttpSession session = request.getSession();
+
+        Usuario usuario = (Usuario) session.getAttribute("usuarioBuscado");
+
+        servicioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado, usuario);
         
         List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
-        
-        HttpSession session = request.getSession();
-        
+
     	if (session.getAttribute("filtroSel") != null) {
     		Propiedad propFiltro = new Propiedad();
     		propFiltro = (Propiedad)session.getAttribute("filtroSel");

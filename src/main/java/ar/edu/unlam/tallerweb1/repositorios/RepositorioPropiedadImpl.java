@@ -111,20 +111,24 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public void guardarFavoritoSeleccionado(Generico favoritoSeleccionado) {	
-		
-		Usuario usuario = new Usuario();
-		usuario.setId(favoritoSeleccionado.getIdUsuario());
-		
+	public void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario) {
+        Usuario usuarioActualizar = new Usuario();
 		final Session session = sessionFactory.getCurrentSession();
 		Propiedad propiedad = new Propiedad();
 		Criteria crit = session.createCriteria(Propiedad.class);
 		
 		propiedad = (Propiedad)crit.add(Restrictions.eq("id",favoritoSeleccionado.getIdPropiedad())).uniqueResult();
-		
-		usuario.addPropiedad(propiedad);
-		
-		session.save(usuario);
+
+        usuarioActualizar.setId(usuario.getId());
+        usuarioActualizar.setRol(usuario.getRol());
+        usuarioActualizar.setPassword(usuario.getPassword());
+        usuarioActualizar.setNombre(usuario.getNombre());
+        usuarioActualizar.setEmail(usuario.getEmail());
+        //usuarioActualizar.setPropiedades(usuario.getPropiedades());
+
+        usuarioActualizar.addPropiedad(propiedad);
+
+		session.update( usuarioActualizar);
 		
 	}
 
@@ -164,7 +168,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {
+	public Set<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {
 		
 		//List<Propiedad> listaPropiedades = new ArrayList<Propiedad>();
 		
@@ -177,7 +181,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
     	
     	listaPropiedades = usr.getPropiedades();
 	
-	return null;
+	return listaPropiedades;
 	}
 
 	@Override
