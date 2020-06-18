@@ -8,4 +8,6 @@ public interface RepositorioUsuario {
 	Usuario consultarUsuario (Usuario usuario);
 	
 	void regustrarUsuario (Usuario usuario);
+	
+	Usuario consultarUsuarioExistente(Usuario usuario);
 }

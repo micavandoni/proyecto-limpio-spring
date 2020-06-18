@@ -43,7 +43,7 @@
 			        </c:if>	
 	                <form:form action="registro" method="GET">
 				        <a href="#!" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
-		                <p class="login-card-footer-text">¿No tienes una cuenta? <button type="Submit" class="">Regístrate Aquí</a></button>  
+		                <p class="login-card-footer-text">¿No tienes una cuenta? <input type="Submit" class="" value="Regístrate Aquí"/></a>  
 			        </form:form>              
 	            </div>
 	          </div>

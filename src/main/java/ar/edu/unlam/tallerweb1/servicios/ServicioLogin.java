@@ -8,4 +8,6 @@ public interface ServicioLogin {
 	Usuario consultarUsuario(Usuario usuario);
 	
 	void registrarUsuario(Usuario usuario);
+	
+	Usuario consultarUsuarioExistente (Usuario usuario);
 }

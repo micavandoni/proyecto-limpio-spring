@@ -39,19 +39,15 @@ function validarContrasenia(){
 	if (longPass2 == longPass2 ){
 		if(pass1 === pass2){
 			console.log(longPass1);
-			btnRegistrar.style.display = "block";
+			btnRegistrar.disabled = false;
 			mensaje.style.display = "none";
 		} else {
-			btnRegistrar.style.display = "none";
+			btnRegistrar.disabled = true;
 			mensaje.style.display = "block";
-			console.log('mal');
 		}
 	} else {
-		console.log('mal2');
-		btnRegistrar.style.display = "none";
+		btnRegistrar.disabled = false;
 		mensaje.style.display = "block";
 	}
-		
-	
 	
 }

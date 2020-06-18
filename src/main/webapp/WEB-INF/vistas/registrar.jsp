@@ -45,9 +45,15 @@
 	                  <div class="form-group mb-4">
 	                  	<p style="color:red; display:none" id="mensaje">Las contraseñas no coinciden</p>	
 	                  </div>	                
-	                  <input style="display:none" name="registrar" id="registrar" class="btn btn-block login-btn mb-4" type="Submit" value="Confirmar Registro">
+	                  <input disabled name="registrar" id="registrar" class="btn btn-block login-btn mb-4" type="Submit" value="Confirmar Registro">
+	                </form:form>
+	                <form:form action="login" method="GET">
+	                	<input name="login" id="login" class="btn btn-block login-btn mb-4" type="Submit" value="Volver a Login">
 	                </form:form>	        
-	                              
+	                <c:if test="${not empty error}">
+				        <h4><span>${error}</span></h4>
+				        <br>
+			        </c:if>	            
 	            </div>
 	          </div>
 	        </div>

@@ -84,15 +84,23 @@ public class ControladorLogin {
 	
 	@RequestMapping(path="/registrar", method = RequestMethod.POST)
 	public ModelAndView registrarse(@ModelAttribute("usuario") Usuario usuario) {
-		
+		ModelMap model = new ModelMap();
 		Usuario usuarioNuevo = new Usuario();
-		usuarioNuevo.setNombre(usuario.nombre);
-		usuarioNuevo.setEmail(usuario.email);
-		usuarioNuevo.setPassword(usuario.password);
+		Usuario usuarioBuscado = servicioLogin.consultarUsuarioExistente(usuario);
 		
-		servicioLogin.registrarUsuario(usuarioNuevo);
+		if(usuarioBuscado == null) {
+			usuarioNuevo.setNombre(usuario.nombre);
+			usuarioNuevo.setEmail(usuario.email);
+			usuarioNuevo.setPassword(usuario.password);
+			
+			servicioLogin.registrarUsuario(usuarioNuevo);
+			model.put("error", "Usuario registrado correctamente");
+			
+		} else {
+			model.put("error", "El email ingresado ya está registrado");
+		}		
 		
-		return new ModelAndView("redirect:/login");
+		return new ModelAndView("registrar", model);
 	}
 	
 	
