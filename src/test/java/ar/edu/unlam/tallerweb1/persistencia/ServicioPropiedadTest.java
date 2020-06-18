@@ -45,7 +45,7 @@ public class ServicioPropiedadTest extends SpringTest{
 		propiedadFiltro.setPrecioMax(15L);
 		List<Propiedad> propiedades = new ArrayList<Propiedad>();
 		
-		proRes.setTipo("departamento");
+		//proRes.setTipo("departamento");
 		proRes.setPrecio(100L);
 		proRes.setDireccion("arieta 2900");
 		proRes.setDetalle("sin detalle");

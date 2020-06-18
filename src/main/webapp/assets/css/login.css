@@ -94,3 +94,7 @@ a:hover {
 #img-logo {
 	background: url("../img/fondo_login.jpg") center center;
 }
+
+.btn.disabled, .btn:disabled{
+	cursor: auto!important;
+}
