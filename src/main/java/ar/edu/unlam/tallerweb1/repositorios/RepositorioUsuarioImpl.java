@@ -1,8 +1,6 @@
 package ar.edu.unlam.tallerweb1.repositorios;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
-
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -37,20 +35,6 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 				.add(Restrictions.eq("email", usuario.getEmail()))
 				.add(Restrictions.eq("password", usuario.getPassword()))
 				.uniqueResult();
-	}
-
-	@Override
-	public void regustrarUsuario(Usuario usuario) {
-		Session session = sessionFactory.openSession();
-		session.save(usuario);
-	}
-	
-	@Override
-	public Usuario consultarUsuarioExistente(Usuario usuario) { 
-		final Session session = sessionFactory.getCurrentSession();
-		return (Usuario) session.createCriteria(Usuario.class)
-				.add(Restrictions.eq("email", usuario.getEmail()))
-				.uniqueResult();		
 	}
 
 }

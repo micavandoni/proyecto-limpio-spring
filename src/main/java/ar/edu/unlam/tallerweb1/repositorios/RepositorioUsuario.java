@@ -6,8 +6,4 @@ import ar.edu.unlam.tallerweb1.modelo.Usuario;
 public interface RepositorioUsuario {
 	
 	Usuario consultarUsuario (Usuario usuario);
-	
-	void regustrarUsuario (Usuario usuario);
-	
-	Usuario consultarUsuarioExistente(Usuario usuario);
 }

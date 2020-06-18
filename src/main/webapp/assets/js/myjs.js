@@ -51,29 +51,3 @@ function pasarDato(ambiente,detalle,direccion,localidad,fechapublicada,provincia
 	$('#myModal').modal('show');
 
 }
-
-
-function validarContrasenia(){
-	var pass1 = document.getElementById('password').value;
-	var pass2 = document.getElementById('repetirPassword').value;
-	var btnRegistrar = document.getElementById('registrar');
-	var mensaje = document.getElementById('mensaje');
-	
-	var longPass1 = pass1.length;
-	var longPass2 = pass2.length;
-	
-	if (longPass2 == longPass2 ){
-		if(pass1 === pass2){
-			console.log(longPass1);
-			btnRegistrar.disabled = false;
-			mensaje.style.display = "none";
-		} else {
-			btnRegistrar.disabled = true;
-			mensaje.style.display = "block";
-		}
-	} else {
-		btnRegistrar.disabled = false;
-		mensaje.style.display = "block";
-	}
-	
-}

@@ -1,15 +1,15 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
+import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ar.edu.unlam.tallerweb1.clases.Generico;
+import ar.edu.unlam.tallerweb1.modelo.Favorito;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioPropiedad;
 
 @Service("servicioPropiedad")
@@ -38,31 +38,21 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 		return repositorioPropiedad.consultarNuevasPropiedades();
 	}
 
+
+	@Override
+	public void favPropiedad(Favorito favorito) {
+		repositorioPropiedad.favPropiedad(favorito);	
+		
+	}
+
 	@Override
 	public List listaContadores() {
 		return repositorioPropiedad.listaContadores();
 	}
 	
-
 	@Override
-	public Set <Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {
-		return repositorioPropiedad.propiedadesFavoritasDeUnUsuario(usuario);	
-	}
-
-	@Override
-	public void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario) {
-		repositorioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado, usuario);
-		
-	}
-
-	@Override
-	public boolean crearEventos(){
-		try{
-			repositorioPropiedad.crearEventos();
-			return true;
-		}catch (Exception e){
-			return false;
-		}
+	public List<Propiedad> propiedadesFavoritasDeUnUsuario(List<Favorito> listaFavoritos) {
+		return repositorioPropiedad.propiedadesFavoritasDeUnUsuario(listaFavoritos);
 	}
 
 }

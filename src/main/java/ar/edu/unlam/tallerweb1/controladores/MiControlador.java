@@ -1,6 +1,6 @@
-package ar.edu.unlam.tallerweb1.clases;
+package ar.edu.unlam.tallerweb1.controladores;
 
-public class Generico {
+public class MiControlador {
 	
 	public Long idPropiedad;
 	public Long idUsuario;

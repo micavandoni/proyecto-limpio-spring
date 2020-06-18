@@ -6,7 +6,7 @@
 	  <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-	  <title>Ingresar - HouseHolds</title>
+	  <title>Ingresar HouseHolds</title>
 	  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
 	  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
 	  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,10 +41,8 @@
 				        <h4><span>${error}</span></h4>
 				        <br>
 			        </c:if>	
-	                <form:form action="registro" method="GET">
-				        <a href="#!" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
-		                <p class="login-card-footer-text">¿No tienes una cuenta? <input type="Submit" class="" value="Regístrate Aquí"/></a>  
-			        </form:form>              
+	                <a href="#!" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
+	                <p class="login-card-footer-text">¿No tienes una cuenta? <a href="#!" class="text-reset">Regístrate Aquí</a></p>                
 	            </div>
 	          </div>
 	        </div>

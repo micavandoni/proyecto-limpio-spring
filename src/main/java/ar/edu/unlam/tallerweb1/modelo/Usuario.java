@@ -1,11 +1,9 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,70 +11,29 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
 // Clase que modela el concepto de Usuario, la anotacion @Entity le avisa a hibernate que esta clase es persistible
 // el paquete ar.edu.unlam.tallerweb1.modelo esta indicado en el archivo hibernateCOntext.xml para que hibernate
 // busque entities en él
-@Entity(name = "Usurio")
-@Table(name = "Usuario")
+@Entity
 public class Usuario {
 
 	// La anotacion id indica que este atributo es el utilizado como clave primaria
 	// de la entity, se indica que el valor es autogenerado.
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idUsuario", updatable = false, nullable = false)
 	private Long id;
 	// para el resto de los atributo no se usan anotaciones entonces se usa el
 	// default de hibernate: la columna se llama igual que
 	// el atributo, la misma admite nulos, y el tipo de dato se deduce del tipo de
 	// dato de java.
-	public String email;
-	public String password;
-	public String rol;
-	public String nombre;
-	
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
-    @JoinTable(name = "favorito",
-            joinColumns = {@JoinColumn(name = "idUsuario")},
-            inverseJoinColumns = {@JoinColumn(name = "idPropiedad")})
-	
-    //private List<Propiedad> propiedades = new ArrayList<Propiedad>();
-    private Set<Propiedad> propiedades = new HashSet<>();
-    
-    public void addPropiedad(Propiedad propiedad) {
-        this.propiedades.add(propiedad);
-        propiedad.getUsuarios().add(this);
-    }
-    
-    public void removePropiedad(Propiedad propiedad) {
-    	this.propiedades.remove(propiedad);
-    	propiedad.getUsuarios().remove(this);
-    }
-
-        
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Usuario usuario = (Usuario) obj;
-        return Objects.equals(id, usuario.id);
-		
-	}
-
-	public Set<Propiedad> getPropiedades() {
-		return propiedades;
-	}
-
-	public void setPropiedades(Set<Propiedad> propiedades) {
-		this.propiedades = propiedades;
-	}
+	private String email;
+	private String password;
+	private String rol;
+	private String nombre;
+//	@ManyToMany(cascade = { CascadeType.ALL })
+//	@JoinTable(name = "Propiedades_fav", joinColumns = { @JoinColumn(name = "usuario_id") }, inverseJoinColumns = {@JoinColumn(name = "propiedad_id") })
+//	List<Propiedad> propFav = new ArrayList<Propiedad>();
 
 	public Long getId() {
 		return id;
@@ -118,5 +75,17 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
+//	public List<Propiedad> getPropFav() {
+//		return propFav;
+//	}
+//
+//	public void setPropFav(List<Propiedad> propFav) {
+//		this.propFav = propFav;
+//	}
+//
+//	public void agregarFavorita(Propiedad prop) {
+//		this.propFav.add(prop);
+//		prop.agregarFan(this);
 
+//	}
 }
