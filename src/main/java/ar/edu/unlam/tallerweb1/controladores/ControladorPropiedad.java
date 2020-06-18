@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import ar.edu.unlam.tallerweb1.modelo.Favorito;
+import ar.edu.unlam.tallerweb1.clases.Generico;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPropiedad;
 
@@ -80,29 +80,26 @@ public class ControladorPropiedad {
     }
     
     @RequestMapping(path = "/fav-propiedad", method = RequestMethod.POST)
-    public ModelAndView FavPropiedad(@ModelAttribute("favorito") MiControlador favoritoSeleccionado, HttpServletRequest request) {
-    	
-    	HttpSession session = request.getSession();	
-    	session.getAttribute("usuarioBuscado");
+    public ModelAndView FavPropiedad(@ModelAttribute("favorito") Generico favoritoSeleccionado, HttpServletRequest request) {
     	
     	ModelMap model = new ModelMap();
-    	
-        Favorito favoritoSel = new Favorito();
-        List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
 
-        favoritoSel.setIdPropiedad(favoritoSeleccionado.idPropiedad);
-        favoritoSel.setIdUsuario(favoritoSeleccionado.idUsuario);        
+        servicioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado); 
         
-        servicioPropiedad.favPropiedad(favoritoSel);    
+        List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
+        
+        HttpSession session = request.getSession();
         
     	if (session.getAttribute("filtroSel") != null) {
     		Propiedad propFiltro = new Propiedad();
     		propFiltro = (Propiedad)session.getAttribute("filtroSel");
     		listaPropiedad = servicioPropiedad.consultarPropiedadFilter(propFiltro);
-    		model.put("propiedad", listaPropiedad); 
-    	} 
+    		
+    	} else {
+    		listaPropiedad = servicioPropiedad.consultarPropiedad();
+    	}
         
-       
+    	model.put("propiedad", listaPropiedad); 
         loadGenericModel(model);
         
         return new ModelAndView("propiedad", model);
@@ -111,7 +108,7 @@ public class ControladorPropiedad {
     private void loadGenericModel(ModelMap model) {
     	
         Propiedad propiedadFiltro = new Propiedad();
-        MiControlador favorito = new MiControlador();
+        Generico favorito = new Generico();
         
         List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
         List listaContadores = servicioPropiedad.listaContadores();
