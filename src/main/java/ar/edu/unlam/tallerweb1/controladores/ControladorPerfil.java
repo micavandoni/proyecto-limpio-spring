@@ -1,7 +1,9 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -35,7 +37,7 @@ public class ControladorPerfil {
 		
 		ModelMap model = new ModelMap();
 		
-		List<Propiedad> propiedadesUsuarios = new ArrayList<Propiedad>();
+		Set<Propiedad> propiedadesUsuarios = new HashSet<>();
     	
 		HttpSession session = request.getSession();	
     	session.getAttribute("usuarioBuscado");

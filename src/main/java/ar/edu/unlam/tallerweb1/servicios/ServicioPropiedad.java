@@ -1,6 +1,7 @@
 package ar.edu.unlam.tallerweb1.servicios;
 
 import java.util.List;
+import java.util.Set;
 
 import ar.edu.unlam.tallerweb1.clases.Generico;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
@@ -12,6 +13,7 @@ public interface ServicioPropiedad {
     List<Propiedad> consultarPropiedadFilter(Propiedad propiedad);
     List<Propiedad> consultarNuevasPropiedades();
     List listaContadores();
-    List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario);
-	void guardarFavoritoSeleccionado(Generico favoritoSeleccionado);
+    Set<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario);
+    boolean crearEventos();
+	void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario);
 }

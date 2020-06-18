@@ -144,7 +144,7 @@
     		<div class="container">
 		        <div class="row counters">
 		         	<div class="col-lg-3 col-6 text-center">
-		            	<span data-toggle="counter-up">600</span>
+		            	<span data-toggle="counter-up">${contadores[3]}</span>
 		            	<p>Inmobiliarias</p>
 		          	</div>
 		          	<div class="col-lg-3 col-6 text-center">

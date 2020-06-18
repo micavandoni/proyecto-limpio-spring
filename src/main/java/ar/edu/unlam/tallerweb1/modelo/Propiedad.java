@@ -5,14 +5,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity(name = "Propiedad")
 @Table(name = "Propiedad")
@@ -21,7 +14,8 @@ public class Propiedad {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idPropiedad", updatable = false, nullable = false)
 	private Long id;
-	private String tipo;
+	@ManyToOne
+	private TipoPropiedad tipoPropiedad;
 	private Long precio;
 	private String direccion;
 	private String detalle;
@@ -82,12 +76,12 @@ public class Propiedad {
 		this.id = id;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public TipoPropiedad getTipoPropiedad() {
+		return tipoPropiedad;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipoPropiedad(TipoPropiedad tipoPropiedad) {
+		this.tipoPropiedad = tipoPropiedad;
 	}
 
 	public Long getPrecio() {
