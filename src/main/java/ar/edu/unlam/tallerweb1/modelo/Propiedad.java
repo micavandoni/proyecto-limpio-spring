@@ -26,17 +26,7 @@ public class Propiedad {
 	private String ambiente;
 	private Long precioMin;
 	private Long precioMax;
-	@ManyToOne
-	private Favorito favorito;
 	
-
-	public Favorito getFavorito() {
-		return favorito;
-	}
-
-	public void setFavorito(Favorito favorito) {
-		this.favorito = favorito;
-	}
 	@Basic
 	private Date fechaPublicada;
 
@@ -175,16 +165,4 @@ public class Propiedad {
 	}
 
 	
-
-//	public List<Usuario> getFans() {
-//		return fans;
-//	}
-//
-//	public void setFans(List<Usuario> fans) {
-//		this.fans = fans;
-//	}
-//
-//	public void agregarFan(Usuario usuario) {
-//		this.fans.add(usuario);
-//	}
 }
