@@ -53,17 +53,17 @@ public class Propiedad {
 	private String ambiente;
 	private Long precioMin;
 	private Long precioMax;
-	@ManyToOne
-	private Favorito favorito;
-	
-
-	public Favorito getFavorito() {
-		return favorito;
-	}
-
-	public void setFavorito(Favorito favorito) {
-		this.favorito = favorito;
-	}
+//	@ManyToOne
+//	private Favorito favorito;
+//	
+//
+//	public Favorito getFavorito() {
+//		return favorito;
+//	}
+//
+//	public void setFavorito(Favorito favorito) {
+//		this.favorito = favorito;
+//	}
 	@Basic
 	private Date fechaPublicada;
 
