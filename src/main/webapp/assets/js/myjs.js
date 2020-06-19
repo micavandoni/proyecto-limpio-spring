@@ -26,6 +26,32 @@ function favear() {
 		iconFav.style.color = "white";
 	}
 }
+function pasarDato(ambiente,detalle,direccion,localidad,fechapublicada,provincia,precio,imagenUrl,imagenUrl2, imagenUrl3, imagenUrl4){
+	//var valor=id;
+	var ambiente=ambiente;
+	var detalle=detalle;
+	var direccion=direccion;
+	var localidad =localidad;
+	var fechapublicada=fechapublicada;
+	var precio=precio;
+	var provincia=provincia;
+	
+	document.getElementById("img1-modal").src="img/portfolio/".concat(imagenUrl);
+	document.getElementById("img2-modal").src="img/portfolio/".concat(imagenUrl2);
+	document.getElementById("img3-modal").src="img/portfolio/".concat(imagenUrl3);
+	document.getElementById("img4-modal").src="img/portfolio/".concat(imagenUrl4);
+	document.getElementById('modal-ambiente').value=ambiente;
+	document.getElementById('modal-detalle').value=detalle;
+	document.getElementById('modal-direccion').value=direccion;
+	document.getElementById('modal-localidad').value=localidad;
+	document.getElementById('modal-fechapublicada').value=fechapublicada;
+	document.getElementById('modal-precio').value=precio;
+	document.getElementById('modal-provincia').value=provincia;
+	
+	$('#myModal').modal('show');
+
+}
+
 
 function validarContrasenia(){
 	var pass1 = document.getElementById('password').value;
