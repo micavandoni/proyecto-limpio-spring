@@ -170,7 +170,7 @@ public class PropiedadesTest extends SpringTest{
 		prop1.setAmbiente("1");
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
-		prop1.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-02-28"));
+		//prop1.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-02-28"));
 
 		//prop2.setTipo("casa");
 		prop2.setPrecio(26000L);
@@ -183,7 +183,7 @@ public class PropiedadesTest extends SpringTest{
 		prop2.setAmbiente("3");
 		prop2.setPrecioMin(0L);
 		prop2.setPrecioMax(0L);
-		prop2.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-26"));
+		//prop2.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-26"));
 
 		//prop3.setTipo("chalet");
 		prop3.setPrecio(23000L);
@@ -196,7 +196,7 @@ public class PropiedadesTest extends SpringTest{
 		prop3.setAmbiente("4");
 		prop3.setPrecioMin(0L);
 		prop3.setPrecioMax(0L);
-		prop3.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-02"));
+		//prop3.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-02"));
 
 		session.save(prop1);
 		session.save(prop2);
