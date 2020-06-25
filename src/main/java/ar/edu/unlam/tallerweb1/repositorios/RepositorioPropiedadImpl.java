@@ -9,6 +9,8 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import java.util.Set;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -112,19 +114,24 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 
 	@Override
 	public void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario) {
-        Usuario usuarioActualizar = new Usuario();
+
+		//HttpSession session = request.getSession();
+		//session.getAttribute("usuarioBuscado");
+
+        //Usuario usuarioActualizar = new Usuario();
 		final Session session = sessionFactory.getCurrentSession();
 		Propiedad propiedad = new Propiedad();
 		Criteria crit = session.createCriteria(Propiedad.class);
-		
+		//usuarioActualizar = (Usuario)crit.add(Restrictions.eq("id", favoritoSeleccionado.getIdUsuario())).uniqueResult();
 		propiedad = (Propiedad)crit.add(Restrictions.eq("id",favoritoSeleccionado.getIdPropiedad())).uniqueResult();
 
-        usuarioActualizar.setId(usuario.getId());
-        usuarioActualizar.setRol(usuario.getRol());
-        usuarioActualizar.setPassword(usuario.getPassword());
-        usuarioActualizar.setNombre(usuario.getNombre());
-        usuarioActualizar.setEmail(usuario.getEmail());
-        //usuarioActualizar.setPropiedades(usuario.getPropiedades());
+		Criteria cri = session.createCriteria(Usuario.class);
+
+		Usuario usuarioActualizar = (Usuario)cri.add(Restrictions.eq("id", usuario.getId())).uniqueResult();
+
+		//Usuario usuarioActualizar = (Usuario)cri.add(Restrictions.eq("id", usuario.getId())).uniqueResult();
+
+
 
         usuarioActualizar.addPropiedad(propiedad);
 
@@ -168,11 +175,9 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 
 	@Override
-	public Set<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {
+	public List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario) {
 	
-		//List<Propiedad> listaPropiedades = new ArrayList<Propiedad>();
-		
-		Set<Propiedad> listaPropiedades = new HashSet<>();
+		List<Propiedad> listaPropiedades = new ArrayList<Propiedad>();
 		
 		final Session session = sessionFactory.getCurrentSession();
     	Criteria cri = session.createCriteria(Usuario.class);

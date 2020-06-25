@@ -1,9 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.*;
 
@@ -58,9 +56,8 @@ public class Propiedad {
 	private Date fechaPublicada;
 
     @ManyToMany(mappedBy = "propiedades")
-    //private List<Usuario> usuarios = new ArrayList<Usuario>();
-    private Set<Usuario> usuarios = new HashSet<>();
-    
+    private List<Usuario> usuarios = new ArrayList<Usuario>();
+
 
 	@Override
 	public int hashCode() {
@@ -74,11 +71,11 @@ public class Propiedad {
         return id != null && id.equals(((Propiedad) obj).getId());
 	}
 
-	public Set<Usuario> getUsuarios() {
+	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}
 	
-	public void setUsuarios(Set<Usuario> usuarios) {
+	public void setUsuarios(List<Usuario> usuarios) {
 		this.usuarios = usuarios;
 	}
 
