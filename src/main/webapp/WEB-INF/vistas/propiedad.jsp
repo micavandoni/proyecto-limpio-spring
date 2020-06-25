@@ -256,6 +256,7 @@
 						    </c:when>    
 						    <c:otherwise>
 						       <button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px;">Agregar a Fav&nbsp&nbsp<i class="icofont-star"></i></button> 
+									       <button type="button" class="btn btn-favear" data-toggle="modal" data-target="#myModal" onclick="pasarDato('${propiedad.id}','${propiedad.ambiente}','${propiedad.detalle}','${propiedad.direccion}','${propiedad.localidad}','${propiedad.fechaPublicada}','${propiedad.provincia}','${propiedad.precio}','${propiedad.imagenUrl}','${propiedad.imagenUrl2}','${propiedad.imagenUrl3}','${propiedad.imagenUrl4}')">Ver Detalle</button>
 						    </c:otherwise>
 						</c:choose>				                          
 		              </div>		              
@@ -272,8 +273,75 @@
 
       </div>
     </section><!-- End Portfolio Section -->
+   <!--begin modal window-->
+<div class="modal fade" id="myModal">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-header">
+<div class="pull-left">Detalle Propiedad</div>
 
+<button type="button" class="close" data-dismiss="modal" title="Close"> <span class="glyphicon glyphicon-remove"></span></button>
 
+</div>
+<div class="modal-body">
+
+<!--begin carousel-->
+<div id="myGallery" class="carousel slide" data-interval="false">
+<div class="carousel-inner">
+<div class="item active"> <img id="img1-modal" src="" alt="item0">
+	<div class="carousel-caption"></div>
+</div>
+<div class="item"> <img  id="img2-modal" src="" alt="item1">
+	<div class="carousel-caption"></div>
+</div>
+<div class="item"> <img  id="img3-modal" src="" alt="item2">
+	<div class="carousel-caption"></div>
+</div>
+<div class="item"> <img  id="img4-modal" src="" alt="item3">
+	<div class="carousel-caption"></div>
+</div>
+<!--end carousel-inner--></div>
+<!--Begin Previous and Next buttons-->
+<a class="left carousel-control" href="#myGallery" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#myGallery" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span></a>
+<!--end carousel--></div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Ambiente</th>
+              <th scope="col">Detalle</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Localidad</th>
+              <th scope="col">Provincia</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Publicado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th><input class="form-control" type="text" id="modal-ambiente" name="modal-ambiente" value=""></th>
+              <td><input class="form-control" type="text" id="modal-detalle" name="" value=""></td>
+              <td><input class="form-control" type="text" id="modal-direccion" name="" value=""></td>
+              <td><input class="form-control" type="text" id="modal-localidad" name="" value=""></td>
+              <td><input class="form-control" type="text" id="modal-provincia" name="" value=""></td>
+               <td><input class="form-control" type="text" id= "modal-precio" name="" value= ""></td>
+               <td><input class="form-control" type="text" id= "modal-fechapublicada" name="" value=""></td>
+            </tr>
+            
+           </tbody>
+          </table>
+	<!--end modal-body--></div>
+		
+	<div class="modal-footer">
+	<div class="pull-right">
+		
+	</div>
+	<input id="modal_idPropiedad" name="modal_idPropiedad" value="">
+	<button class="btn-sm close" type="submit" data-dismiss="modal">Enviar a email</button>
+<button class="btn-sm close" type="button" data-dismiss="modal">Salir</button>
+<!--end modal-footer--></div>
+<!--end modal-content--></div>
+<!--end modal-dialoge--></div>
+<!--end myModal-->></div>		
       <section id="viviendasNuevas" class="portfolio">
           <div class="container">
               <div class="section-title" data-aos="fade-left">
