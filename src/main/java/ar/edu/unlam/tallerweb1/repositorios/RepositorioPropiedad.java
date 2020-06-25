@@ -16,6 +16,6 @@ public interface RepositorioPropiedad {
     List<Propiedad> consultarNuevasPropiedades();
     void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario);
     List listaContadores();
-    Set<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario);
+    List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario);
     void crearEventos();
 }

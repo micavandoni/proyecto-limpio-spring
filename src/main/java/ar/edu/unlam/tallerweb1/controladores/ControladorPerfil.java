@@ -37,7 +37,8 @@ public class ControladorPerfil {
 		
 		ModelMap model = new ModelMap();
 		
-		Set<Propiedad> propiedadesUsuarios = new HashSet<>();
+
+        List<Propiedad> propiedadesUsuarios = new ArrayList<>();
     	
 		HttpSession session = request.getSession();	
     	session.getAttribute("usuarioBuscado");

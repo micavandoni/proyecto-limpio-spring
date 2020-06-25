@@ -13,7 +13,7 @@ public interface ServicioPropiedad {
     List<Propiedad> consultarPropiedadFilter(Propiedad propiedad);
     List<Propiedad> consultarNuevasPropiedades();
     List listaContadores();
-    Set<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario);
+    List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario);
     boolean crearEventos();
 	void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario);
 }

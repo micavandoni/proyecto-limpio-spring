@@ -26,7 +26,7 @@ function favear() {
 		iconFav.style.color = "white";
 	}
 }
-function pasarDato(ambiente,detalle,direccion,localidad,fechapublicada,provincia,precio,imagenUrl,imagenUrl2, imagenUrl3, imagenUrl4){
+function pasarDato(idPropiedad,ambiente,detalle,direccion,localidad,fechapublicada,provincia,precio,imagenUrl,imagenUrl2, imagenUrl3, imagenUrl4){
 	//var valor=id;
 	var ambiente=ambiente;
 	var detalle=detalle;
@@ -47,6 +47,7 @@ function pasarDato(ambiente,detalle,direccion,localidad,fechapublicada,provincia
 	document.getElementById('modal-fechapublicada').value=fechapublicada;
 	document.getElementById('modal-precio').value=precio;
 	document.getElementById('modal-provincia').value=provincia;
+	document.getElementById('modal_idPropiedad').value=idPropiedad;
 	
 	$('#myModal').modal('show');
 

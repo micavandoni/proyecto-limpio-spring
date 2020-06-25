@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -22,7 +23,8 @@ import ar.edu.unlam.tallerweb1.servicios.ServicioPropiedad;
 @Controller
 public class ControladorPropiedad {
 
-	private  ServicioPropiedad servicioPropiedad;
+	private ServicioPropiedad servicioPropiedad;
+	private ServicioLogin servicioLogin;
 	
 	@Autowired
 	public  ControladorPropiedad(ServicioPropiedad servicioPropiedad) {
@@ -86,8 +88,11 @@ public class ControladorPropiedad {
     	ModelMap model = new ModelMap();
 
         HttpSession session = request.getSession();
-
+        session.getAttribute("usuarioBuscado");
         Usuario usuario = (Usuario) session.getAttribute("usuarioBuscado");
+
+
+        //Usuario usuario = (Usuario) session.getAttribute("usuarioBuscado");
 
         servicioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado, usuario);
         

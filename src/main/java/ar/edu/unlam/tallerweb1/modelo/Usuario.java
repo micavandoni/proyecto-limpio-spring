@@ -1,19 +1,8 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 // Clase que modela el concepto de Usuario, la anotacion @Entity le avisa a hibernate que esta clase es persistible
 // el paquete ar.edu.unlam.tallerweb1.modelo esta indicado en el archivo hibernateCOntext.xml para que hibernate
@@ -37,13 +26,13 @@ public class Usuario {
 	public String rol;
 	public String nombre;
 	
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.EAGER)
     @JoinTable(name = "favorito",
             joinColumns = {@JoinColumn(name = "idUsuario")},
             inverseJoinColumns = {@JoinColumn(name = "idPropiedad")})
 	
-    //private List<Propiedad> propiedades = new ArrayList<Propiedad>();
-    private Set<Propiedad> propiedades = new HashSet<>();
+    private List<Propiedad> propiedades = new ArrayList<Propiedad>();
+
     
     public void addPropiedad(Propiedad propiedad) {
         this.propiedades.add(propiedad);
@@ -70,11 +59,11 @@ public class Usuario {
 		
 	}
 
-	public Set<Propiedad> getPropiedades() {
+	public List<Propiedad> getPropiedades() {
 		return propiedades;
 	}
 
-	public void setPropiedades(Set<Propiedad> propiedades) {
+	public void setPropiedades(List<Propiedad> propiedades) {
 		this.propiedades = propiedades;
 	}
 

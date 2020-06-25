@@ -74,7 +74,8 @@
 						                <h4>${propiedad.ambiente}, ${propiedad.detalle}</h4>
 						                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
 						                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>
-						                	             
+
+									  </div>
 						            </div>
 						         </div>					    
 						  </c:forEach>
