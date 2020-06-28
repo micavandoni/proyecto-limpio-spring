@@ -91,9 +91,6 @@ public class ControladorPropiedad {
         session.getAttribute("usuarioBuscado");
         Usuario usuario = (Usuario) session.getAttribute("usuarioBuscado");
 
-
-        //Usuario usuario = (Usuario) session.getAttribute("usuarioBuscado");
-
         servicioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado, usuario);
         
         List<Propiedad> listaPropiedad = new ArrayList<Propiedad>();
@@ -130,10 +127,10 @@ public class ControladorPropiedad {
     
     private void condicionValida(Propiedad propiedad) {
     	
-		if(propiedad.getCondicion().equalsIgnoreCase("null")) {
+		if(propiedad.getCondicion()!=null && propiedad.getCondicion().equalsIgnoreCase("null")) {
 			propiedad.setCondicion(null);	
 		}
-		if(propiedad.getAmbiente().equalsIgnoreCase("null")) {
+		if(propiedad.getAmbiente()!=null && propiedad.getAmbiente().equalsIgnoreCase("null")) {
 			propiedad.setAmbiente(null);
 		}
     	
