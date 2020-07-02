@@ -57,13 +57,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		Long min=0L;
 		Long max=0L;
 
-		if(propiedad.getCondicion().equalsIgnoreCase("null")) {
-			propiedad.setCondicion(null);
-		}
-		if(propiedad.getAmbiente().equalsIgnoreCase("null")) {
-			propiedad.setAmbiente(null);
 
-		}
 		if(propiedad.getPrecioMin()!=null && propiedad.getPrecioMax()!=null) {
 			min = propiedad.getPrecioMin();
 			propiedad.setPrecioMin(null);
@@ -89,7 +83,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 			listaPropiedad = crit.add(Example.create(propiedad))
 					.add(Restrictions.lt("precio",min)).list();
 
-		}else
+		}
+		else
 		{
 			listaPropiedad = crit.add(Example.create(propiedad)).list();
 		}
@@ -115,23 +110,16 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	@Override
 	public void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario) {
 
-		//HttpSession session = request.getSession();
-		//session.getAttribute("usuarioBuscado");
 
-        //Usuario usuarioActualizar = new Usuario();
 		final Session session = sessionFactory.getCurrentSession();
 		Propiedad propiedad = new Propiedad();
 		Criteria crit = session.createCriteria(Propiedad.class);
-		//usuarioActualizar = (Usuario)crit.add(Restrictions.eq("id", favoritoSeleccionado.getIdUsuario())).uniqueResult();
+
 		propiedad = (Propiedad)crit.add(Restrictions.eq("id",favoritoSeleccionado.getIdPropiedad())).uniqueResult();
 
 		Criteria cri = session.createCriteria(Usuario.class);
 
 		Usuario usuarioActualizar = (Usuario)cri.add(Restrictions.eq("id", usuario.getId())).uniqueResult();
-
-		//Usuario usuarioActualizar = (Usuario)cri.add(Restrictions.eq("id", usuario.getId())).uniqueResult();
-
-
 
         usuarioActualizar.addPropiedad(propiedad);
 
@@ -275,7 +263,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 
 		prop1.setTipoPropiedad(tipo2);
 		prop1.setPrecio(20L);
-		prop1.setDireccion("Miro 222");
+		prop1.setDireccion("Miro 2492");
 		prop1.setLocalidad("luzuriaga");
 		prop1.setProvincia("buenos aires");
 		prop1.setCondicion("venta");
@@ -284,11 +272,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop1.setAmbiente("monoambiente");
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
+		prop1.setLatitud(-34.66489521);
+		prop1.setLongitud(-58.57834846);
 		//prop1.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-27"));
 
 		prop2.setTipoPropiedad(tipo1);
 		prop2.setPrecio(15L);
-		prop2.setDireccion("arieta 100");
+		prop2.setDireccion("Doctor Ignacio Arieta 1050");
 		prop2.setLocalidad("san justo");
 		prop2.setProvincia("buenos aires");
 		prop2.setCondicion("alquiler");
@@ -297,11 +287,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop2.setAmbiente("dos ambientes");
 		prop2.setPrecioMin(0L);
 		prop2.setPrecioMax(0L);
+		prop2.setLatitud(-34.66350482);
+		prop2.setLongitud(-58.58040333);
 		//prop2.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-23"));
 
 		prop3.setTipoPropiedad(tipo1);
 		prop3.setPrecio(12L);
-		prop3.setDireccion("santander 44");
+		prop3.setDireccion("Mariano Santamaria 1147");
 		prop3.setLocalidad("luzuriaga");
 		prop3.setProvincia("buenos aires");
 		prop3.setCondicion("venta");
@@ -310,11 +302,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop3.setAmbiente("dos ambientes");
 		prop3.setPrecioMin(0L);
 		prop3.setPrecioMax(0L);
+		prop3.setLatitud(-34.6827521);
+		prop3.setLongitud(-58.5616369);
 		//prop3.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-21"));
 
 		prop4.setTipoPropiedad(tipo1);
 		prop4.setPrecio(22L);
-		prop4.setDireccion("almafuerte 18");
+		prop4.setDireccion("almafuerte 3534");
 		prop4.setLocalidad("san justo");
 		prop4.setProvincia("buenos aires");
 		prop4.setCondicion("alquiler");
@@ -323,6 +317,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop4.setAmbiente("tres ambientes");
 		prop4.setPrecioMin(0L);
 		prop4.setPrecioMax(0L);
+		prop4.setLatitud(-34.6812321);
+		prop4.setLongitud(-58.5573211);
 		//prop4.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-20"));
 
 		prop5.setTipoPropiedad(tipo1);
@@ -336,6 +332,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop5.setAmbiente("cuatro ambientes");
 		prop5.setPrecioMin(0L);
 		prop5.setPrecioMax(0L);
+		prop5.setLatitud(-34.662309);
+		prop5.setLongitud(-58.5774059);
 		//prop5.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-10"));
 
 
@@ -350,6 +348,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop6.setAmbiente("tres ambientes");
 		prop6.setPrecioMin(0L);
 		prop6.setPrecioMax(0L);
+		prop6.setLatitud(-34.6657519);
+		prop6.setLongitud(-58.5813591);
 		//prop6.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-01"));
 
 		prop7.setTipoPropiedad(tipo2);
@@ -363,6 +363,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop7.setAmbiente("tmonoambiente");
 		prop7.setPrecioMin(0L);
 		prop7.setPrecioMax(0L);
+		prop7.setLatitud(-34.6494009);
+		prop7.setLongitud(-58.6196954);
 		//prop7.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop8.setTipoPropiedad(tipo1);
@@ -376,11 +378,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop8.setAmbiente("dos ambientes");
 		prop8.setPrecioMin(0L);
 		prop8.setPrecioMax(0L);
+		prop8.setLatitud(-34.6505146);
+		prop8.setLongitud(-58.6166245);
 		//prop7.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop9.setTipoPropiedad(tipo1);
 		prop9.setPrecio(12L);
-		prop9.setDireccion("San Juan 321");
+		prop9.setDireccion("Av. de Mayo 47");
 		prop9.setLocalidad("Ramos Mejia");
 		prop9.setProvincia("buenos aires");
 		prop9.setCondicion("venta");
@@ -389,11 +393,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop9.setAmbiente("dos ambientes");
 		prop9.setPrecioMin(0L);
 		prop9.setPrecioMax(0L);
+		prop9.setLatitud(-34.6419575);
+		prop9.setLongitud(-58.5677618);
 		//prop9.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop10.setTipoPropiedad(tipo1);
 		prop10.setPrecio(32L);
-		prop10.setDireccion("Quiroga 81");
+		prop10.setDireccion("Ibarrola 7201");
 		prop10.setLocalidad("Liniers");
 		prop10.setProvincia("CABA");
 		prop10.setCondicion("venta");
@@ -402,11 +408,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop10.setAmbiente("tres ambientes");
 		prop10.setPrecioMin(0L);
 		prop10.setPrecioMax(0L);
+		prop10.setLatitud(-34.641661);
+		prop10.setLongitud(-58.5297261);
 		//prop10.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop11.setTipoPropiedad(tipo1);
 		prop11.setPrecio(36L);
-		prop11.setDireccion("Dorrego 765");
+		prop11.setDireccion("Alianza 200");
 		prop11.setLocalidad("Ciudadela");
 		prop11.setProvincia("buenos aires");
 		prop11.setCondicion("venta");
@@ -415,6 +423,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop11.setAmbiente("cuatro ambientes");
 		prop11.setPrecioMin(0L);
 		prop11.setPrecioMax(0L);
+		prop11.setLatitud(-34.6424375);
+		prop11.setLongitud(-58.540298);
 		//prop11.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop12.setTipoPropiedad(tipo1);
@@ -428,6 +438,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop12.setAmbiente("tres ambientes");
 		prop12.setPrecioMin(0L);
 		prop12.setPrecioMax(0L);
+		prop12.setLatitud(-34.6597759);
+		prop12.setLongitud(-58.5807792);
 		//prop12.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		session.save(prop1);

@@ -97,7 +97,7 @@ public class ControladorLogin {
 			model.put("error", "Usuario registrado correctamente");
 			
 		} else {
-			model.put("error", "El email ingresado ya está registrado");
+			model.put("error", "El email ingresado ya estï¿½ registrado");
 		}		
 		
 		return new ModelAndView("registrar", model);

@@ -26,7 +26,7 @@ function favear() {
 		iconFav.style.color = "white";
 	}
 }
-function pasarDato(idPropiedad,ambiente,detalle,direccion,localidad,fechapublicada,provincia,precio,imagenUrl,imagenUrl2, imagenUrl3, imagenUrl4){
+function pasarDato(idPropiedad,ambiente,detalle,direccion,localidad,fechapublicada,provincia,precio,imagenUrl,imagenUrl2, imagenUrl3, imagenUrl4, latitud, longitud){
 	//var valor=id;
 	var ambiente=ambiente;
 	var detalle=detalle;
@@ -48,9 +48,14 @@ function pasarDato(idPropiedad,ambiente,detalle,direccion,localidad,fechapublica
 	document.getElementById('modal-precio').value=precio;
 	document.getElementById('modal-provincia').value=provincia;
 	document.getElementById('modal_idPropiedad').value=idPropiedad;
-	
-	$('#myModal').modal('show');
+		
+	var myCenter=new google.maps.LatLng(latitud, longitud);
+	var marker = new google.maps.Marker({position: myCenter,});
+	var mapOptions = {center: myCenter,zoom: 16,mapTypeId: google.maps.MapTypeId.ROADMAP,panControl: true,zoomControl: true,scaleControl: true,};
+	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	marker.setMap(map);
 
+	$('#myModal').modal('show');
 }
 
 
@@ -76,5 +81,5 @@ function validarContrasenia(){
 		btnRegistrar.disabled = false;
 		mensaje.style.display = "block";
 	}
-	
 }
+	

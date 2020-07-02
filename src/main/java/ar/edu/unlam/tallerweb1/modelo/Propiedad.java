@@ -24,33 +24,12 @@ public class Propiedad {
 	private String ambiente;
 	private Long precioMin;
 	private Long precioMax;
-	
+	private Double latitud;
+	private Double longitud;
 	private String imagenUrl2;
 	private String imagenUrl3;
 	private String imagenUrl4;
-	public String getImagenUrl3() {
-		return imagenUrl3;
-	}
-
-	public void setImagenUrl3(String imagenUrl3) {
-		this.imagenUrl3 = imagenUrl3;
-	}
-
-	public String getImagenUrl4() {
-		return imagenUrl4;
-	}
-
-	public void setImagenUrl4(String imagenUrl4) {
-		this.imagenUrl4 = imagenUrl4;
-	}
-
-	public String getImagenUrl2() {
-		return imagenUrl2;
-	}
-
-	public void setImagenUrl2(String imagenUrl2) {
-		this.imagenUrl2 = imagenUrl2;
-	}
+	
 
 	@Basic
 	private Date fechaPublicada;
@@ -188,5 +167,44 @@ public class Propiedad {
 		this.precioMax = precioMax;
 	}
 
+	public String getImagenUrl3() {
+		return imagenUrl3;
+	}
+
+	public void setImagenUrl3(String imagenUrl3) {
+		this.imagenUrl3 = imagenUrl3;
+	}
+
+	public String getImagenUrl4() {
+		return imagenUrl4;
+	}
+
+	public void setImagenUrl4(String imagenUrl4) {
+		this.imagenUrl4 = imagenUrl4;
+	}
+
+	public String getImagenUrl2() {
+		return imagenUrl2;
+	}
+
+	public void setImagenUrl2(String imagenUrl2) {
+		this.imagenUrl2 = imagenUrl2;
+	}
+
+	public Double getLatitud() {
+		return latitud;
+	}
+
+	public void setLatitud(Double latitud) {
+		this.latitud = latitud;
+	}
+
+	public Double getLongitud() {
+		return longitud;
+	}
+
+	public void setLongitud(Double longitud) {
+		this.longitud = longitud;
+	}
 	
 }
