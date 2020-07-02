@@ -25,8 +25,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.clases.Generico;
-import ar.edu.unlam.tallerweb1.modelo.Propiedad;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Repository("RepositorioPropiedad")
 
@@ -243,6 +241,10 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		session.save(lezica);
 		session.save(stella);
 		session.save(gilges);
+		List<Inmobiliaria> inmobiliarias = new ArrayList<Inmobiliaria>();
+		inmobiliarias.add(lezica);
+		inmobiliarias.add(stella);
+		inmobiliarias.add(gilges);
 
 		//PROPIEDADES
 
@@ -275,6 +277,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop1.setLatitud(-34.66489521);
 		prop1.setLongitud(-58.57834846);
 		//prop1.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-27"));
+//		prop1.setInmobiliaria(lezica);
+		prop1.setInmobiliarias(inmobiliarias);
 
 		prop2.setTipoPropiedad(tipo1);
 		prop2.setPrecio(15L);
@@ -290,6 +294,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop2.setLatitud(-34.66350482);
 		prop2.setLongitud(-58.58040333);
 		//prop2.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-23"));
+//		prop2.setInmobiliaria(stella);
 
 		prop3.setTipoPropiedad(tipo1);
 		prop3.setPrecio(12L);
@@ -305,7 +310,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop3.setLatitud(-34.6827521);
 		prop3.setLongitud(-58.5616369);
 		//prop3.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-21"));
-
+//		prop3.setInmobiliaria(stella);
+		
 		prop4.setTipoPropiedad(tipo1);
 		prop4.setPrecio(22L);
 		prop4.setDireccion("almafuerte 3534");
@@ -320,7 +326,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop4.setLatitud(-34.6812321);
 		prop4.setLongitud(-58.5573211);
 		//prop4.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-20"));
-
+//		prop4.setInmobiliaria(lezica);
+		
 		prop5.setTipoPropiedad(tipo1);
 		prop5.setPrecio(36L);
 		prop5.setDireccion("peron 1234");
@@ -335,7 +342,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop5.setLatitud(-34.662309);
 		prop5.setLongitud(-58.5774059);
 		//prop5.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-10"));
-
+//		prop5.setInmobiliaria(lezica);
 
 		prop6.setTipoPropiedad(tipo1);
 		prop6.setPrecio(50L);
@@ -351,7 +358,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop6.setLatitud(-34.6657519);
 		prop6.setLongitud(-58.5813591);
 		//prop6.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-01"));
-
+//		prop6.setInmobiliaria(lezica);
+		
 		prop7.setTipoPropiedad(tipo2);
 		prop7.setPrecio(20L);
 		prop7.setDireccion("Av.Rivadavia 18000");
@@ -366,7 +374,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop7.setLatitud(-34.6494009);
 		prop7.setLongitud(-58.6196954);
 		//prop7.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-
+//		prop7.setInmobiliaria(lezica);
+		
 		prop8.setTipoPropiedad(tipo1);
 		prop8.setPrecio(20L);
 		prop8.setDireccion("Brown 345");
@@ -381,7 +390,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop8.setLatitud(-34.6505146);
 		prop8.setLongitud(-58.6166245);
 		//prop7.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-
+//		prop8.setInmobiliaria(lezica);
+		
 		prop9.setTipoPropiedad(tipo1);
 		prop9.setPrecio(12L);
 		prop9.setDireccion("Av. de Mayo 47");
@@ -396,7 +406,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop9.setLatitud(-34.6419575);
 		prop9.setLongitud(-58.5677618);
 		//prop9.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-
+//		prop9.setInmobiliaria(lezica);
+		
 		prop10.setTipoPropiedad(tipo1);
 		prop10.setPrecio(32L);
 		prop10.setDireccion("Ibarrola 7201");
@@ -411,7 +422,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop10.setLatitud(-34.641661);
 		prop10.setLongitud(-58.5297261);
 		//prop10.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-
+//		prop10.setInmobiliaria(lezica);
+		
 		prop11.setTipoPropiedad(tipo1);
 		prop11.setPrecio(36L);
 		prop11.setDireccion("Alianza 200");
@@ -426,7 +438,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop11.setLatitud(-34.6424375);
 		prop11.setLongitud(-58.540298);
 		//prop11.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-
+		prop11.setInmobiliarias(inmobiliarias);
+		
 		prop12.setTipoPropiedad(tipo1);
 		prop12.setPrecio(49L);
 		prop12.setDireccion("Peron 900");
@@ -441,7 +454,8 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		prop12.setLatitud(-34.6597759);
 		prop12.setLongitud(-58.5807792);
 		//prop12.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-
+//		prop12.setInmobiliaria(lezica);
+		
 		session.save(prop1);
 		session.save(prop2);
 		session.save(prop3);

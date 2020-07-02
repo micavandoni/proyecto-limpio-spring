@@ -35,6 +35,7 @@ function pasarDato(idPropiedad,ambiente,detalle,direccion,localidad,fechapublica
 	var fechapublicada=fechapublicada;
 	var precio=precio;
 	var provincia=provincia;
+	var idProp = idPropiedad;
 	
 	document.getElementById("img1-modal").src="img/portfolio/".concat(imagenUrl);
 	document.getElementById("img2-modal").src="img/portfolio/".concat(imagenUrl2);

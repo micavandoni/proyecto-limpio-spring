@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+//import ar.edu.unlam.tallerweb1.servicios.ServicioEmail;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,14 +18,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.clases.Generico;
+import ar.edu.unlam.tallerweb1.modelo.Mail;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPropiedad;
+
 
 @Controller
 public class ControladorPropiedad {
 
 	private ServicioPropiedad servicioPropiedad;
-	private ServicioLogin servicioLogin;
+	//private ServicioLogin servicioLogin;
+	
+	
+	//private ServicioEmail servicioEmail;
 	
 	@Autowired
 	public  ControladorPropiedad(ServicioPropiedad servicioPropiedad) {
@@ -39,7 +45,7 @@ public class ControladorPropiedad {
                
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
         model.put("propiedad", listaPropiedad);
-   
+       
         loadGenericModel(model);
         
         return new ModelAndView("propiedad", model);
@@ -90,6 +96,15 @@ public class ControladorPropiedad {
         HttpSession session = request.getSession();
         session.getAttribute("usuarioBuscado");
         Usuario usuario = (Usuario) session.getAttribute("usuarioBuscado");
+       
+        /*prueba mail*/
+//       Mail mail = new Mail();
+//       mail.setUsuario(usuario);
+//        mail.setDesde("dschamorro.1990@gmail.com");
+//       mail.setPara("deboxeneise@gmail.com");
+//        mail.setContenido("te agregaron exitosamente");
+//      mail.setAsunto("Inmobiliaria!!");
+//       servicioEmail.mandarMail(mail);
 
         servicioPropiedad.guardarFavoritoSeleccionado(favoritoSeleccionado, usuario);
         
@@ -152,5 +167,6 @@ public class ControladorPropiedad {
         servicioPropiedad.crearEventos();
         return new ModelAndView("redirect:/login");
     }
+    
 
 }
