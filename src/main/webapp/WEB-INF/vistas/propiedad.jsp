@@ -471,8 +471,9 @@
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
   <script src="js/myjs.js"></script>
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyA7CHxy-Z9ayDwj1yb8qshjMSXGXTAkKd0&sensor=false"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAQECsBErZrU9sa9jD7T012vWjpkAbZlKk&sensor=false"></script>
 </body>
+
 
 </html>
 
