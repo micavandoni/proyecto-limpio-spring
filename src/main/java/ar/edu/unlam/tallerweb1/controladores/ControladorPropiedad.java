@@ -125,7 +125,7 @@ public class ControladorPropiedad {
     	
     }
     
-    private void condicionValida(Propiedad propiedad) {
+    public Boolean condicionValida(Propiedad propiedad) {
     	
 		if(propiedad.getCondicion()!=null && propiedad.getCondicion().equalsIgnoreCase("null")) {
 			propiedad.setCondicion(null);	
@@ -133,7 +133,7 @@ public class ControladorPropiedad {
 		if(propiedad.getAmbiente()!=null && propiedad.getAmbiente().equalsIgnoreCase("null")) {
 			propiedad.setAmbiente(null);
 		}
-    	
+    	 return true;
     }
     
     public void validarRango(Propiedad propiedad) throws Exception {
@@ -143,7 +143,6 @@ public class ControladorPropiedad {
 				
 				throw new RuntimeException("Precio Maximo debe ser mayor a Precio Minimo!!!");
 			}
-			
 		}
     }
 

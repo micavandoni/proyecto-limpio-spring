@@ -47,7 +47,7 @@ public class ControladorPropiedadTest{
     }
     
 	@Test(expected = Exception.class)
-	public void validarPrecioPropiedad() throws Exception{
+	public void validarCamposPropiedadFallaPrecio() throws Exception{
 		
 		ServicioPropiedad servicioPropiedad = mock(ServicioPropiedad.class);
 				
@@ -55,13 +55,14 @@ public class ControladorPropiedadTest{
 		
 		// preparacion
 		Propiedad propiedad = new Propiedad();
-		propiedad.setPrecioMin(22L);
-		propiedad.setPrecioMax(1L);
+		propiedad.setCondicion("venta");
+		propiedad.setAmbiente("2");
+		propiedad.setPrecioMin(1L);
+		propiedad.setPrecioMax(2L);
 				
-		when(controladorPropiedad.propiedades()).thenReturn(null);
-		doThrow(Exception.class).when(controladorPropiedad).validarRango(propiedad);
-		
-
+		// ejecucion
+		when(controladorPropiedad.condicionValida(propiedad)).thenReturn(true);
+		doThrow(Exception.class).when(controladorPropiedad).validarRango(propiedad);	
 	}
 
 }
