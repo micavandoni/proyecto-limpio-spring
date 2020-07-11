@@ -64,5 +64,20 @@ public class ControladorPropiedadTest{
 		when(controladorPropiedad.condicionValida(propiedad)).thenReturn(true);
 		doThrow(Exception.class).when(controladorPropiedad).validarRango(propiedad);	
 	}
+	
+    @Test
+    public void envioMail(){
+        // preparacion
+    	
+		ServicioPropiedad servicioPropiedad = mock(ServicioPropiedad.class);
+		ControladorPropiedad controladorPropiedad = new ControladorPropiedad(servicioPropiedad);
+		
+		String destinatario = "walter.guglielmetti@gmail.com";
+		String asunto = "prueba mails house lala";
+		String cuerpo = "algo para mandar en el mail";
+
+		controladorPropiedad.enviarConGMail(destinatario, asunto, cuerpo);
+
+    }
 
 }
