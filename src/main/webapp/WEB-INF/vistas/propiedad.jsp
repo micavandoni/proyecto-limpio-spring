@@ -261,8 +261,12 @@
 							    <c:when test="${usuarioBuscado.id == null}">
 							    </c:when>    
 							    <c:otherwise>
-							       <button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px;">Agregar a Fav&nbsp&nbsp<i class="icofont-star"></i></button> 
-									<button type="button" class="btn btn-favear" data-toggle="modal" data-target="#myModal" onclick="pasarDato('${propiedad.id}','${propiedad.ambiente}','${propiedad.detalle}','${propiedad.direccion}','${propiedad.localidad}','${propiedad.fechaPublicada}','${propiedad.provincia}','${propiedad.precio}','${propiedad.imagenUrl}','${propiedad.imagenUrl2}','${propiedad.imagenUrl3}','${propiedad.imagenUrl4}','${propiedad.latitud}','${propiedad.longitud}')">Ver Detalle</button>
+							     	<button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px; margin-bottom:10px">Agregar a Fav&nbsp&nbsp<i class="icofont-star"></i></button> 
+									<button type="button" class="btn btn-buscar" data-toggle="modal" data-target="#myModal" 
+										onclick="pasarDato('${propiedad.id}','${propiedad.ambiente}','${propiedad.detalle}','${propiedad.direccion}',
+										'${propiedad.localidad}','${propiedad.fechaPublicada}','${propiedad.provincia}',
+										'${propiedad.precio}','${propiedad.imagenUrl}','${propiedad.imagenUrl2}','${propiedad.imagenUrl3}',
+										'${propiedad.imagenUrl4}','${propiedad.latitud}','${propiedad.longitud}', '${publicaciones}')">Ver Detalle</button>
 							    </c:otherwise>
 							</c:choose>				                          
 			              </div>		              
@@ -280,93 +284,111 @@
 		</table>
         </div>
       </div>
-    </section><!-- End Portfolio Section -->
-		<!--begin modal window-->
-		<div class="modal fade" id="myModal">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="pull-left">Detalle Propiedad</div>
-						<button type="button" class="close" data-dismiss="modal"
-							title="Close">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<!--begin carousel-->
-						<div id="myGallery" class="carousel slide" data-interval="false">
-							<div class="carousel-inner">
-								<div class="item active">
-									<img id="img1-modal" src="" alt="item0">
-									<div class="carousel-caption"></div>
-								</div>
-								<div class="item">
-									<img id="img2-modal" src="" alt="item1">
-									<div class="carousel-caption"></div>
-								</div>
-								<div class="item">
-									<img id="img3-modal" src="" alt="item2">
-									<div class="carousel-caption"></div>
-								</div>
-								<div class="item">
-									<img id="img4-modal" src="" alt="item3">
-									<div class="carousel-caption"></div>
-								</div>
-								<!--end carousel-inner-->
-							</div>
-							<!--Begin Previous and Next buttons-->
-							<a class="left carousel-control" href="#myGallery" role="button"
-								data-slide="prev"> <span
-								class="glyphicon glyphicon-chevron-left"></span></a> <a
-								class="right carousel-control" href="#myGallery" role="button"
-								data-slide="next"> <span
-								class="glyphicon glyphicon-chevron-right"></span></a>
-							<!--end carousel-->
-						</div>
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th scope="col">Ambiente</th>
-									<th scope="col">Detalle</th>
-									<th scope="col">Direccion</th>
-									<th scope="col">Localidad</th>
-									<th scope="col">Provincia</th>
-									<th scope="col">Precio</th>
-									<th scope="col">Publicado</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th><input class="form-control" type="text" id="modal-ambiente" name="modal-ambiente" value=""></th>
-									<td><input class="form-control" type="text" id="modal-detalle" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-direccion" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-localidad" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-provincia" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-precio" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-fechapublicada" name="" value=""></td>
-								</tr>
-							</tbody>
-						</table>
-						
-						<!--end modal-body-->
-					</div>
-					<div clas id="map_canvas"></div>
-					<div class="modal-footer">
-						<div class="pull-right"></div>
-						<input id="modal_idPropiedad" name="modal_idPropiedad" value="">
-						<button class="btn-sm close" type="submit" data-dismiss="modal">Enviar
-							a email</button>
-						<button class="btn-sm close" type="button" data-dismiss="modal">Salir</button>
-						<!--end modal-footer-->
-					</div>
-					<!--end modal-content-->
+    </section>
+	<!--MODAL SECTION-->
+	<div class="modal fade" id="myModal">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="pull-left" style="font-weight:bold">Detalle Propiedad</div>
+					<button type="button" class="close" data-dismiss="modal"
+						title="Close" style="color:#009970!important">X
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
 				</div>
-				<!--end modal-dialoge-->
+				<div class="modal-body">
+					<!--begin carousel-->
+					<div id="myGallery" class="carousel slide" data-ride="carousel">						
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img id="img1-modal" src="" alt="item0">
+<!-- 								<div class="carousel-caption"></div> -->
+							</div>
+							<div class="item">
+								<img id="img2-modal" src="" alt="item1">
+<!-- 								<div class="carousel-caption"></div> -->
+							</div>
+							<div class="item">
+								<img id="img3-modal" src="" alt="item2">
+<!-- 								<div class="carousel-caption"></div> -->
+							</div>
+							<div class="item">
+								<img id="img4-modal" src="" alt="item3">
+<!-- 								<div class="carousel-caption"></div> -->
+							</div>
+							<!--end carousel-inner-->
+						</div>
+						<a class="carousel-control-prev" href="#myGallery" role="button" data-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Previous</span>
+						  </a>
+						  <a class="carousel-control-next" href="#myGallery" role="button" data-slide="next">
+						    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Next</span>
+						  </a>
+<!-- 						<a class="left carousel-control" href="#myGallery" role="button" -->
+<!-- 							data-slide="prev"> <span -->
+<!-- 							class="glyphicon glyphicon-chevron-left"></span></a> <a -->
+<!-- 							class="right carousel-control" href="#myGallery" role="button" -->
+<!-- 							data-slide="next"> <span -->
+<!-- 							class="glyphicon glyphicon-chevron-right"></span></a> -->
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-12">
+							<h5>Sobre la vivienda</h5>							
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-4 offset-3">
+							<p id="modal-ambiente"></p>
+						</div>
+						<div class="col-2">
+							<p id="modal-detalle"></p>
+						</div>						
+					</div>
+					<div class="row">
+						<div class="col-12" style="text-align:center">
+							<p id="modal-direccion"></p>
+						</div>
+					</div>
+					<p id=publicaciones></p>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">Publicado</th>
+								<th scope="col">Precio</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td id="modal-fechapublicada"></td>
+								<td id="modal-precio"></td>								
+							</tr>
+						</tbody>
+					</table>
+					<div id="map_canvas"></div>
+					<!--end modal-body-->
+				</div>
+				
+				<div class="modal-footer">
+					<div class="pull-right"></div>
+					<input id="modal_idPropiedad" name="modal_idPropiedad" value="">
+					<button class="btn btn-sm btn-warning" style="color:white!important" type="submit">Enviar
+						a email</button>
+					<button class="btn btn-sm btn-danger" type="button" data-dismiss="modal">Salir</button>
+					<!--end modal-footer-->
+				</div>
+				<!--end modal-content-->
 			</div>
-			<!--end myModal-->
+			<!--end modal-dialoge-->
 		</div>
-		<section id="viviendasNuevas" class="portfolio">
-          <div class="container">
+		<!--end myModal-->
+	</div>
+	<!-- END MODAL SECTION -->
+	<!-- VIVIENDAS NUEVAS SECTION -->
+	<section id="viviendasNuevas" class="portfolio">
+    	<div class="container">
               <div class="section-title" data-aos="fade-left">
                   <h2>Viviendas nuevas</h2>
               </div>
@@ -389,8 +411,8 @@
                   </table>
               </div>
           </div>
-      </section><!-- End Portfolio Section -->
-
+    </section><!-- End Portfolio Section -->
+	<!-- END VIVIENDAS NUEVAS SECTION -->
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
@@ -457,15 +479,17 @@
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->
+  
   <script src="vendor/jquery/jquery.min.js"></script>
+<!--   <script src="vendor/bootstrap/js/bootstrap.js"></script> -->
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="vendor/php-email-form/validate.js"></script>
+<!--   <script src="vendor/php-email-form/validate.js"></script> -->
   <script src="vendor/waypoints/jquery.waypoints.min.js"></script>
   <script src="vendor/counterup/counterup.min.js"></script>
   <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="vendor/venobox/venobox.min.js"></script>
-  <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="vendor/owl.carousel/owl.carousel.min.js"></script>l
   <script src="vendor/aos/aos.js"></script>
 
   <!-- Template Main JS File -->

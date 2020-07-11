@@ -18,4 +18,5 @@ public interface RepositorioPropiedad {
     List listaContadores();
     List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario);
     void crearEventos();
+//    List getPublicacion(Propiedad propiedad);
 }

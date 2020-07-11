@@ -16,4 +16,5 @@ public interface ServicioPropiedad {
     List<Propiedad> propiedadesFavoritasDeUnUsuario(Usuario usuario);
     boolean crearEventos();
 	void guardarFavoritoSeleccionado(Generico favoritoSeleccionado, Usuario usuario);
+//	List getPublicacion(Propiedad propiedad);
 }

@@ -26,7 +26,7 @@ function favear() {
 		iconFav.style.color = "white";
 	}
 }
-function pasarDato(idPropiedad,ambiente,detalle,direccion,localidad,fechapublicada,provincia,precio,imagenUrl,imagenUrl2, imagenUrl3, imagenUrl4, latitud, longitud){
+function pasarDato(idPropiedad,ambiente,detalle,direccion,localidad,fechapublicada,provincia,precio,imagenUrl,imagenUrl2, imagenUrl3, imagenUrl4, latitud, longitud, publicaciones){
 	//var valor=id;
 	var ambiente=ambiente;
 	var detalle=detalle;
@@ -35,19 +35,21 @@ function pasarDato(idPropiedad,ambiente,detalle,direccion,localidad,fechapublica
 	var fechapublicada=fechapublicada;
 	var precio=precio;
 	var provincia=provincia;
+	var publicaciones=publicaciones;
 	
 	document.getElementById("img1-modal").src="img/portfolio/".concat(imagenUrl);
 	document.getElementById("img2-modal").src="img/portfolio/".concat(imagenUrl2);
 	document.getElementById("img3-modal").src="img/portfolio/".concat(imagenUrl3);
 	document.getElementById("img4-modal").src="img/portfolio/".concat(imagenUrl4);
-	document.getElementById('modal-ambiente').value=ambiente;
-	document.getElementById('modal-detalle').value=detalle;
-	document.getElementById('modal-direccion').value=direccion;
-	document.getElementById('modal-localidad').value=localidad;
-	document.getElementById('modal-fechapublicada').value=fechapublicada;
-	document.getElementById('modal-precio').value=precio;
-	document.getElementById('modal-provincia').value=provincia;
-	document.getElementById('modal_idPropiedad').value=idPropiedad;
+	document.getElementById('modal-ambiente').innerHTML =' Ambientes: ' + ambiente;
+	document.getElementById('modal-detalle').innerHTML='A ' + detalle;
+	document.getElementById('modal-direccion').innerHTML='Dirección: ' + direccion +' - ' + localidad + ' - ' + provincia;
+	//document.getElementById('modal-localidad').innerHTML=localidad;
+	document.getElementById('modal-fechapublicada').innerHTML=fechapublicada;
+	document.getElementById('modal-precio').innerHTML=precio;
+	//document.getElementById('modal-provincia').innerHTML=provincia;
+	document.getElementById('modal_idPropiedad').innerHTML=idPropiedad;
+	document.getElementById('publicaciones').innerHTML = publicaciones;
 		
 	var myCenter=new google.maps.LatLng(latitud, longitud);
 	var marker = new google.maps.Marker({position: myCenter,});

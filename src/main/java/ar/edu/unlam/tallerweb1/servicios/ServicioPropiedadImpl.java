@@ -65,4 +65,9 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 		}
 	}
 
+//	@Override
+//	public List getPublicacion(Propiedad propiedad) {
+//		return repositorioPropiedad.getPublicacion(propiedad);
+//	}
+
 }

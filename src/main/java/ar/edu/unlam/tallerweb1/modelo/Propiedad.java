@@ -28,8 +28,7 @@ public class Propiedad {
 	private Double longitud;
 	private String imagenUrl2;
 	private String imagenUrl3;
-	private String imagenUrl4;
-	
+	private String imagenUrl4;	
 
 	@Basic
 	private Date fechaPublicada;
@@ -37,17 +36,28 @@ public class Propiedad {
     @ManyToMany(mappedBy = "propiedades")
     private List<Usuario> usuarios = new ArrayList<Usuario>();
 
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+	@JoinTable(name= "propiedadInmobiliaria",
+			joinColumns = {@JoinColumn(name = "idPropiedad")},
+			inverseJoinColumns = {@JoinColumn(name = "idInmobiliaria")})
+    private List<Inmobiliaria> inmobiliarias = new ArrayList<Inmobiliaria>();
+	
+    public void addInmobiliaria(Inmobiliaria inmo) {
+    	inmobiliarias.add(inmo);
+    	inmo.getPropiedades().add(this);
+    }
+ 
+    public void removePropiedad(Inmobiliaria inmo) {
+    	inmobiliarias.remove(inmo);
+        inmo.getPropiedades().remove(this);
+    }
 
-	@Override
-	public int hashCode() {
-		return 31;
+	public List<Inmobiliaria> getInmobiliarias() {
+		return inmobiliarias;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Propiedad)) return false;
-        return id != null && id.equals(((Propiedad) obj).getId());
+	public void setInmobiliarias(List<Inmobiliaria> inmobiliarias) {
+		this.inmobiliarias = inmobiliarias;
 	}
 
 	public List<Usuario> getUsuarios() {
@@ -140,7 +150,6 @@ public class Propiedad {
 	public void setAmbiente(String ambiente) {
 		this.ambiente = ambiente;
 	}
-
 	
 
 	public Date getFechaPublicada() {
@@ -206,5 +215,23 @@ public class Propiedad {
 	public void setLongitud(Double longitud) {
 		this.longitud = longitud;
 	}
+	
+
+	@Override
+	public int hashCode() {
+		
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Propiedad propiedad = (Propiedad) obj;
+        return Objects.equals(id, propiedad.id);
+		
+	}
+	
+	
 	
 }

@@ -14,10 +14,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unlam.tallerweb1.clases.Generico;
+import ar.edu.unlam.tallerweb1.modelo.Inmobiliaria;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
+import ar.edu.unlam.tallerweb1.modelo.Publicacion;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPropiedad;
 
 @Controller
@@ -39,7 +43,6 @@ public class ControladorPropiedad {
                
         List<Propiedad> listaPropiedad = servicioPropiedad.consultarPropiedad();
         model.put("propiedad", listaPropiedad);
-   
         loadGenericModel(model);
         
         return new ModelAndView("propiedad", model);
@@ -116,12 +119,12 @@ public class ControladorPropiedad {
         Generico favorito = new Generico();
         
         List<Propiedad> listaPropiedades = servicioPropiedad.consultarNuevasPropiedades();
-        List listaContadores = servicioPropiedad.listaContadores();
+        List listaContadores = servicioPropiedad.listaContadores();        
         
         model.put("propiedadNueva", listaPropiedades);
         model.put("propiedadFiltro", propiedadFiltro);
         model.put("favorito", favorito);
-        model.put("contadores", listaContadores);
+        model.put("contadores", listaContadores);        
     	
     }
     
@@ -152,5 +155,17 @@ public class ControladorPropiedad {
         servicioPropiedad.crearEventos();
         return new ModelAndView("redirect:/login");
     }
-
+    
+//    @RequestMapping("/ajaxPublicaciones")
+//    public @ResponseBody List<Inmobiliaria> ajaxPublicaciones(@RequestParam("propiedad") Propiedad propiedad) {
+//    	List inmobiliarias = servicioPropiedad.getPublicacion(propiedad);
+//    	return inmobiliarias;
+//    }
+    
+    
+    
+    
+    
+    
+    
 }
