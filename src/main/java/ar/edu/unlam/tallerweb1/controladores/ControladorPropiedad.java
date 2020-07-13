@@ -26,7 +26,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 import ar.edu.unlam.tallerweb1.clases.Generico;
+import ar.edu.unlam.tallerweb1.modelo.Inmobiliaria;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
+import ar.edu.unlam.tallerweb1.modelo.Publicacion;
 import ar.edu.unlam.tallerweb1.servicios.ServicioPropiedad;
 
 @Controller
@@ -155,8 +157,8 @@ public class ControladorPropiedad {
 		}
     }
     
-    @RequestMapping(value = "/envioMail/{mail}", method = RequestMethod.GET)
-    public ModelAndView envioMail(@PathVariable("mail") String mail, HttpServletRequest request) {
+    @RequestMapping(value = "/envioMail", method = RequestMethod.POST)
+    public ModelAndView envioMail(@ModelAttribute("email") String email, HttpServletRequest request) {
 
  	   HttpSession session = request.getSession();
        Usuario usuario = (Usuario)session.getAttribute("usuarioBuscado");
@@ -164,8 +166,8 @@ public class ControladorPropiedad {
        ModelMap model = new ModelMap();
 
        String remitente = usuario.getEmail();
-       String emailDestinatario = mail;
-       String asunto = remitente + "Me interesa tu casa capo!!!!!";
+       String emailDestinatario = email;
+       String asunto = remitente + " Consulta por propiedad";
        String cuerpo = asunto;
 
        enviarConGMail(emailDestinatario, asunto, cuerpo);
@@ -207,7 +209,22 @@ public class ControladorPropiedad {
     	      me.printStackTrace(); // Si se produce un error
     	   }
     	}
-
+    
+    @RequestMapping("detalle")
+    public ModelAndView detalle(@ModelAttribute("detalle") Propiedad propiedad, HttpServletRequest request) {
+    	
+    	ModelMap model = new ModelMap();
+    	Propiedad detalleProp = servicioPropiedad.detallePropiedad(propiedad);
+    	List<Publicacion> listaPublicaciones = servicioPropiedad.listaPublicacion(propiedad);
+    	List<Inmobiliaria> listaInmobiliarias = servicioPropiedad.consultarInmobiliarias(listaPublicaciones);
+    	
+    	model.put("propiedad", detalleProp);
+    	model.put("listaPublis", listaPublicaciones);
+    	model.put("inmobiliarias", listaInmobiliarias);
+    	return new ModelAndView("detalle", model);
+    }
+    
+    
     @RequestMapping(path = "/crear", method = RequestMethod.GET)
     public ModelAndView crear() {
         servicioPropiedad.crearEventos();

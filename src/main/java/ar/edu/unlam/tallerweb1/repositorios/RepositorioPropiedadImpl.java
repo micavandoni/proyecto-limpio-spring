@@ -25,8 +25,6 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import ar.edu.unlam.tallerweb1.clases.Generico;
-import ar.edu.unlam.tallerweb1.modelo.Propiedad;
-import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 @Repository("RepositorioPropiedad")
 
@@ -216,9 +214,9 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		TipoPropiedad tipo2 = new TipoPropiedad();
 		TipoPropiedad tipo3 = new TipoPropiedad();
 
-		tipo1.setDescripcion("casa");
-		tipo2.setDescripcion("departamento");
-		tipo3.setDescripcion("terreno");
+		tipo1.setDescripcion("Casa");
+		tipo2.setDescripcion("Departamento");
+		tipo3.setDescripcion("Terreno");
 
 		session.save(tipo1);
 		session.save(tipo2);
@@ -232,13 +230,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		Inmobiliaria gilges = new Inmobiliaria();
 
 		lezica.setNombreInmobiliaria("Lezica");
-		lezica.setEmail("lezica@email.com");
+		lezica.setEmail("lezica@gmail.com");
 
 		stella.setNombreInmobiliaria("Stella");
-		stella.setEmail("stella@email.com");
+		stella.setEmail("stella@gmail.com");
 
 		gilges.setNombreInmobiliaria("Gilges");
-		gilges.setEmail("gilges@email.com");
+		gilges.setEmail("gilges@gmail.com");
 
 		session.save(lezica);
 		session.save(stella);
@@ -262,14 +260,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 
 
 		prop1.setTipoPropiedad(tipo2);
-		prop1.setPrecio(20L);
+		prop1.setPrecio(4500000L);
 		prop1.setDireccion("Miro 2492");
-		prop1.setLocalidad("luzuriaga");
-		prop1.setProvincia("buenos aires");
-		prop1.setCondicion("venta");
-		prop1.setDetalle("estrenar");
+		prop1.setLocalidad("Luzuriaga");
+		prop1.setProvincia("Buenos Aires");
+		prop1.setCondicion("Venta");
+		prop1.setDetalle("Estrenar");
 		prop1.setImagenUrl("monoambiente.jpg");
-		prop1.setAmbiente("monoambiente");
+		prop1.setAmbiente("Monoambiente");
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
 		prop1.setLatitud(-34.66489521);
@@ -277,14 +275,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop1.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-27"));
 
 		prop2.setTipoPropiedad(tipo1);
-		prop2.setPrecio(15L);
+		prop2.setPrecio(40000L);
 		prop2.setDireccion("Doctor Ignacio Arieta 1050");
-		prop2.setLocalidad("san justo");
-		prop2.setProvincia("buenos aires");
-		prop2.setCondicion("alquiler");
-		prop2.setDetalle("alquiler");
+		prop2.setLocalidad("San Justo");
+		prop2.setProvincia("Buenos Aires");
+		prop2.setCondicion("Alquiler");
+		prop2.setDetalle("5 años de antiguedad");
 		prop2.setImagenUrl("casa1.jpg");
-		prop2.setAmbiente("dos ambientes");
+		prop2.setAmbiente("Dos Ambientes");
 		prop2.setPrecioMin(0L);
 		prop2.setPrecioMax(0L);
 		prop2.setLatitud(-34.66350482);
@@ -292,14 +290,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop2.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-23"));
 
 		prop3.setTipoPropiedad(tipo1);
-		prop3.setPrecio(12L);
+		prop3.setPrecio(6000000L);
 		prop3.setDireccion("Mariano Santamaria 1147");
-		prop3.setLocalidad("luzuriaga");
-		prop3.setProvincia("buenos aires");
-		prop3.setCondicion("venta");
-		prop3.setDetalle("refaccionar");
+		prop3.setLocalidad("Luzuriaga");
+		prop3.setProvincia("Buenos Aires");
+		prop3.setCondicion("Venta");
+		prop3.setDetalle("Refaccionar");
 		prop3.setImagenUrl("casa4.jpg");
-		prop3.setAmbiente("dos ambientes");
+		prop3.setAmbiente("Dos Ambientes");
 		prop3.setPrecioMin(0L);
 		prop3.setPrecioMax(0L);
 		prop3.setLatitud(-34.6827521);
@@ -307,14 +305,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop3.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-21"));
 
 		prop4.setTipoPropiedad(tipo1);
-		prop4.setPrecio(22L);
-		prop4.setDireccion("almafuerte 3534");
-		prop4.setLocalidad("san justo");
-		prop4.setProvincia("buenos aires");
-		prop4.setCondicion("alquiler");
-		prop4.setDetalle("buen estado");
+		prop4.setPrecio(60000L);
+		prop4.setDireccion("Almafuerte 3534");
+		prop4.setLocalidad("San Justo");
+		prop4.setProvincia("Buenos Aires");
+		prop4.setCondicion("Alquiler");
+		prop4.setDetalle("Buen Estado");
 		prop4.setImagenUrl("casa2.jpg");
-		prop4.setAmbiente("tres ambientes");
+		prop4.setAmbiente("Tres Ambientes");
 		prop4.setPrecioMin(0L);
 		prop4.setPrecioMax(0L);
 		prop4.setLatitud(-34.6812321);
@@ -322,14 +320,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop4.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-20"));
 
 		prop5.setTipoPropiedad(tipo1);
-		prop5.setPrecio(36L);
-		prop5.setDireccion("peron 1234");
-		prop5.setLocalidad("san justo");
-		prop5.setProvincia("buenos aires");
-		prop5.setCondicion("venta");
-		prop5.setDetalle("inversion");
+		prop5.setPrecio(6500000L);
+		prop5.setDireccion("Peron 1234");
+		prop5.setLocalidad("San Justo");
+		prop5.setProvincia("Buenos Aires");
+		prop5.setCondicion("Venta");
+		prop5.setDetalle("Inversion");
 		prop5.setImagenUrl("casa5.jpg");
-		prop5.setAmbiente("cuatro ambientes");
+		prop5.setAmbiente("Cuatro Ambientes");
 		prop5.setPrecioMin(0L);
 		prop5.setPrecioMax(0L);
 		prop5.setLatitud(-34.662309);
@@ -338,14 +336,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 
 
 		prop6.setTipoPropiedad(tipo1);
-		prop6.setPrecio(50L);
+		prop6.setPrecio(8000000L);
 		prop6.setDireccion("Miro 345");
-		prop6.setLocalidad("luzuriaga");
-		prop6.setProvincia("buenos aires");
-		prop6.setCondicion("venta");
-		prop6.setDetalle("estrenar");
+		prop6.setLocalidad("Luzuriaga");
+		prop6.setProvincia("Buenos Aires");
+		prop6.setCondicion("Venta");
+		prop6.setDetalle("Estrenar");
 		prop6.setImagenUrl("casa3.jpg");
-		prop6.setAmbiente("tres ambientes");
+		prop6.setAmbiente("Tres Ambientes");
 		prop6.setPrecioMin(0L);
 		prop6.setPrecioMax(0L);
 		prop6.setLatitud(-34.6657519);
@@ -353,14 +351,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop6.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-01"));
 
 		prop7.setTipoPropiedad(tipo2);
-		prop7.setPrecio(20L);
+		prop7.setPrecio(4200000L);
 		prop7.setDireccion("Av.Rivadavia 18000");
 		prop7.setLocalidad("Moron");
-		prop7.setProvincia("buenos aires");
-		prop7.setCondicion("venta");
-		prop7.setDetalle("estrenar");
+		prop7.setProvincia("Buenos Aires");
+		prop7.setCondicion("Venta");
+		prop7.setDetalle("Estrenar");
 		prop7.setImagenUrl("monoambiente.jpg");
-		prop7.setAmbiente("tmonoambiente");
+		prop7.setAmbiente("Monoambiente");
 		prop7.setPrecioMin(0L);
 		prop7.setPrecioMax(0L);
 		prop7.setLatitud(-34.6494009);
@@ -368,14 +366,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop7.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop8.setTipoPropiedad(tipo1);
-		prop8.setPrecio(20L);
+		prop8.setPrecio(45000L);
 		prop8.setDireccion("Brown 345");
 		prop8.setLocalidad("Moron");
-		prop8.setProvincia("buenos aires");
-		prop8.setCondicion("alquiler");
-		prop8.setDetalle("estrenar");
+		prop8.setProvincia("Buenos Aires");
+		prop8.setCondicion("Alquiler");
+		prop8.setDetalle("Estrenar");
 		prop8.setImagenUrl("casa1.jpg");
-		prop8.setAmbiente("dos ambientes");
+		prop8.setAmbiente("Dos Ambientes");
 		prop8.setPrecioMin(0L);
 		prop8.setPrecioMax(0L);
 		prop8.setLatitud(-34.6505146);
@@ -383,14 +381,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop7.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop9.setTipoPropiedad(tipo1);
-		prop9.setPrecio(12L);
+		prop9.setPrecio(62000000L);
 		prop9.setDireccion("Av. de Mayo 47");
 		prop9.setLocalidad("Ramos Mejia");
-		prop9.setProvincia("buenos aires");
-		prop9.setCondicion("venta");
-		prop9.setDetalle("refaccionar");
+		prop9.setProvincia("Buenos Aires");
+		prop9.setCondicion("Venta");
+		prop9.setDetalle("Refaccionar");
 		prop9.setImagenUrl("casa4.jpg");
-		prop9.setAmbiente("dos ambientes");
+		prop9.setAmbiente("Dos Ambientes");
 		prop9.setPrecioMin(0L);
 		prop9.setPrecioMax(0L);
 		prop9.setLatitud(-34.6419575);
@@ -398,14 +396,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop9.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop10.setTipoPropiedad(tipo1);
-		prop10.setPrecio(32L);
+		prop10.setPrecio(32000000L);
 		prop10.setDireccion("Ibarrola 7201");
 		prop10.setLocalidad("Liniers");
 		prop10.setProvincia("CABA");
-		prop10.setCondicion("venta");
-		prop10.setDetalle("refaccionar");
+		prop10.setCondicion("Venta");
+		prop10.setDetalle("Refaccionar");
 		prop10.setImagenUrl("casa2.jpg");
-		prop10.setAmbiente("tres ambientes");
+		prop10.setAmbiente("Tres Ambientes");
 		prop10.setPrecioMin(0L);
 		prop10.setPrecioMax(0L);
 		prop10.setLatitud(-34.641661);
@@ -413,14 +411,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop10.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop11.setTipoPropiedad(tipo1);
-		prop11.setPrecio(36L);
+		prop11.setPrecio(12000000L);
 		prop11.setDireccion("Alianza 200");
 		prop11.setLocalidad("Ciudadela");
-		prop11.setProvincia("buenos aires");
-		prop11.setCondicion("venta");
-		prop11.setDetalle("inversion");
+		prop11.setProvincia("Buenos Aires");
+		prop11.setCondicion("Venta");
+		prop11.setDetalle("Inversion");
 		prop11.setImagenUrl("casa5.jpg");
-		prop11.setAmbiente("cuatro ambientes");
+		prop11.setAmbiente("Cuatro Ambientes");
 		prop11.setPrecioMin(0L);
 		prop11.setPrecioMax(0L);
 		prop11.setLatitud(-34.6424375);
@@ -428,14 +426,14 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		//prop11.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
 
 		prop12.setTipoPropiedad(tipo1);
-		prop12.setPrecio(49L);
+		prop12.setPrecio(29000000L);
 		prop12.setDireccion("Peron 900");
 		prop12.setLocalidad("Castelar");
-		prop12.setProvincia("buenos aires");
-		prop12.setCondicion("venta");
-		prop12.setDetalle("estrenar");
+		prop12.setProvincia("Buenos Aires");
+		prop12.setCondicion("Venta");
+		prop12.setDetalle("Estrenar");
 		prop12.setImagenUrl("casa3.jpg");
-		prop12.setAmbiente("tres ambientes");
+		prop12.setAmbiente("Tres Ambientes");
 		prop12.setPrecioMin(0L);
 		prop12.setPrecioMax(0L);
 		prop12.setLatitud(-34.6597759);
@@ -463,24 +461,120 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		Publicacion publi4 = new Publicacion();
 		Publicacion publi5 = new Publicacion();
 		Publicacion publi6 = new Publicacion();
+		Publicacion publi7 = new Publicacion();
+		Publicacion publi8 = new Publicacion();
+		Publicacion publi9 = new Publicacion();
+		Publicacion publi10 = new Publicacion();
+		Publicacion publi11 = new Publicacion();
+		Publicacion publi12 = new Publicacion();
+		Publicacion publi13 = new Publicacion();
+		Publicacion publi14 = new Publicacion();
+		Publicacion publi15 = new Publicacion();
+		Publicacion publi16 = new Publicacion();
+		Publicacion publi17 = new Publicacion();
+		Publicacion publi18 = new Publicacion();
+		Publicacion publi19 = new Publicacion();
+		Publicacion publi20 = new Publicacion();
+		Publicacion publi21 = new Publicacion();
+		Publicacion publi22 = new Publicacion();
+		Publicacion publi23 = new Publicacion();
+		Publicacion publi24 = new Publicacion();
 
 		publi1.setPropiedad(prop1);
 		publi1.setInmobiliaria(lezica);
+		publi1.setPrecio(45000000L);
 
 		publi2.setPropiedad(prop1);
 		publi2.setInmobiliaria(stella);
+		publi2.setPrecio(44050000L);
 
 		publi3.setPropiedad(prop1);
 		publi3.setInmobiliaria(gilges);
+		publi3.setPrecio(42000000L);
 
 		publi4.setPropiedad(prop2);
 		publi4.setInmobiliaria(lezica);
+		publi4.setPrecio(40000L);
 
 		publi5.setPropiedad(prop2);
 		publi5.setInmobiliaria(gilges);
+		publi5.setPrecio(42000L);
 
 		publi6.setPropiedad(prop3);
 		publi6.setInmobiliaria(lezica);
+		publi6.setPrecio(6000000L);
+		
+		publi7.setPropiedad(prop4);
+		publi7.setInmobiliaria(lezica);
+		publi7.setPrecio(60000L);
+
+		publi8.setPropiedad(prop4);
+		publi8.setInmobiliaria(stella);
+		publi8.setPrecio(55000L);
+
+		publi9.setPropiedad(prop4);
+		publi9.setInmobiliaria(gilges);
+		publi9.setPrecio(61000L);
+
+		publi10.setPropiedad(prop5);
+		publi10.setInmobiliaria(gilges);
+		publi10.setPrecio(6500000L);
+
+		publi11.setPropiedad(prop5);
+		publi11.setInmobiliaria(stella);
+		publi11.setPrecio(6460000L);
+
+		publi12.setPropiedad(prop6);
+		publi12.setInmobiliaria(lezica);
+		publi12.setPrecio(8000000L);
+		
+		publi13.setPropiedad(prop7);
+		publi13.setInmobiliaria(lezica);
+		publi1.setPrecio(4200000L);
+
+		publi14.setPropiedad(prop7);
+		publi14.setInmobiliaria(stella);
+		publi14.setPrecio(4100000L);
+
+		publi15.setPropiedad(prop7);
+		publi15.setInmobiliaria(gilges);
+		publi15.setPrecio(4205000L);
+
+		publi16.setPropiedad(prop8);
+		publi16.setInmobiliaria(lezica);
+		publi16.setPrecio(45000L);
+
+		publi17.setPropiedad(prop8);
+		publi17.setInmobiliaria(gilges);
+		publi17.setPrecio(45900L);
+
+		publi18.setPropiedad(prop9);
+		publi18.setInmobiliaria(lezica);
+		publi18.setPrecio(62000000L);
+		
+		publi19.setPropiedad(prop10);
+		publi19.setInmobiliaria(lezica);
+		publi19.setPrecio(45000000L);
+
+		publi20.setPropiedad(prop10);
+		publi20.setInmobiliaria(stella);
+		publi20.setPrecio(32500000L);
+
+		publi21.setPropiedad(prop10);
+		publi21.setInmobiliaria(gilges);
+		publi21.setPrecio(32000000L);
+
+		publi22.setPropiedad(prop11);
+		publi22.setInmobiliaria(gilges);
+		publi22.setPrecio(12000000L);
+
+		publi23.setPropiedad(prop11);
+		publi23.setInmobiliaria(gilges);
+		publi23.setPrecio(11990000L);
+
+		publi24.setPropiedad(prop12);
+		publi24.setInmobiliaria(stella);
+		publi24.setPrecio(29000000L);
 
 		session.save(publi1);
 		session.save(publi2);
@@ -488,6 +582,61 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		session.save(publi4);
 		session.save(publi5);
 		session.save(publi6);
+		session.save(publi7);
+		session.save(publi8);
+		session.save(publi9);
+		session.save(publi10);
+		session.save(publi11);
+		session.save(publi12);
+		session.save(publi13);
+		session.save(publi14);
+		session.save(publi15);
+		session.save(publi16);
+		session.save(publi17);
+		session.save(publi18);
+		session.save(publi19);
+		session.save(publi20);
+		session.save(publi21);
+		session.save(publi22);
+		session.save(publi23);
+		session.save(publi24);
+	}
+
+	@Override
+	public List<Publicacion> listaPublicacion(Propiedad propiedad) {
+		final Session session = sessionFactory.getCurrentSession();
+		
+		return session.createCriteria(Publicacion.class)
+				.createAlias("propiedad", "propiedad")
+				.add(Restrictions.eq("propiedad.id", propiedad.getId())).list();
+	}
+
+	@Override
+	public List<Inmobiliaria> consultarInmobiliarias(List<Publicacion> listaPublicaciones) {
+		
+		List<Inmobiliaria> listaInmobiliarias = new ArrayList<Inmobiliaria>();
+		final Session session = sessionFactory.getCurrentSession();
+
+		Criteria cri = session.createCriteria(Inmobiliaria.class);
+		for (Publicacion publicacion : listaPublicaciones) {
+			
+			Inmobiliaria inmobiliaria = new Inmobiliaria();
+			inmobiliaria = (Inmobiliaria) cri.add(Restrictions.eq("id", publicacion.getInmobiliaria().getId())).uniqueResult();
+
+			listaInmobiliarias.add(inmobiliaria);
+		}
+		
+		return listaInmobiliarias;		
+	}
+
+	@Override
+	public Propiedad detallePropiedad(Propiedad propiedad) {
+		
+		final Session session = sessionFactory.getCurrentSession();
+		
+		return (Propiedad) session.createCriteria(Propiedad.class)
+				.add(Restrictions.eq("id",  propiedad.getId())).uniqueResult();
+	
 	}
 
 }

@@ -35,8 +35,7 @@ public class ControladorPerfil {
 	@RequestMapping("/perfil")
     public ModelAndView perfil(HttpServletRequest request){
 		
-		ModelMap model = new ModelMap();
-		
+		ModelMap model = new ModelMap();	
 
         List<Propiedad> propiedadesUsuarios = new ArrayList<>();
     	

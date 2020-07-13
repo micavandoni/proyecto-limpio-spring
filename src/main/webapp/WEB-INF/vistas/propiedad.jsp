@@ -256,25 +256,26 @@
 			              <div class="portfolio-info">
 			                <h4>${propiedad.ambiente}, ${propiedad.detalle}</h4>
 			                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
-			                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>
+			                <p>${propiedad.condicion} - <i>$${propiedad.precio}</i></p>
 			                <c:choose>
 							    <c:when test="${usuarioBuscado.id == null}">
 							    </c:when>    
 							    <c:otherwise>
-							       <button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px;">Agregar a Fav&nbsp&nbsp<i class="icofont-star"></i></button> 
-									<button type="button" class="btn btn-favear" data-toggle="modal" data-target="#myModal" onclick="pasarDato('${propiedad.id}','${propiedad.ambiente}','${propiedad.detalle}','${propiedad.direccion}','${propiedad.localidad}','${propiedad.fechaPublicada}','${propiedad.provincia}','${propiedad.precio}','${propiedad.imagenUrl}','${propiedad.imagenUrl2}','${propiedad.imagenUrl3}','${propiedad.imagenUrl4}','${propiedad.latitud}','${propiedad.longitud}')">Ver Detalle</button>
+							       <button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px; margin-bottom:5px">Agregar a Fav&nbsp&nbsp<i class="icofont-star"></i></button> 
+									
 							    </c:otherwise>
-							</c:choose>				                          
-			              </div>		              
-			              <input id="idPropiedad" name="idPropiedad" type="hidden" value="${propiedad.id}">
-			              <input id="idUsuario" name="idUsuario" type="hidden" value="${usuarioBuscado.id}">		             
+							</c:choose>
+							<input id="idPropiedad" name="idPropiedad" type="hidden" value="${propiedad.id}">
+			              	<input id="idUsuario" name="idUsuario" type="hidden" value="${usuarioBuscado.id}">	
+							</form:form>
+							<form:form action="detalle" method="POST" modelAttribute="detalle">	
+								<input id="id" name="id" type="hidden" value="${propiedad.id}">
+								<button type="submit" class="btn btn-buscar">Ver Detalle</button>	
+							</form:form>
+									                          
+			              </div>        		             
 			            </div>
 			         </div>
-			    </form:form>
-				<form:form action="detalle-propiedad" method="POST" modelAttribute="detalle">	
-					<input id="id" name="id" type="hidden" value="${propiedad.id}">
-					<!-- button type="Submit" class="btn btn-favear" style="margin-left: 20px; margin-top:10px;">DETALLE<i class="icofont-star"></i></button-->	    	
-				</form:form>
 		    </c:forEach>
 		    </tbody>
 		</table>

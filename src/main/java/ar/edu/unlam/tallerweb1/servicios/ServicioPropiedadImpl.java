@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ar.edu.unlam.tallerweb1.clases.Generico;
+import ar.edu.unlam.tallerweb1.modelo.Inmobiliaria;
 import ar.edu.unlam.tallerweb1.modelo.Propiedad;
+import ar.edu.unlam.tallerweb1.modelo.Publicacion;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioPropiedad;
 
@@ -63,6 +65,21 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 		}catch (Exception e){
 			return false;
 		}
+	}
+
+	@Override
+	public List<Publicacion> listaPublicacion(Propiedad propiedad) {
+		return repositorioPropiedad.listaPublicacion(propiedad);
+	}
+
+	@Override
+	public List<Inmobiliaria> consultarInmobiliarias(List<Publicacion> listaPublicaciones) {
+		return repositorioPropiedad.consultarInmobiliarias(listaPublicaciones);
+	}
+
+	@Override
+	public Propiedad detallePropiedad(Propiedad propiedad) {
+		return repositorioPropiedad.detallePropiedad(propiedad);
 	}
 
 }
