@@ -193,5 +193,41 @@ public class Propiedad {
 		this.inmobiliarias = inmobiliarias;
 	}
 
+	public Double getLatitud() {
+		return latitud;
+	}
+
+	public void setLatitud(Double latitud) {
+		this.latitud = latitud;
+	}
+
+	public Double getLongitud() {
+		return longitud;
+	}
+
+	public void setLongitud(Double longitud) {
+		this.longitud = longitud;
+	}
+
+	public String getImagenUrl2() {
+		return imagenUrl2;
+	}
+
+	public void setImagenUrl2(String imagenUrl2) {
+		this.imagenUrl2 = imagenUrl2;
+	}
+
+	public String getImagenUrl4() {
+		return imagenUrl4;
+	}
+
+	public void setImagenUrl4(String imagenUrl4) {
+		this.imagenUrl4 = imagenUrl4;
+	}
+
+	public void setImagenUrl3(String imagenUrl3) {
+		this.imagenUrl3 = imagenUrl3;
+	}
+
 	
 }
