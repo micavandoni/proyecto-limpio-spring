@@ -172,21 +172,30 @@ public class ControladorPropiedad {
     }
     
     @RequestMapping(value = "/envioMail", method = RequestMethod.POST)
-    public ModelAndView envioMail(@ModelAttribute("email") String email, HttpServletRequest request) {
+    public ModelAndView envioMail(@ModelAttribute("email") String email, Long id, HttpServletRequest request) {
 
  	   HttpSession session = request.getSession();
        Usuario usuario = (Usuario)session.getAttribute("usuarioBuscado");
+       Propiedad propiedad = servicioPropiedad.ObtenerPropiedaPorId(id);
+       List<Publicacion> listaPublicaciones = servicioPropiedad.listaPublicacion(propiedad);
+   	   List<Inmobiliaria> listaInmobiliarias = servicioPropiedad.consultarInmobiliarias(listaPublicaciones);
        
        ModelMap model = new ModelMap();
-
-       String remitente = usuario.getEmail();
-       String emailDestinatario = email;
-       String asunto = remitente + " Consulta por propiedad";
-       String cuerpo = asunto;
-
-       enviarConGMail(emailDestinatario, asunto, cuerpo);
-       
-       return new ModelAndView("partidos", model);
+     
+	       String userMail = usuario.email; //mail usuario 
+	       String username = usuario.nombre;
+	       String emailDestinatario = "deboxeneise@gmail.com"; //mail inmobiliaria
+	       String asunto = "Detalle de vivienda";
+	       String cuerpo = "El usuario: " + username + " necesita que la inmobiliaria le brinde detalles sobre la siguiente vivienda: "+ propiedad.getDetalle() + propiedad.getDireccion() + propiedad.getLocalidad() +
+	    		   propiedad.getProvincia() + " Dejamos su email: " + userMail;
+	
+	       enviarConGMail(emailDestinatario, asunto, cuerpo);
+	       model.put("mail", "Enviado correctamente!");
+	       model.put("msj", "En breve la inmobiliaria se contactará con usted");
+	       model.put("propiedad", propiedad);
+	       model.put("listaPublis", listaPublicaciones);
+	       model.put("inmobiliarias", listaInmobiliarias);
+       return new ModelAndView("/detalle", model);
 
     }
     

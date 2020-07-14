@@ -159,7 +159,8 @@
 									    </c:when>    
 									    <c:otherwise>
 									       <form:form action="envioMail" method="POST" modelAttribute="email">	
-												<input id="id" name="id" type="hidden" value="${publicacion.inmobiliaria.email}">
+												<input id="email" name="email" type="hidden" value="${publicacion.inmobiliaria.email}">
+												<input id="id" name="id" type="hidden" value="${propiedad.id}">
 												<button type="submit" class="btn btn-buscar">Enviar email</button>	
 											</form:form>
 									    </c:otherwise>
@@ -167,13 +168,22 @@
 					              	
 					              </div>
 					             </div>
-					         </div>	              		
-	              			</c:forEach>
+					         </div>	         		
+	              			</c:forEach>	
 	              		</tbody>
 	              	  </table>
 	              	</div>
 	      		</div>
+	      		<c:if test="${not empty mail}">
+	      			<div class="container">
+	      				<div class="alert alert-success" role="alert">
+		      				<h4 class="alert-heading">${mail}</h4>
+							<p>${msj}</p>						
+						</div>
+	      			</div>
+	      		</c:if>
 	      </section>
+	        
 	      <section id="ubicacion" class="portfolio">
 	      	<div class="container">
 	      		<div class="section-title" data-aos="fade-left">

@@ -230,13 +230,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		Inmobiliaria gilges = new Inmobiliaria();
 
 		lezica.setNombreInmobiliaria("Lezica");
-		lezica.setEmail("lezica@gmail.com");
+		lezica.setEmail("deboxeneise@gmail.com");
 
 		stella.setNombreInmobiliaria("Stella");
-		stella.setEmail("stella@gmail.com");
+		stella.setEmail("deboxeneise@gmail.com");
 
 		gilges.setNombreInmobiliaria("Gilges");
-		gilges.setEmail("gilges@gmail.com");
+		gilges.setEmail("deboxeneise@gmail.com");
 
 		session.save(lezica);
 		session.save(stella);
@@ -654,5 +654,16 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 				.add(Restrictions.eq("id",  propiedad.getId())).uniqueResult();
 	
 	}
+	
+	@Override
+	public Propiedad ObtenerPropiedaPorId(Long id) {
+		
+		final Session session = sessionFactory.getCurrentSession();
+		
+		return (Propiedad) session.createCriteria(Propiedad.class)
+				.add(Restrictions.eq("id", id)).uniqueResult();
+	
+	}
+	
 
 }

@@ -2,6 +2,8 @@ package ar.edu.unlam.tallerweb1.controladores;
 
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 import ar.edu.unlam.tallerweb1.servicios.ServicioLogin;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,6 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -23,6 +31,7 @@ public class ControladorLogin {
 	// dicha clase debe estar anotada como @Service o @Repository y debe estar en un paquete de los indicados en
 	// applicationContext.xml
 	private ServicioLogin servicioLogin;
+	
 
 	@Autowired
 	public ControladorLogin(ServicioLogin servicioLogin){
@@ -93,7 +102,14 @@ public class ControladorLogin {
 			usuarioNuevo.setEmail(usuario.email);
 			usuarioNuevo.setPassword(usuario.password);
 			
+			
+		    String emailDestinatario = usuario.email;
+		    String asunto = "Te damos la bienvenida a HouseHold";
+		    String cuerpo = "Ahora podrás obtener y vender la propiedad que desees";
+		     
 			servicioLogin.registrarUsuario(usuarioNuevo);
+			enviarMail(emailDestinatario, asunto, cuerpo);
+			
 			model.put("error", "Usuario registrado correctamente");
 			
 		} else {
@@ -102,7 +118,39 @@ public class ControladorLogin {
 		
 		return new ModelAndView("registrar", model);
 	}
-	
+	public  void enviarMail(String destinatario, String asunto, String cuerpo) {
+ 	   // Esto es lo que va delante de @gmail.com en tu cuenta de correo. Es el
+ 	   // remitente tambiï¿½n.
+ 	   String remitente = "householdstw1@gmail.com"; // Para la direcciï¿½n nomcuenta@gmail.com
+
+ 	   java.util.Properties props = System.getProperties();
+ 	   props.put("mail.smtp.host", "smtp.gmail.com"); // El servidor SMTP de Google
+ 	   props.put("mail.smtp.user", remitente);
+ 	   props.put("mail.smtp.clave", "house2020"); // La clave de la cuenta
+ 	   props.put("mail.smtp.auth", "true"); // Usar autenticaciï¿½n mediante usuario y clave
+ 	   props.put("mail.smtp.starttls.enable", "true"); // Para conectar de manera segura al servidor SMTP
+ 	   props.put("mail.smtp.port", "587"); // El puerto SMTP seguro de Google
+ 	   
+
+
+
+ 	   Session session = Session.getDefaultInstance(props);
+ 	   MimeMessage message = new MimeMessage(session);
+
+ 	   try {
+ 	      message.setFrom(new InternetAddress(remitente));
+ 	      message.addRecipients(Message.RecipientType.TO, destinatario); // Se podrï¿½an aï¿½adir varios de la misma
+ 	                                                      // manera
+ 	      message.setSubject(asunto);
+ 	      message.setText(cuerpo);
+ 	      Transport transport = session.getTransport("smtp");
+ 	      transport.connect("smtp.gmail.com", remitente, "house2020");
+ 	      transport.sendMessage(message, message.getAllRecipients());
+ 	      transport.close();
+ 	   } catch (MessagingException me) {
+ 	      me.printStackTrace(); // Si se produce un error
+ 	   }
+ 	}
 	
 	
 	
