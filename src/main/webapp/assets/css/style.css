@@ -1555,3 +1555,8 @@ section {
 	background: #fff;
  	color: #f4b805;
 }
+
+#map_canvas {
+	height: 250px; /* The height is 400 pixels */
+	width: 20%; /* The width is the width of the web page */
+}

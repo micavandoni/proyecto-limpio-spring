@@ -13,8 +13,18 @@ public class Publicacion {
 
     @ManyToOne
     private Inmobiliaria inmobiliaria;
+    
+    private Long precio;
 
-    public Long getId() {
+    public Long getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(Long precio) {
+		this.precio = precio;
+	}
+
+	public Long getId() {
         return id;
     }
 

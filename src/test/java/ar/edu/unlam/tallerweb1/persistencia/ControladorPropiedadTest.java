@@ -47,7 +47,7 @@ public class ControladorPropiedadTest{
     }
     
 	@Test(expected = Exception.class)
-	public void validarPrecioPropiedad() throws Exception{
+	public void validarCamposPropiedadFallaPrecio() throws Exception{
 		
 		ServicioPropiedad servicioPropiedad = mock(ServicioPropiedad.class);
 				
@@ -55,13 +55,29 @@ public class ControladorPropiedadTest{
 		
 		// preparacion
 		Propiedad propiedad = new Propiedad();
-		propiedad.setPrecioMin(22L);
-		propiedad.setPrecioMax(1L);
+		propiedad.setCondicion("venta");
+		propiedad.setAmbiente("2");
+		propiedad.setPrecioMin(1L);
+		propiedad.setPrecioMax(2L);
 				
-		when(controladorPropiedad.propiedades()).thenReturn(null);
-		doThrow(Exception.class).when(controladorPropiedad).validarRango(propiedad);
-		
-
+		// ejecucion
+		when(controladorPropiedad.condicionValida(propiedad)).thenReturn(true);
+		doThrow(Exception.class).when(controladorPropiedad).validarRango(propiedad);	
 	}
+	
+    @Test
+    public void envioMail(){
+        // preparacion
+    	
+		ServicioPropiedad servicioPropiedad = mock(ServicioPropiedad.class);
+		ControladorPropiedad controladorPropiedad = new ControladorPropiedad(servicioPropiedad);
+		
+		String destinatario = "walter.guglielmetti@gmail.com";
+		String asunto = "prueba mails house lala";
+		String cuerpo = "algo para mandar en el mail";
+
+		controladorPropiedad.enviarConGMail(destinatario, asunto, cuerpo);
+
+    }
 
 }
