@@ -656,7 +656,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 	}
 	
 	@Override
-	public Propiedad ObtenerPropiedaPorId(Long id) {
+	public Propiedad ObtenerPropiedadPorId(Long id) {
 		
 		final Session session = sessionFactory.getCurrentSession();
 		

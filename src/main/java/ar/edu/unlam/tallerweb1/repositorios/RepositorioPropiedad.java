@@ -23,5 +23,5 @@ public interface RepositorioPropiedad {
     List<Publicacion> listaPublicacion(Propiedad propiedad);
     List<Inmobiliaria> consultarInmobiliarias(List<Publicacion> listaPublicaciones);
     Propiedad detallePropiedad(Propiedad propiedad);
-    Propiedad ObtenerPropiedaPorId(Long id);
+    Propiedad ObtenerPropiedadPorId(Long id);
 }

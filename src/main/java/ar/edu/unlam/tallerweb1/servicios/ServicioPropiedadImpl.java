@@ -81,5 +81,10 @@ public class ServicioPropiedadImpl implements ServicioPropiedad{
 	public Propiedad detallePropiedad(Propiedad propiedad) {
 		return repositorioPropiedad.detallePropiedad(propiedad);
 	}
+	
+	@Override
+	public Propiedad ObtenerPropiedadPorId(Long id) {
+		return repositorioPropiedad.ObtenerPropiedadPorId(id);
+	}
 
 }

@@ -21,4 +21,5 @@ public interface ServicioPropiedad {
 	List<Publicacion> listaPublicacion(Propiedad propiedad);
 	List<Inmobiliaria> consultarInmobiliarias(List<Publicacion> listaPublicaciones);
 	Propiedad detallePropiedad(Propiedad propiedad);
+	Propiedad ObtenerPropiedadPorId(Long id);
 }
