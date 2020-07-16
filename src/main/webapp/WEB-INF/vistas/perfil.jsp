@@ -48,6 +48,15 @@
 		        </form:form>
 		      </div><!-- End Header Container -->
 		    </div>
+		 	<form:form action="login" method="GET">
+			    <c:choose>
+				    <c:when test="${usuarioBuscado.id == null}">
+				    </c:when>    
+				    <c:otherwise>
+				        <button type="submit" class="btn-cerrarsesion">Cerrar Sesión</button>
+				    </c:otherwise>
+				</c:choose>
+			</form:form>
 		 </header><!-- End Header -->
 		 <!-- ======= Perfil Section ======= -->
 		  <section id="perfil" class="d-flex align-items-center">
@@ -74,7 +83,10 @@
 						                <h4>${propiedad.ambiente}, ${propiedad.titulo}</h4>
 						                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
 						                <p>${propiedad.condicion}, <i>${propiedad.precio}</i></p>
-
+										<form:form action="detalle" method="POST" modelAttribute="detalle">	
+											<input id="id" name="id" type="hidden" value="${propiedad.id}">
+											<button type="submit" class="btn btn-buscar">Ver Detalle</button>	
+										</form:form>
 									  </div>
 						            </div>
 						         </div>					    

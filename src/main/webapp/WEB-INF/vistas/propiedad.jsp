@@ -67,8 +67,17 @@
 	          </ul>
 	        </nav><!-- .nav-menu -->
         </form:form>
-      </div><!-- End Header Container -->
+      </div><!-- End Header Container -->      
     </div>
+    <form:form action="login" method="GET">
+	    <c:choose>
+		    <c:when test="${usuarioBuscado.id == null}">
+		    </c:when>    
+		    <c:otherwise>
+		        <button type="submit" class="btn-cerrarsesion">Cerrar Sesión</button>
+		    </c:otherwise>
+		</c:choose>
+	</form:form>	
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
@@ -300,6 +309,10 @@
                                       <h4>${propiedadNueva.ambiente}, ${propiedadNueva.titulo}</h4>
                                       <p>${propiedadNueva.direccion}, ${propiedadNueva.localidad}</p>
                                       <p>${propiedadNueva.condicion}, <i>${propiedadNueva.precio}</i></p>
+                                      <form:form action="detalle" method="POST" modelAttribute="detalle">	
+										<input type="hidden" value="${propiedadNueva.id}">
+										<button type="submit" class="btn btn-buscar">Ver Detalle</button>	
+									</form:form>
                                   </div>
                               </div>
                           </div>

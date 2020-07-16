@@ -46,13 +46,13 @@
 			    <nav class="nav-menu d-none d-lg-block" style="margin-left: -840px!important;">
 			   	  <ul>
 			        <form:form action="irAPropiedad" method="GET" style="height: 0px!important;
-    margin-left: -800px!important;
-    width: 200px!important;
-    padding: 0!important;">
-			        <li class="active"><button class="btn btn-home" style="margin-right: 400px; margin-top: 12px;" type="Submit">Home</button></li>
-			        </form:form>
-			        <form:form action="loguearse" method="GET" style="height: 60px!important;
-    margin-left: -200px;!important">
+					    margin-left: -800px!important;
+					    width: 200px!important;
+					    padding: 0!important;">
+								        <li class="active"><button class="btn btn-home" style="margin-right: 400px; margin-top: 12px;" type="Submit">Home</button></li>
+								        </form:form>
+								        <form:form action="loguearse" method="GET" style="height: 60px!important;
+					    margin-left: -200px;!important">
 		            <c:choose>
 					    <c:when test="${usuarioBuscado.id == null}">
 					        <li class="get-started"><button class="btn btn-buscar" style="margin-top: 12px;" type="Submit">Ingresar</button></li>
@@ -69,6 +69,15 @@
 		        
 		      </div><!-- End Header Container -->
 		    </div>
+		 	<form:form action="login" method="GET">
+			    <c:choose>
+				    <c:when test="${usuarioBuscado.id == null}">
+				    </c:when>    
+				    <c:otherwise>
+				        <button type="submit" class="btn-cerrarsesion">Cerrar Sesión</button>
+				    </c:otherwise>
+				</c:choose>
+			</form:form>
 		 </header><!-- End Header -->
 		<section id="perfil" class="d-flex align-items-center">
 		    <div class="container position-relative" data-aos="fade-in" data-aos-delay="200" style="color:#fff">		      

@@ -253,6 +253,6 @@ public class ControladorPropiedad {
         servicioPropiedad.crearEventos();
         return new ModelAndView("redirect:/login");
     }
-    
+        
 
 }
