@@ -230,13 +230,13 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		Inmobiliaria gilges = new Inmobiliaria();
 
 		lezica.setNombreInmobiliaria("Lezica");
-		lezica.setEmail("deboxeneise@gmail.com");
+		lezica.setEmail("householdstw1@gmail.com");
 
 		stella.setNombreInmobiliaria("Stella");
-		stella.setEmail("deboxeneise@gmail.com");
+		stella.setEmail("householdstw1@gmail.com");
 
 		gilges.setNombreInmobiliaria("Gilges");
-		gilges.setEmail("deboxeneise@gmail.com");
+		gilges.setEmail("householdstw1@gmail.com");
 
 		session.save(lezica);
 		session.save(stella);
@@ -264,198 +264,217 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 
 
 		prop1.setTipoPropiedad(tipo2);
-		prop1.setPrecio(4500000L);
-		prop1.setDireccion("Miro 2492");
-		prop1.setLocalidad("Luzuriaga");
+		prop1.setPrecio(7500000L);
+		prop1.setTitulo("Departamento en Venta");
+		prop1.setDireccion("ENTRE RIOS 3567");
+		prop1.setLocalidad("San Justo");
 		prop1.setProvincia("Buenos Aires");
 		prop1.setCondicion("Venta");
-		prop1.setDetalle("Estrenar");
-		prop1.setImagenUrl("monoambiente.jpg");
+		prop1.setDetalle("Es un departamento monoambiente a estrenar que cuenta con cocina equipada con muebles bajo mesada y alacenas, amplio ambiente divisible , baño y balcón al contrafrente. Se entrega con artefacto de cocina y aire acondicionado por equipos splits instalados.");
+		prop1.setImagenUrl("mono1.jpg");
+		prop1.setImagenUrl2("mono2.jpg");
+		prop1.setImagenUrl3("mono3.jpg");
+		prop1.setImagenUrl4("mono4.jpg");
 		prop1.setAmbiente("Monoambiente");
 		prop1.setPrecioMin(0L);
 		prop1.setPrecioMax(0L);
-		prop1.setLatitud(-34.66489521);
-		prop1.setLongitud(-58.57834846);
+		prop1.setLatitud(-34.7229893877551);
+		prop1.setLongitud(-58.5816926122449);
 		//prop1.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-27"));
 //		prop1.setInmobiliaria(lezica);
 		prop1.setInmobiliarias(inmobiliarias);
 
-		prop2.setTipoPropiedad(tipo1);
-		prop2.setPrecio(40000L);
-		prop2.setDireccion("Doctor Ignacio Arieta 1050");
-		prop2.setLocalidad("San Justo");
-		prop2.setProvincia("Buenos Aires");
-		prop2.setCondicion("Alquiler");
-		prop2.setDetalle("5 años de antiguedad");
-		prop2.setImagenUrl("casa1.jpg");
-		prop2.setAmbiente("Dos Ambientes");
+
+		prop2.setTipoPropiedad(tipo2);
+		prop2.setPrecio(6500000L);
+		prop2.setTitulo("Departamento en Venta");
+		prop2.setDireccion("Federico Garcia Lorca 350");
+		prop2.setLocalidad("Caballito");
+		prop2.setProvincia("Ciudad de Buenos Aires");
+		prop2.setCondicion("Venta");
+		prop2.setDetalle("El departamento actualmente esta abierto el 2do dormitorio por ende tiene 1 dormitorio y un living amplio con estar y comedor. 2 Baños completos, Dormitorio en suite. Cocina americana . Cortinas electricas");
+		prop2.setImagenUrl("20.jpg");
+		prop2.setImagenUrl2("21.jpg");
+		prop2.setImagenUrl3("22.jpg");
+		prop2.setImagenUrl4("23.jpg");
+		prop2.setAmbiente("Dos ambientes");
 		prop2.setPrecioMin(0L);
 		prop2.setPrecioMax(0L);
-		prop2.setLatitud(-34.66350482);
-		prop2.setLongitud(-58.58040333);
-		//prop2.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-23"));
-//		prop2.setInmobiliaria(stella);
+		prop2.setLatitud(-34.618094);
+		prop2.setLongitud(-58.445440);
+		//prop20.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop20.setInmobiliaria(lezica);
+		prop2.setInmobiliarias(inmobiliarias);
 
 		prop3.setTipoPropiedad(tipo1);
-		prop3.setPrecio(6000000L);
-		prop3.setDireccion("Mariano Santamaria 1147");
-		prop3.setLocalidad("Luzuriaga");
+		prop3.setPrecio(8000000L);
+		prop3.setTitulo("Casa en Venta");
+		prop3.setDireccion("Gral. Gelly y Obes 459");
+		prop3.setLocalidad("Ramos Mejia");
 		prop3.setProvincia("Buenos Aires");
 		prop3.setCondicion("Venta");
-		prop3.setDetalle("Refaccionar");
-		prop3.setImagenUrl("casa4.jpg");
-		prop3.setAmbiente("Dos Ambientes");
+		prop3.setDetalle("CASA A ESTRENAR 4 AMBIENTES EN VENTA EN RAMOS MEJÍA - PRIMERA CATEGORÍA - 3 DORMITORIOS  - LIVING COMEDOR - COCINA EQUIPADA - 2 BAÑOS COMPLETOS - GARAGE - PATIO C/ PARRILLA - LAVADERO - TERRAZA - ALTILLO - PISOS DE PORCELANATO ");
+		prop3.setImagenUrl("30.jpg");
+		prop3.setImagenUrl2("31.jpg");
+		prop3.setImagenUrl3("32.jpg");
+		prop3.setImagenUrl4("33.jpg");
+		prop3.setAmbiente("Cuatro Ambientes");
 		prop3.setPrecioMin(0L);
 		prop3.setPrecioMax(0L);
-		prop3.setLatitud(-34.6827521);
-		prop3.setLongitud(-58.5616369);
-		//prop3.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-21"));
-//		prop3.setInmobiliaria(stella);
-		
+		prop3.setLatitud(-34.636273);
+		prop3.setLongitud(-58.573478);
+		//prop30.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop30.setInmobiliaria(lezica);
+		prop3.setInmobiliarias(inmobiliarias);
+
 		prop4.setTipoPropiedad(tipo1);
-		prop4.setPrecio(60000L);
-		prop4.setDireccion("Almafuerte 3534");
-		prop4.setLocalidad("San Justo");
-		prop4.setProvincia("Buenos Aires");
+		prop4.setPrecio(30000L);
+		prop4.setTitulo("Dpto en alquiler");
+		prop4.setDireccion("Av. Pueyrredón 1739");
+		prop4.setLocalidad("Barrio Norte");
+		prop4.setProvincia("Ciudad de Buenos Aires");
 		prop4.setCondicion("Alquiler");
-		prop4.setDetalle("Buen Estado");
-		prop4.setImagenUrl("casa2.jpg");
+		prop4.setDetalle("El departamento actualmente esta abierto el 2do dormitorio por ende tiene 1 dormitorio y un living amplio con estar y comedor. 2 Baños completos, Dormitorio en suite. Cocina americana . Cortinas electricas");
+		prop4.setImagenUrl("40.jpg");
+		prop4.setImagenUrl2("41.jpg");
+		prop4.setImagenUrl3("42.jpg");
+		prop4.setImagenUrl4("43.jpg");
 		prop4.setAmbiente("Tres Ambientes");
 		prop4.setPrecioMin(0L);
 		prop4.setPrecioMax(0L);
-		prop4.setLatitud(-34.6812321);
-		prop4.setLongitud(-58.5573211);
-		//prop4.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-20"));
-//		prop4.setInmobiliaria(lezica);
-		
+		prop4.setLatitud(-34.590768);
+		prop4.setLongitud(-58.400646);
+		//prop40.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop40.setInmobiliaria(lezica);
+		prop4.setInmobiliarias(inmobiliarias);
+
 		prop5.setTipoPropiedad(tipo1);
-		prop5.setPrecio(6500000L);
-		prop5.setDireccion("Peron 1234");
-		prop5.setLocalidad("San Justo");
+		prop5.setPrecio(50000L);
+		prop5.setTitulo("casa en alquiler");
+		prop5.setDireccion("Sgto Cabral 2750");
+		prop5.setLocalidad("Canning");
 		prop5.setProvincia("Buenos Aires");
-		prop5.setCondicion("Venta");
-		prop5.setDetalle("Inversion");
-		prop5.setImagenUrl("casa5.jpg");
+		prop5.setCondicion("alquiler");
+		prop5.setDetalle("CASA A ESTRENAR 4 AMBIENTES EN VENTA EN CANNING - 3 DORMITORIOS  - LIVING COMEDOR - COCINA EQUIPADA - 2 BAÑOS COMPLETOS - GARAGE - PATIO C/ PARRILLA - LAVADERO - TERRAZA - ALTILLO - PISOS DE PORCELANATO ");
+		prop5.setImagenUrl("50.jpg");
+		prop5.setImagenUrl2("51.jpg");
+		prop5.setImagenUrl3("52.jpg");
+		prop5.setImagenUrl4("53.jpg");
 		prop5.setAmbiente("Cuatro Ambientes");
 		prop5.setPrecioMin(0L);
 		prop5.setPrecioMax(0L);
-		prop5.setLatitud(-34.662309);
-		prop5.setLongitud(-58.5774059);
-		//prop5.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-10"));
-//		prop5.setInmobiliaria(lezica);
+		prop5.setLatitud(-34.862915);
+		prop5.setLongitud(-58.497543);
+		//prop50.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop50.setInmobiliaria(lezica);
+		prop5.setInmobiliarias(inmobiliarias);
 
 		prop6.setTipoPropiedad(tipo1);
-		prop6.setPrecio(8000000L);
-		prop6.setDireccion("Miro 345");
-		prop6.setLocalidad("Luzuriaga");
+		prop6.setPrecio(7000000L);
+		prop6.setTitulo("casa en venta");
+		prop6.setDireccion("Ruta25 km 7,5");
+		prop6.setLocalidad("Francisco Alvarez Moreno");
 		prop6.setProvincia("Buenos Aires");
 		prop6.setCondicion("Venta");
-		prop6.setDetalle("Estrenar");
-		prop6.setImagenUrl("casa3.jpg");
-		prop6.setAmbiente("Tres Ambientes");
+		prop6.setDetalle("CHALET 5 AMBIENTES- 4 DORMITORIOS- 3 BAÑOS COMPLETOS- LIVING COMEDOR- COMEDOR DIARIO- COCINA EQUIPADA - LAVADERO CUBIERTO- JARDIN DE INVIERNO- GALERIA- QUINCHO - TERRAZA- PARQUE- PISCINA");
+		prop6.setImagenUrl("60.jpg");
+		prop6.setImagenUrl2("61.jpg");
+		prop6.setImagenUrl3("62.jpg");
+		prop6.setImagenUrl4("63.jpg");
+		prop6.setAmbiente("Cinco Ambientes");
 		prop6.setPrecioMin(0L);
 		prop6.setPrecioMax(0L);
-		prop6.setLatitud(-34.6657519);
-		prop6.setLongitud(-58.5813591);
-		//prop6.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-05-01"));
-//		prop6.setInmobiliaria(lezica);
-		
-		prop7.setTipoPropiedad(tipo2);
-		prop7.setPrecio(4200000L);
-		prop7.setDireccion("Av.Rivadavia 18000");
-		prop7.setLocalidad("Moron");
+		prop6.setLatitud(-34.584308);
+		prop6.setLongitud(-58.838698);
+		//prop60.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop60.setInmobiliaria(lezica);
+		prop6.setInmobiliarias(inmobiliarias);
+
+		prop7.setTipoPropiedad(tipo1);
+		prop7.setPrecio(4000000L);
+		prop7.setTitulo("casa en venta");
+		prop7.setDireccion("De los Reseros 1699");
+		prop7.setLocalidad("Ituzaingo");
 		prop7.setProvincia("Buenos Aires");
-		prop7.setCondicion("Venta");
-		prop7.setDetalle("Estrenar");
-		prop7.setImagenUrl("monoambiente.jpg");
-		prop7.setAmbiente("Monoambiente");
+		prop7.setCondicion("venta");
+		prop7.setDetalle("CASA 2 AMBIENTES- 4 DORMITORIOS- 3 BAÑOS COMPLETOS- LIVING COMEDOR- COMEDOR DIARIO- COCINA EQUIPADA - LAVADERO CUBIERTO- JARDIN DE INVIERNO- GALERIA- QUINCHO - TERRAZA- PARQUE- PISCINA");
+		prop7.setImagenUrl("70.jpg");
+		prop7.setImagenUrl2("71.jpg");
+		prop7.setImagenUrl3("72.jpg");
+		prop7.setImagenUrl4("73.jpg");
+		prop7.setAmbiente("Dos Ambientes");
 		prop7.setPrecioMin(0L);
 		prop7.setPrecioMax(0L);
-		prop7.setLatitud(-34.6494009);
-		prop7.setLongitud(-58.6196954);
-		//prop7.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-//		prop7.setInmobiliaria(lezica);
-		
-		prop8.setTipoPropiedad(tipo1);
-		prop8.setPrecio(45000L);
-		prop8.setDireccion("Brown 345");
-		prop8.setLocalidad("Moron");
+		prop7.setLatitud(-34.625129);
+		prop7.setLongitud(-58.690868);
+		//prop70.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop70.setInmobiliaria(lezica);
+		prop7.setInmobiliarias(inmobiliarias);
+
+		prop8.setTipoPropiedad(tipo2);
+		prop8.setPrecio(8000000L);
+		prop8.setTitulo("casa en venta");
+		prop8.setDireccion("De los Reseros 1699");
+		prop8.setLocalidad("Ituzaingo");
 		prop8.setProvincia("Buenos Aires");
-		prop8.setCondicion("Alquiler");
-		prop8.setDetalle("Estrenar");
-		prop8.setImagenUrl("casa1.jpg");
-		prop8.setAmbiente("Dos Ambientes");
+		prop8.setCondicion("Venta");
+		prop8.setDetalle("CHALET 4 AMBIENTES- 4 DORMITORIOS- 3 BAÑOS COMPLETOS- LIVING COMEDOR- COMEDOR DIARIO- COCINA EQUIPADA - LAVADERO CUBIERTO- JARDIN DE INVIERNO- GALERIA- QUINCHO - TERRAZA- PARQUE- PISCINA\"");
+		prop8.setImagenUrl("80.jpg");
+		prop8.setImagenUrl2("81.jpg");
+		prop8.setImagenUrl3("82.jpg");
+		prop8.setImagenUrl4("83.jpg");
+		prop8.setAmbiente("4 Ambientes");
 		prop8.setPrecioMin(0L);
 		prop8.setPrecioMax(0L);
-		prop8.setLatitud(-34.6505146);
-		prop8.setLongitud(-58.6166245);
-		//prop7.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-//		prop8.setInmobiliaria(lezica);
-		
-		prop9.setTipoPropiedad(tipo1);
-		prop9.setPrecio(62000000L);
-		prop9.setDireccion("Av. de Mayo 47");
-		prop9.setLocalidad("Ramos Mejia");
+		prop8.setLatitud(-34.625129);
+		prop8.setLongitud(-58.690868);
+		//prop80.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop80.setInmobiliaria(lezica);
+		prop8.setInmobiliarias(inmobiliarias);
+
+		prop9.setTipoPropiedad(tipo2);
+		prop9.setPrecio(20000L);
+		prop9.setTitulo("Depto en alquiler");
+		prop9.setDireccion("Cazadores 256");
+		prop9.setLocalidad("Haedo");
 		prop9.setProvincia("Buenos Aires");
-		prop9.setCondicion("Venta");
-		prop9.setDetalle("Refaccionar");
-		prop9.setImagenUrl("casa4.jpg");
+		prop9.setCondicion("Alquiler");
+		prop9.setDetalle("El departamento actualmente esta abierto el 2do dormitorio por ende tiene 1 dormitorio y un living amplio con estar y comedor. 2 Baños completos, Dormitorio en suite. Cocina americana . Cortinas electricas");
+		prop9.setImagenUrl("90.jpg");
+		prop9.setImagenUrl2("91.jpg");
+		prop9.setImagenUrl3("92.jpg");
+		prop9.setImagenUrl4("93.jpg");
 		prop9.setAmbiente("Dos Ambientes");
 		prop9.setPrecioMin(0L);
 		prop9.setPrecioMax(0L);
-		prop9.setLatitud(-34.6419575);
-		prop9.setLongitud(-58.5677618);
-		//prop9.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-//		prop9.setInmobiliaria(lezica);
-		
-		prop10.setTipoPropiedad(tipo1);
-		prop10.setPrecio(32000000L);
-		prop10.setDireccion("Ibarrola 7201");
-		prop10.setLocalidad("Liniers");
-		prop10.setProvincia("CABA");
+		prop9.setLatitud(-34.647293);
+		prop9.setLongitud(-58.591779);
+		//prop90.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop90.setInmobiliaria(lezica);
+		prop9.setInmobiliarias(inmobiliarias);
+
+		prop10.setTipoPropiedad(tipo2);
+		prop10.setPrecio(12000000L);
+		prop10.setTitulo("Depto en venta");
+		prop10.setDireccion("Juana Manso 1780");
+		prop10.setLocalidad("Puerto Madero");
+		prop10.setProvincia("Ciudad de Buenos Aires");
 		prop10.setCondicion("Venta");
-		prop10.setDetalle("Refaccionar");
-		prop10.setImagenUrl("casa2.jpg");
-		prop10.setAmbiente("Tres Ambientes");
+		prop10.setDetalle("El departamento actualmente esta abierto el 2do dormitorio por ende tiene 1 dormitorio y un living amplio con estar y comedor. 2 Baños completos, Dormitorio en suite. Cocina americana . Cortinas electricas");
+		prop10.setImagenUrl("100.jpg");
+		prop10.setImagenUrl2("101.jpg");
+		prop10.setImagenUrl3("102.jpg");
+		prop10.setImagenUrl4("103.jpg");
+		prop10.setAmbiente("cuatro Ambientes");
 		prop10.setPrecioMin(0L);
 		prop10.setPrecioMax(0L);
-		prop10.setLatitud(-34.641661);
-		prop10.setLongitud(-58.5297261);
-		//prop10.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-//		prop10.setInmobiliaria(lezica);
-		
-		prop11.setTipoPropiedad(tipo1);
-		prop11.setPrecio(12000000L);
-		prop11.setDireccion("Alianza 200");
-		prop11.setLocalidad("Ciudadela");
-		prop11.setProvincia("Buenos Aires");
-		prop11.setCondicion("Venta");
-		prop11.setDetalle("Inversion");
-		prop11.setImagenUrl("casa5.jpg");
-		prop11.setAmbiente("Cuatro Ambientes");
-		prop11.setPrecioMin(0L);
-		prop11.setPrecioMax(0L);
-		prop11.setLatitud(-34.6424375);
-		prop11.setLongitud(-58.540298);
-		//prop11.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-		prop11.setInmobiliarias(inmobiliarias);
-		
-		prop12.setTipoPropiedad(tipo1);
-		prop12.setPrecio(29000000L);
-		prop12.setDireccion("Peron 900");
-		prop12.setLocalidad("Castelar");
-		prop12.setProvincia("Buenos Aires");
-		prop12.setCondicion("Venta");
-		prop12.setDetalle("Estrenar");
-		prop12.setImagenUrl("casa3.jpg");
-		prop12.setAmbiente("Tres Ambientes");
-		prop12.setPrecioMin(0L);
-		prop12.setPrecioMax(0L);
-		prop12.setLatitud(-34.6597759);
-		prop12.setLongitud(-58.5807792);
-		//prop12.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-06-01"));
-//		prop12.setInmobiliaria(lezica);
-		
+		prop10.setLatitud(-34.618399);
+		prop10.setLongitud(-58.361591);
+		//prop100.setFechaPublicada(new SimpleDateFormat("yyyy-MM-dd").parse("2020-07-14"));
+		//prop100.setInmobiliaria(lezica);
+		prop10.setInmobiliarias(inmobiliarias);
+
+
 		session.save(prop1);
 		session.save(prop2);
 		session.save(prop3);
@@ -466,8 +485,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		session.save(prop8);
 		session.save(prop9);
 		session.save(prop10);
-		session.save(prop11);
-		session.save(prop12);
+
 
 		//PUBLICACIONES
 
@@ -492,57 +510,55 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		Publicacion publi19 = new Publicacion();
 		Publicacion publi20 = new Publicacion();
 		Publicacion publi21 = new Publicacion();
-		Publicacion publi22 = new Publicacion();
-		Publicacion publi23 = new Publicacion();
-		Publicacion publi24 = new Publicacion();
+
 
 		publi1.setPropiedad(prop1);
 		publi1.setInmobiliaria(lezica);
-		publi1.setPrecio(45000000L);
+		publi1.setPrecio(7500000L);
 
 		publi2.setPropiedad(prop1);
 		publi2.setInmobiliaria(stella);
-		publi2.setPrecio(44050000L);
+		publi2.setPrecio(7700000L);
 
 		publi3.setPropiedad(prop1);
 		publi3.setInmobiliaria(gilges);
-		publi3.setPrecio(42000000L);
+		publi3.setPrecio(7600000L);
 
 		publi4.setPropiedad(prop2);
 		publi4.setInmobiliaria(lezica);
-		publi4.setPrecio(40000L);
+		publi4.setPrecio(6400000L);
 
 		publi5.setPropiedad(prop2);
 		publi5.setInmobiliaria(gilges);
-		publi5.setPrecio(42000L);
+		publi5.setPrecio(6550000L);
 
 		publi6.setPropiedad(prop3);
 		publi6.setInmobiliaria(lezica);
-		publi6.setPrecio(6000000L);
+		publi6.setPrecio(8000000L);
 		
 		publi7.setPropiedad(prop4);
 		publi7.setInmobiliaria(lezica);
-		publi7.setPrecio(60000L);
+		publi7.setPrecio(30000L);
 
 		publi8.setPropiedad(prop4);
 		publi8.setInmobiliaria(stella);
-		publi8.setPrecio(55000L);
+		publi8.setPrecio(35000L);
 
 		publi9.setPropiedad(prop4);
 		publi9.setInmobiliaria(gilges);
-		publi9.setPrecio(61000L);
+		publi9.setPrecio(32000L);
 
 		publi10.setPropiedad(prop5);
 		publi10.setInmobiliaria(gilges);
-		publi10.setPrecio(6500000L);
+		publi10.setPrecio(50000L);
 
 		publi11.setPropiedad(prop5);
 		publi11.setInmobiliaria(stella);
-		publi11.setPrecio(6460000L);
+		publi11.setPrecio(49000L);
 
 		publi12.setPropiedad(prop6);
 		publi12.setInmobiliaria(lezica);
-		publi12.setPrecio(8000000L);
+		publi12.setPrecio(7000000L);
 		
 		publi13.setPropiedad(prop7);
 		publi13.setInmobiliaria(lezica);
@@ -558,39 +574,28 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 
 		publi16.setPropiedad(prop8);
 		publi16.setInmobiliaria(lezica);
-		publi16.setPrecio(45000L);
+		publi16.setPrecio(8100000L);
 
 		publi17.setPropiedad(prop8);
 		publi17.setInmobiliaria(gilges);
-		publi17.setPrecio(45900L);
+		publi17.setPrecio(8150000L);
 
 		publi18.setPropiedad(prop9);
 		publi18.setInmobiliaria(lezica);
-		publi18.setPrecio(62000000L);
+		publi18.setPrecio(4000000L);
 		
 		publi19.setPropiedad(prop10);
 		publi19.setInmobiliaria(lezica);
-		publi19.setPrecio(45000000L);
+		publi19.setPrecio(12000000L);
 
 		publi20.setPropiedad(prop10);
 		publi20.setInmobiliaria(stella);
-		publi20.setPrecio(32500000L);
+		publi20.setPrecio(11900000L);
 
 		publi21.setPropiedad(prop10);
 		publi21.setInmobiliaria(gilges);
-		publi21.setPrecio(32000000L);
+		publi21.setPrecio(12500000L);
 
-		publi22.setPropiedad(prop11);
-		publi22.setInmobiliaria(gilges);
-		publi22.setPrecio(12000000L);
-
-		publi23.setPropiedad(prop11);
-		publi23.setInmobiliaria(gilges);
-		publi23.setPrecio(11990000L);
-
-		publi24.setPropiedad(prop12);
-		publi24.setInmobiliaria(stella);
-		publi24.setPrecio(29000000L);
 
 		session.save(publi1);
 		session.save(publi2);
@@ -613,9 +618,7 @@ public class RepositorioPropiedadImpl implements RepositorioPropiedad {
 		session.save(publi19);
 		session.save(publi20);
 		session.save(publi21);
-		session.save(publi22);
-		session.save(publi23);
-		session.save(publi24);
+
 	}
 
 	@Override

@@ -14,6 +14,7 @@ public class Propiedad {
 	private Long id;
 	@ManyToOne
 	private TipoPropiedad tipoPropiedad;
+	private String titulo;
 	private Long precio;
 	private String direccion;
 	private String detalle;
@@ -28,8 +29,6 @@ public class Propiedad {
 	private Double longitud;
 	private String imagenUrl2;
 	private String imagenUrl3;
-	
-
 	private String imagenUrl4;
 	
 
@@ -73,6 +72,14 @@ public class Propiedad {
 
 	public void setTipoPropiedad(TipoPropiedad tipoPropiedad) {
 		this.tipoPropiedad = tipoPropiedad;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Long getPrecio() {
@@ -168,15 +175,6 @@ public class Propiedad {
 		return imagenUrl3;
 	}
 
-	
-//	public Inmobiliaria getInmobiliaria() {
-//		return inmobiliaria;
-//	}
-//
-//	public void setInmobiliaria(Inmobiliaria inmobiliaria) {
-//		this.inmobiliaria = inmobiliaria;
-//	}
-	
 	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}

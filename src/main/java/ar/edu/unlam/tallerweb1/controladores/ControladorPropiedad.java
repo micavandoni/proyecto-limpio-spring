@@ -176,7 +176,7 @@ public class ControladorPropiedad {
 
  	   HttpSession session = request.getSession();
        Usuario usuario = (Usuario)session.getAttribute("usuarioBuscado");
-       Propiedad propiedad = servicioPropiedad.ObtenerPropiedaPorId(id);
+       Propiedad propiedad = servicioPropiedad.ObtenerPropiedadPorId(id);
        List<Publicacion> listaPublicaciones = servicioPropiedad.listaPublicacion(propiedad);
    	   List<Inmobiliaria> listaInmobiliarias = servicioPropiedad.consultarInmobiliarias(listaPublicaciones);
        
@@ -184,7 +184,7 @@ public class ControladorPropiedad {
      
 	       String userMail = usuario.email; //mail usuario 
 	       String username = usuario.nombre;
-	       String emailDestinatario = "deboxeneise@gmail.com"; //mail inmobiliaria
+	       String emailDestinatario = "householdstw1@gmail.com"; //mail inmobiliaria
 	       String asunto = "Detalle de vivienda";
 	       String cuerpo = "El usuario: " + username + " necesita que la inmobiliaria le brinde detalles sobre la siguiente vivienda: "+ propiedad.getDetalle() + propiedad.getDireccion() + propiedad.getLocalidad() +
 	    		   propiedad.getProvincia() + " Dejamos su email: " + userMail;

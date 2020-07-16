@@ -254,7 +254,7 @@
 			              <img src="img/portfolio/${propiedad.imagenUrl}" class="img-fluid" alt="">
 			              
 			              <div class="portfolio-info">
-			                <h4>${propiedad.ambiente}, ${propiedad.detalle}</h4>
+			                <h4>${propiedad.ambiente}, ${propiedad.titulo}</h4>
 			                <p>${propiedad.direccion}, ${propiedad.localidad}</p>	
 			                <p>${propiedad.condicion} - <i>$${propiedad.precio}</i></p>
 			                <c:choose>
@@ -283,93 +283,11 @@
       </div>
     </section><!-- End Portfolio Section -->
 		<!--begin modal window-->
-		<div class="modal fade" id="myModal">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="pull-left">Detalle Propiedad</div>
-						<button type="button" class="close" data-dismiss="modal"
-							title="Close">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<!--begin carousel-->
-						<div id="myGallery" class="carousel slide" data-interval="false">
-							<div class="carousel-inner">
-								<div class="item active">
-									<img id="img1-modal" src="" alt="item0">
-									<div class="carousel-caption"></div>
-								</div>
-								<div class="item">
-									<img id="img2-modal" src="" alt="item1">
-									<div class="carousel-caption"></div>
-								</div>
-								<div class="item">
-									<img id="img3-modal" src="" alt="item2">
-									<div class="carousel-caption"></div>
-								</div>
-								<div class="item">
-									<img id="img4-modal" src="" alt="item3">
-									<div class="carousel-caption"></div>
-								</div>
-								<!--end carousel-inner-->
-							</div>
-							<!--Begin Previous and Next buttons-->
-							<a class="left carousel-control" href="#myGallery" role="button"
-								data-slide="prev"> <span
-								class="glyphicon glyphicon-chevron-left"></span></a> <a
-								class="right carousel-control" href="#myGallery" role="button"
-								data-slide="next"> <span
-								class="glyphicon glyphicon-chevron-right"></span></a>
-							<!--end carousel-->
-						</div>
-						<table class="table table-hover">
-							<thead>
-								<tr>
-									<th scope="col">Ambiente</th>
-									<th scope="col">Detalle</th>
-									<th scope="col">Direccion</th>
-									<th scope="col">Localidad</th>
-									<th scope="col">Provincia</th>
-									<th scope="col">Precio</th>
-									<th scope="col">Publicado</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th><input class="form-control" type="text" id="modal-ambiente" name="modal-ambiente" value=""></th>
-									<td><input class="form-control" type="text" id="modal-detalle" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-direccion" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-localidad" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-provincia" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-precio" name="" value=""></td>
-									<td><input class="form-control" type="text" id="modal-fechapublicada" name="" value=""></td>
-								</tr>
-							</tbody>
-						</table>
-						
-						<!--end modal-body-->
-					</div>
-					<div clas id="map_canvas"></div>
-					<div class="modal-footer">
-						<div class="pull-right"></div>
-						<input id="modal_idPropiedad" name="modal_idPropiedad" value="">
-						<button class="btn-sm close" type="submit" data-dismiss="modal">Enviar
-							a email</button>
-						<button class="btn-sm close" type="button" data-dismiss="modal">Salir</button>
-						<!--end modal-footer-->
-					</div>
-					<!--end modal-content-->
-				</div>
-				<!--end modal-dialoge-->
-			</div>
-			<!--end myModal-->
-		</div>
+
 		<section id="viviendasNuevas" class="portfolio">
           <div class="container">
               <div class="section-title" data-aos="fade-left">
-                  <h2>Viviendas nuevas</h2>
+                  <h2>Viviendas publicadas recientemente</h2>
               </div>
               <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 500px; height:auto!important">
                   <table class="table table-striped">
@@ -379,7 +297,7 @@
                               <div class="portfolio-wrap">
                                   <img src="img/portfolio/${propiedadNueva.imagenUrl}" class="img-fluid" alt="">
                                   <div class="portfolio-info">
-                                      <h4>${propiedadNueva.ambiente}, ${propiedadNueva.detalle}</h4>
+                                      <h4>${propiedadNueva.ambiente}, ${propiedadNueva.titulo}</h4>
                                       <p>${propiedadNueva.direccion}, ${propiedadNueva.localidad}</p>
                                       <p>${propiedadNueva.condicion}, <i>${propiedadNueva.precio}</i></p>
                                   </div>

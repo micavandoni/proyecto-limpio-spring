@@ -80,7 +80,7 @@
 	              <div class="section-title" data-aos="fade-left">
 	                  <h2>Detalle Vivienda</h2>
 	              </div>
-	              <div class="portfolio-container" data-aos="fade-up" data-aos-delay="200" style="min-height: 600px; height:1000px!important">
+	              <div class="portfolio-container " data-aos="fade-up" data-aos-delay="200" style="min-height: 600px; height:800px!important">
 	              	<div class="row">
 	              		<div class="col-lg-12">
 	              		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -90,18 +90,18 @@
 						    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 						    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 						  </ol>
-						  <div class="carousel-inner">
+						  <div class="carousel-inner ">
 						    <div class="carousel-item active">
-						      <img class="d-block w-100" src="img/portfolio/${propiedad.imagenUrl}" height="500" alt="FtoPrincipal">
+						      <img class="d-block w-100" src="img/portfolio/${propiedad.imagenUrl}" height="550"  alt="FtoPrincipal">
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block w-100" src="img/portfolio/${propiedad.imagenUrl2}" height="500" alt="Detalle">
+						      <img class="d-block w-100" src="img/portfolio/${propiedad.imagenUrl2}" height="550" alt="Detalle">
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block w-100" src="img/portfolio/${propiedad.imagenUrl3}" height="500" alt="Detalle2">
+						      <img class="d-block w-100" src="img/portfolio/${propiedad.imagenUrl3}" height="550" alt="Detalle2">
 						    </div>
 						    <div class="carousel-item">
-						      <img class="d-block w-100" src="img/portfolio/${propiedad.imagenUrl4}" height="650" alt="Detalle3">
+						      <img class="d-block w-100" src="img/portfolio/${propiedad.imagenUrl4}" height="550" alt="Detalle3">
 						    </div>
 						  </div>
 						  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
