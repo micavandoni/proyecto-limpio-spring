@@ -45,7 +45,7 @@
     <div class="container">
       <div class="header-container d-flex align-items-center">
         <div class="logo mr-auto">
-          <h1 class="text-light"><a href="index.html"><span>HouseHolds</span></a></h1>
+          <h1 class="text-light"><a href="propiedad"><span>HouseHolds</span></a></h1>
         </div>
 		<form:form action="loguearse" method="GET">
 	        <nav class="nav-menu d-none d-lg-block">
@@ -364,11 +364,11 @@
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="https://twitter.com/BaHolds" class="twitter" target="_blank"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.facebook.com/house.holds.988" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/householdstw1/" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
         <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://linkedin.com/in/house-holds-8270aa1b3" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
   </footer><!-- End Footer -->
